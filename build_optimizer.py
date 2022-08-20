@@ -4,8 +4,8 @@ Author(s): Dylan DiSunno, Rudy DeSanti
 
 project goals:
     1. min-max stats to user selected weapon
-    2. talismans
-    3. armor
+    2. optimal gear
+    3. write build to .txt file
 """
 
 import requests
