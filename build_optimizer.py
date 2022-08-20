@@ -13,5 +13,5 @@ import pandas as pd
 
 url = "https://github.com/ddisunno/Elden-Ring-Optimizer.git"
 
-requests.get(url)
-print(requests.status_code)
+x = requests.get(url)
+print(x.status_code)
