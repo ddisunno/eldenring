@@ -12,28 +12,30 @@ import requests
 import pandas as pd
 import simplejson as json
 
-def API_pull(classes = True, weapons = False):
+def API_pull(url_ext):
+    data_frame = []
+    response = requests.get("https://eldenring.fanapis.com/api" + str(url_ext)).text
+    data = json.loads(response)
+    data_frame.append(data)
+    return data_frame
+
+def write_json(classes = True, weapons = False):
     data_frame = []
 
     if classes:
-        classes_url = "https://eldenring.fanapis.com/api/classes"
-        response = requests.get(classes_url).text
-        classes_data = json.loads(response)
-        data_frame.append(classes_data)
+        data_frame = API_pull("classes")
 
     if weapons:
-        for iter in range(16):
-            weapons_url = "https://eldenring.fanapis.com/api/weapons?page="+str(iter)
-            response = requests.get(weapons_url).text
-            weapon_data = json.loads(response)
-            data_frame.append(weapon_data)
+        for page in range(16):
+            data_frame += API_pull("weapons?page="+str(page))
 
     print(data_frame)
 
+    for iter in range(pulls)
     with open('classes.json', 'w') as json_file:
         json.dump(data_frame, json_file)
 
 def main():
-    API_pull()
+    write_json()
 
 main()
