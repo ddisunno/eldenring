@@ -12,17 +12,28 @@ import requests
 import pandas as pd
 import simplejson as json
 
-weapons_url = "https://eldenring.fanapis.com/api/weapons"
+def API_pull(classes = True, weapons = False):
+    data_frame = []
 
-response = requests.get(weapons_url)
-print(response)
+    if classes:
+        classes_url = "https://eldenring.fanapis.com/api/classes"
+        response = requests.get(classes_url).text
+        classes_data = json.loads(response)
+        data_frame.append(classes_data)
 
-weapon_data = json.loads(response.json)
-data_frame = pd.DataFrame.from_dict(weapon_data)
-print(data_frame)
+    if weapons:
+        for iter in range(16):
+            weapons_url = "https://eldenring.fanapis.com/api/weapons?page="+str(iter)
+            response = requests.get(weapons_url).text
+            weapon_data = json.loads(response)
+            data_frame.append(weapon_data)
 
+    print(data_frame)
 
+    with open('classes.json', 'w') as json_file:
+        json.dump(data_frame, json_file)
 
+def main():
+    API_pull()
 
-"""with open('weapons.json', 'w') as json_file:
-    json.dump(response, json_file)"""
+main()
