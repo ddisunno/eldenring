@@ -31,7 +31,6 @@ def write_json(classes = True, weapons = False):
 
     print(data_frame)
 
-    for iter in range(pulls)
     with open('classes.json', 'w') as json_file:
         json.dump(data_frame, json_file)
 
