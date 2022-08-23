@@ -11,12 +11,15 @@ import requests
 import pandas as pd
 import simplejson as json
 
-def API_pull(classes = True, weapons = False):
+def API_pull(classes = False, weapons = False, armors = True):
     if classes:
         write_json('classes', 1)
 
     if weapons:
-        write_json("weapons",16)
+        write_json("weapons", 16)
+
+    if armors:
+        write_json("armors", 29)
 
 def write_json(item, pages):
     data_frame = []
