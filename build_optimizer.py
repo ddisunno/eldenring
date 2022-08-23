@@ -7,9 +7,9 @@ project goals:
     2. optimal gear (armor, talismans)
     3. write build to .txt file
 """
-
 import requests
 import pandas as pd
+
 import simplejson as json
 
 def API_pull(url_ext):
@@ -39,3 +39,4 @@ def main():
     write_json()
 
 main()
+

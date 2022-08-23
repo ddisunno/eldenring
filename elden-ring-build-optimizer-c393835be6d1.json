@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "elden-ring-build-optimizer",
+  "private_key_id": "c393835be6d1e9d2fe5cc324e2217b3b3e0f3be5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDpGhZ3Q5tzejRv\nyySFhVSAUgEO47iIZ9TYzLf/Hu+L4dXif2YXvsGErpkM3EzAMsovolfd7DDYYfFE\nwtXPqD2SP9ifkQQgWkWN9lhB4mLcoMeb6gETtoZzCjO2tNJX/zwTocZS/gjCFQwr\n77jIsdRt71OhIvFGEjNiN0VqJibV0T5ZK+2URn4Waz9pzXPdeuEkvJq2VYZhGXcd\nvzS6oo0OYk/qCNiYSP2joX+1jXf8oI+1ThCHV51YJF5jhlUPJGNvjp5ikM04KFkU\nxQOeligDESdHfMS/Z3ndPg/Vjt/Y8XSVPSYG47qnAMbBL9RkpbU6qBiVwoCugDEY\n1Yz7LPm7AgMBAAECggEAbGsX2+z0FqfWT9D6cafr/6skltpP8BHrK9M8GUs4O6WU\np759q7mrpJzYzuSARjzZUYJ+v9eleF9Fqqe8btNfn/BWPxFiC/Iwu7DCqBI1zUxy\nyw/x5EtXCZbLKsW7t/Yc6TyrU9qYFD1Z5e2f0qjzlxZjnWT1N5QrlhkDDjYkhfnj\nPBDe5PLUm7mOasDsniEyjEX6BnFPJ3cu6u3EplCVa2D8PhwzGa+mKg7/xqszebce\nYd79LwriPMPqnVRJsJmbVEyM0eIW8OrKR+Grm9TC6QZ7e7PVRThSPSjtJ80h+D56\nDmkuhO3eN3OSqitide6vXXL9vun+WmcrP5Puw5vFoQKBgQD/2HGwLgYEKvx5M591\nT+n/5RnO69js9YRwEs0GzuH07TsozhcGM3licYnhfkDLfJi6AAuZHXlPl4eVxNX2\nunXL6PJXitUafd87Z68jdxlFiUSmCZaXnW149h9eZrcTPwQBuDRBkFwuC399UgVW\nIpMoJTH/KtZP82+wGJFgc4WaQwKBgQDpPiCXajwpxwhc7TyYlmtd74cP4bSaa+pN\nOAXaGqwWbMkYCIHLOPcL3v0dM91ghT/Z7roNAWzhiJgEwj18kwmhkjOFwocq6se8\npvR8460RhoCYiZMOvQxMvqWI/znPepBs7Tu2NCUxwl/k0tZ4ZtkLdjmFHpmj5y1H\nne2My9PXKQKBgEGTmuBLi6M52Wi/gJmzGAlNEaZl8T4bWAzZ5M9f6665t7YnzOL8\nAprm+y5fDACcORFDvbVLRrLN5iTPRQBuno7bcHJb1W9q3/L8CnoOpt2Z54yfXIgU\nA+FDRJsPvNEkD8TZEBvWAqqSq+TVRyTiy9E4Z2497pyjivcZ9PlB4va9AoGBAKlr\ni1jwvcrK2/REDqP3fv24oy6SEBGrGYIFk5qdjSqs0lU2uLDZK/nfe5PevIsDvyGa\nGmKgCmq4QVQTk34NgA1wmSQr7OrrpzINQ8IDzw7P2FD0fXFTOL/2K1+bpG5k5Mt6\ndskej3XZbrZTv52tdzKwKY/cblVz8pv2xzpiQ/ohAoGBAOA19TDNGnBnMFxr7Wcn\nRs4UWKY5qs2iWS8eYhzVWMxSExH9AI2dZ7mFHm5K5L7iUN1yACV+FFqCj+ffTGIy\nMid8Zs7yYI3xuDD+zyK8iQ7Biwjb4xI1nySxGdABMWb5m3eShMYD9naTJm5Vb21Y\nQkaWEOjAqaOjylH/ORJfn7Kz\n-----END PRIVATE KEY-----\n",
+  "client_email": "elboserviceaccount@elden-ring-build-optimizer.iam.gserviceaccount.com",
+  "client_id": "103476764177151471359",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/elboserviceaccount%40elden-ring-build-optimizer.iam.gserviceaccount.com"
+}
