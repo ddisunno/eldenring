@@ -3,7 +3,7 @@ Elden Ring Build Optimizer:
 Author(s): Dylan DiSunno, Rudy DeSanti
 project goals:
     1. min-max stats to user selected weapon
-    2. optimal gear (armor, talismans)
+    2. optimal gear (armor, talismans) (armor, talismans)
     3. write build to .txt file
 """
 
