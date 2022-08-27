@@ -1,151 +1,164 @@
-import pygsheets
-import simplejson as JSON
+'''
+'''
+
+#Import needed functions
 import math
+import pandas as pd
 
-gc = pygsheets.authorize(service_file='eldenring/weaponOptimizer/elden-ring-build-optimizer-c393835be6d1.json')
-sh = gc.open('Elden Ring Weapon Calculator 2')
-calculator = sh[0]
-calculations = sh[3]
-extra_sheet = sh[10]
-scaling_sheet = sh[7]
+#Declare global variables, this being dataframes build from CSV files holding weapon information.
+#CHANGE: Make these paths non-local to single machine.
+df_attack = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Attack.csv')
+df_scaling = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Scaling.csv')
+df_extraData = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\CalcCorrectGraph_ID.csv')
 
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-def getWeaponFormulaConstants():
-    physical = getPhyDamageFormulaConstants()
-    magic = getMagicDamageFormulaConstants()
-    fire = getFireDamageFormulaConstants()
-    lightning = getLightningDamageFormulaConstants()
-    holy = getHolyDamageFormulaConstants()
+################################################################################################################
+def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
 
-    strength = getStrFormula()
+    #Start by getting h2 and h4
+    #Needs weapon name from user entered weapon
+    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
+    F4 = int(df_calcCorrect.iloc[H2,6])
+    F6 = int(df_elementParam.loc[df_elementParam['ID']==F4].index[0])
+    G4 = int(df_attack.columns.get_loc("Phys +" + str(weaponLevel)))
+
+    #Get the constants for each of the five damage types. (Work is repeated here, A6-E6 is calculated 5 times)
+    physical = getPhyDamageFormulaConstants(H2,H4,F6,G4)
+    magic = getMagicDamageFormulaConstants(H2,H4,F6,G4)
+    fire = getFireDamageFormulaConstants(H2,H4,F6,G4)
+    lightning = getLightningDamageFormulaConstants(H2,H4,F6,G4)
+    holy = getHolyDamageFormulaConstants(H2,H4,F6,G4)
+
+    #Get the constants needed for the strength formula
+    strength = getStrFormula(H2, isTwoHanding)
+
+    #Return as dict, with one key-value pair for each damage type.
     constants= {'physical':physical, 'magic':magic, "fire":fire, "lightning":lightning, 'holy':holy, 'strength':strength}
     return constants
     
-def getStrFormula():
-    #J2, F10, rowNum, extraData are constants
-    J2 = bool(calculator.get_value("J2"))
-    F10 = (calculations.get_value("F10"))
+def getStrFormula(H2, isTwoHanding):
+    #Get data on whether weapon gives str bonus based off two-handing or not. Return answer as dict.
+    extraData = df_extraData.iloc[H2,13]
+    return {"J2":isTwoHanding,"F10":extraData,"extraData":extraData}
 
-    rowNum = int(calculations.get_value("H2"))
-    extraData = extra_sheet.get_value((rowNum,14)) #15 might be 14 here
-
-    return {"J2":J2, "F10":F10, "extraData":extraData}
+################################################################################################################
+#Get the contants for the five different damage types. These five functions are all functionally the same, they just return slightly different data. (A6-E6 is calculated 5 times, work is re-done for simplicity)
+def getPhyDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     
-def getPhyDamageFormulaConstants():
     #Get scaling info
-    G10 = int(calculations.get_value("G10"))
-    H10 = int(calculations.get_value("H10"))
-    I10 = int(calculations.get_value("I10"))
-    J10 = int(calculations.get_value("J10"))
-    K10 = int(calculations.get_value("K10"))
+    G10 = int(df_elementParam.iloc[F6,1])
+    H10 = int(df_elementParam.iloc[F6,2])
+    I10 = int(df_elementParam.iloc[F6,3])
+    J10 = int(df_elementParam.iloc[F6,4])
+    K10 = int(df_elementParam.iloc[F6,5])
 
     #Physical damage group ID
-    A8 = int(calculations.get_value("A8"))
-
-    #Phy base attack  
-    A4 = float(calculations.get_value("A4"))
-
-    #Str Scaling
-    rowNum = int(calculations.get_value("H2"))
-    scalingCol = int(calculations.get_value("H4"))
-    result = scaling_sheet.get_values((rowNum,scalingCol), (rowNum,scalingCol+4))
-    X6 = [[]]
-    X6[0] = [float(item) for item in result[0]]
-    #print(X6[0])
-    return {"A8": A8, "A4":A4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G10, "H10":H10, 'I10':I10, "J10":J10, 'K10':K10}
+    A8 = int(df_calcCorrect.iloc[rowNum,1])
     
-def getMagicDamageFormulaConstants():
+    #Phy base attack  
+    A4 = float(df_attack.iloc[rowNum,G4])
+    
+    #Get whether or not the weapon scales physical damage with each stat. This can be cleaned up.
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
+    X6 = [[]]
+    X6[0] = [float(item) for item in result]
+    
+    #Return answer as a dict of all constants.
+    return {"A8":A8,"A4":A4,"A6":X6[0][0],"B6":X6[0][1],"C6":X6[0][2],"D6":X6[0][3],"E6":X6[0][4],"G10":G10,"H10":H10,'I10':I10,"J10":J10,'K10':K10}
+    
+def getMagicDamageFormulaConstants(rowNum,scalingCol,F6,G4):
     #Get scaling info
-    G12 = int(calculations.get_value("G12"))
-    H12 = int(calculations.get_value("H12"))
-    I12 = int(calculations.get_value("I12"))
-    J12 = int(calculations.get_value("J12"))
-    K12 = int(calculations.get_value("K12"))
+    G12 = int(df_elementParam.iloc[F6,6])
+    H12 = int(df_elementParam.iloc[F6,7])
+    I12 = int(df_elementParam.iloc[F6,8])
+    J12 = int(df_elementParam.iloc[F6,9])
+    K12 = int(df_elementParam.iloc[F6,10])
 
     #Physical damage group ID
-    B8 = int(calculations.get_value("B8"))
+    B8 = int(df_calcCorrect.iloc[rowNum,2])
 
     #Phy base attack  
-    B4 = float(calculations.get_value("B4"))
+    B4 = float(df_attack.iloc[rowNum,G4+1])
 
     #Str Scaling
-    rowNum = int(calculations.get_value("H2"))
-    scalingCol = int(calculations.get_value("H4"))
-    result = scaling_sheet.get_values((rowNum,scalingCol), (rowNum,scalingCol+4))
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
     X6 = [[]]
-    X6[0] = [float(item) for item in result[0]]
+    X6[0] = [float(item) for item in result]
     return {"A8": B8, "A4":B4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G12, "H10":H12, 'I10':I12, "J10":J12, 'K10':K12}
     
-def getFireDamageFormulaConstants():
+def getFireDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     #Get scaling info
-    G14 = int(calculations.get_value("G14"))
-    H14 = int(calculations.get_value("H14"))
-    I14 = int(calculations.get_value("I14"))
-    J14 = int(calculations.get_value("J14"))
-    K14 = int(calculations.get_value("K14"))
+    G14 = int(df_elementParam.iloc[F6,11])
+    H14 = int(df_elementParam.iloc[F6,12])
+    I14 = int(df_elementParam.iloc[F6,13])
+    J14 = int(df_elementParam.iloc[F6,14])
+    K14 = int(df_elementParam.iloc[F6,15])
 
     #Physical damage group ID
-    C8 = int(calculations.get_value("C8"))
+    C8 = int(df_calcCorrect.iloc[rowNum,3])
 
     #Phy base attack  
-    C4 = float(calculations.get_value("C4"))
+    C4 = float(df_attack.iloc[rowNum,G4+2])
 
     #Str Scaling
-    rowNum = int(calculations.get_value("H2"))
-    scalingCol = int(calculations.get_value("H4"))
-    result = scaling_sheet.get_values((rowNum,scalingCol), (rowNum,scalingCol+4))
+    #rowNum = int(calculations.get_value("H2"))
+    #scalingCol = int(calculations.get_value("H4"))
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
     X6 = [[]]
-    X6[0] = [float(item) for item in result[0]]
+    X6[0] = [float(item) for item in result]
     return {"A8": C8, "A4":C4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G14, "H10":H14, 'I10':I14, "J10":J14, 'K10':K14}
     
-def getLightningDamageFormulaConstants():
+def getLightningDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     #Get scaling info
-    G16 = int(calculations.get_value("G16"))
-    H16 = int(calculations.get_value("H16"))
-    I16 = int(calculations.get_value("I16"))
-    J16 = int(calculations.get_value("J16"))
-    K16 = int(calculations.get_value("K16"))
+    G16 = int(df_elementParam.iloc[F6,16])
+    H16 = int(df_elementParam.iloc[F6,17])
+    I16 = int(df_elementParam.iloc[F6,18])
+    J16 = int(df_elementParam.iloc[F6,19])
+    K16 = int(df_elementParam.iloc[F6,20])
 
     #Physical damage group ID
-    D8 = int(calculations.get_value("D8"))
+    D8 = int(df_calcCorrect.iloc[rowNum,4])
 
     #Phy base attack  
-    D4 = float(calculations.get_value("D4"))
+    D4 = float(df_attack.iloc[rowNum,G4+3])
 
     #Str Scaling
-    rowNum = int(calculations.get_value("H2"))
-    scalingCol = int(calculations.get_value("H4"))
-    result = scaling_sheet.get_values((rowNum,scalingCol), (rowNum,scalingCol+4))
+    #rowNum = int(calculations.get_value("H2"))
+    #scalingCol = int(calculations.get_value("H4"))
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
     X6 = [[]]
-    X6[0] = [float(item) for item in result[0]]
+    X6[0] = [float(item) for item in result]
 
     return {"A8": D8, "A4":D4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G16, "H10":H16, 'I10':I16, "J10":J16, 'K10':K16}
     
-def getHolyDamageFormulaConstants():
+def getHolyDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     #Get scaling info
-    G18 = int(calculations.get_value("G18"))
-    H18 = int(calculations.get_value("H18"))
-    I18 = int(calculations.get_value("I18"))
-    J18 = int(calculations.get_value("J18"))
-    K18 = int(calculations.get_value("K18"))
+    G18 = int(df_elementParam.iloc[F6,21])
+    H18 = int(df_elementParam.iloc[F6,22])
+    I18 = int(df_elementParam.iloc[F6,23])
+    J18 = int(df_elementParam.iloc[F6,24])
+    K18 = int(df_elementParam.iloc[F6,25])
 
     #Physical damage group ID
-    E8 = int(calculations.get_value("E8"))
+    E8 = int(df_calcCorrect.iloc[rowNum,5])
 
     #Phy base attack  
-    E4 = float(calculations.get_value("E4"))
+    E4 = float(df_attack.iloc[rowNum,G4+4])
 
     #Str Scaling
-    rowNum = int(calculations.get_value("H2"))
-    scalingCol = int(calculations.get_value("H4"))
-    result = scaling_sheet.get_values((rowNum,scalingCol), (rowNum,scalingCol+4))
+    #rowNum = int(calculations.get_value("H2"))
+    #scalingCol = int(calculations.get_value("H4"))
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
     X6 = [[]]
-    X6[0] = [float(item) for item in result[0]]
+    X6[0] = [float(item) for item in result]
     return {"A8": E8, "A4":E4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G18, "H10":H18, 'I10':I18, "J10":J18, 'K10':K18}
     
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#/*** Calculate damage given the constants*/
+################################################################################################################
+### Calculate damage given the constants ###
 def getWeaponAR(str,dex,int,fai,arc,constants):
+
     #Get the damage for each damage type 
     phyDmg = calcDamage(str,dex,int,fai,arc,constants['physical'],constants['strength'])
     magDmg = calcDamage(str,dex,int,fai,arc,constants['magic'],constants['strength'])
@@ -153,11 +166,13 @@ def getWeaponAR(str,dex,int,fai,arc,constants):
     lightDmg = calcDamage(str,dex,int,fai,arc,constants['lightning'],constants['strength'])
     holyDmg = calcDamage(str,dex,int,fai,arc,constants['holy'],constants['strength'])
 
-    #Return the trunicated sum of all damage types
+    #Return the trunicated sum of all damage types to get the total weapon AR.
     return math.trunc(phyDmg+magDmg+fireDmg+lightDmg+holyDmg)
     
+#Called to calculate the total damage from each different damage type (Physical, Fire, etc.). The total from all damage types is added in getWeaponAR()
 def calcDamage(str,dex,int,fai,arc,constants, strength):
 
+    #Calculate if the strength stat gets a bonus, and if so, the value of that bonus. 
     A2 = calcStr(str, strength['J2'], strength['extraData'], strength["F10"])
 
     #Calc variables that change based off stats
@@ -167,9 +182,10 @@ def calcDamage(str,dex,int,fai,arc,constants, strength):
     D10 = switchX8(constants['J10'], constants['A8'], fai)
     E10 = switchX8(constants['K10'], constants['A8'], arc)
 
-    #Calc physical damage
+    #Calculate damage
     return constants['A4']+(constants['A4']*(constants['A6']*(A10 /100))+constants['A4']*(constants['B6']*(B10/100))+(constants['A4']*(constants['C6']*(C10/100)))+(constants['A4']*(constants['D6']*(D10/100)))+constants['A4']*(constants['E6']*(E10/100)))
-    
+
+#Part of the formula- calculates how well a stat increases damage based off of how well the weapon scales. 
 def switchX8(scaling,A8,A2):
     A10 = None
 
@@ -300,7 +316,8 @@ def switchX8(scaling,A8,A2):
         return 0
     
     return A10
-    
+
+#Calculate if the strength stat gets a bonus or not, and what that bonus is.
 def calcStr(B2,J2, extraData, F10):
     #B2 is str stat
     if((J2 == False or extraData == "No") and not(F10=="Bow" or F10=="Light Bow" or F10=="Greatbow")):

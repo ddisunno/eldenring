@@ -1,27 +1,43 @@
+'''
+
+'''
+#Import needed libraries
 import requests
-import pygsheets
 import simplejson as JSON
 import calcWeaponAR as calcWeapon
+import pandas as pd
 
-gc = pygsheets.authorize(service_file='eldenring/weaponOptimizer/elden-ring-build-optimizer-c393835be6d1.json')
-sh = gc.open('Elden Ring Weapon Calculator 2')
-calculator = sh[0]
-calculations = sh[3]
+#Declare global variables, this being dataframes build from CSV files holding weapon information.
+#CHANGE: Make these paths non-local to single machine.
+df_attack = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Attack.csv')
+df_scaling = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Scaling.csv')
+df_extraData = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\CalcCorrectGraph_ID.csv')
 
+### Main Function ### Takes in the user input, gets the needed information from the CSV files, and calculates the optimal stats needed for the given weapon. User input includes: Weapon Name, Weapon Level, Weapon Affinity(if any), isTwoHanded, Starting class, and the number of levels the user has left in their build to spend on damage stats (str, dex, int, fai, arc).
 def main():
-    #First, get the contants from the spreadsheet for the weapon AR formula. This takes the longest amount of time.
-    constants = calcWeapon.getWeaponFormulaConstants()
+    #These var should be entered from user in front-end
+    weaponName = "Erdsteel Dagger"
+    weaponLevel = str(25)
+    weaponAffinity = "Sacred"
+    weapon = weaponAffinity + " " + weaponName
+    isTwoHanded = True
+    numOfLevels = 90
+    startingClass = "prophet"
+
+    #Get constants for the weapon AR formula for the given weapon. This comes from CSV files parsed by Pandas Dataframes.
+    constants = calcWeapon.getWeaponFormulaConstants(weapon,weaponLevel,isTwoHanded)
     print('Done constants')
 
-    #On Button press, get user entered information
-    numOfLevels = int(calculator.get_value((4, 8)))
-    startingClass = calculator.get_value((6, 8)).lower()
-
-    #Get the wepon requirement levels & scaling of the chosen weapon.
-    weaponReq = {'strength':int(calculator.get_value((3, 2))),'dexterity':int(calculator.get_value((3, 3))),'intelligence':int(calculator.get_value((3, 4))),'faith':int(calculator.get_value((3, 5))),'arcane':int(calculator.get_value((3, 6)))}
-
-    scaling = [calculator.get_value((4, 2)),calculator.get_value((4, 3)),calculator.get_value((4, 4)),calculator.get_value((4, 5)),calculator.get_value((4, 6))]
-
+    #Get the wepon requirement levels & scaling of the chosen weapon. (Repeated work with H2 and H4)
+    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
+    result = df_extraData.iloc[H2,5:10]
+    
+    weaponReq = {'strength':int(result[0]),'dexterity':int(result[1]),'intelligence':int(result[2]),'faith':int(result[3]),'arcane':int(result[4])}
+    
+    scaling = df_scaling.iloc[H2,H4:H4+5].astype(float)
     scalingStats = getScalingStats(scaling)
 
     #Get classes from eldenring.fanapis.com
@@ -32,18 +48,15 @@ def main():
         if(startingClass == classes['data'][i]['name'].lower()):
             startingStats = classes['data'][i]['stats']
             optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants)
-            #print("hi")
-
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. (I'm not sure if 4 or 5 is even possible).
+        
+################################################################################################################
+#Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. NEed to change algorithm to support 4 & 5.
 def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants):
 
     #If too many levels are enterted, and all scaling stats can be maxed to 99, return every value being 99.
     if(isNumOfLevelsOver(numOfLevels, startingStats, scalingStats)):
-        #setStats({'strength': 99, 'dexterity': 99, 'intelligence': 99, 'faith': 99, 'arcane': 99, 'ar': None})
-        #print("Hi")
+        print("Enough levels to max out every damage stat.")
         return 1
-
 
     #Get min stats, then get the number of levels to be initially added to the stats that scale.
     minStats = getMinStats(startingStats, weaponReq)
@@ -67,54 +80,57 @@ def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, cons
     #Min-max for state with the highest AR (Valid state cannot have a stat under the stat minimum defined in minStats, or total # of levels != starting # of levels)
     #Brute Force approach (although other methods won't be much better) */
     optimialBuild = startState.copy() #Initially the start state
-    stateStack = [startState]
 
-    #With 2 scalinf stats- branching factor of 1. With 3, branching factor of 2.
-    #Feel like im thinking of this the wrong way...
-    statesVisited = {}
-    statesVisited[str(startState)] = True
+    #Create a queue to hold the state nodes, starting with the startState. A dict is used to keep track of whether or not a node has been visited, so that the same node is not added back into the queue.
+    stateStack = [startState]
+    statesVisited = {str(startState):True}
+
+    #Note: With 2 scaling stats, there is a branching factor of 1. With 3 sclaing stats, branching factor of 2.
+    #While our queue is not empty, pop the queue.
     while len(stateStack) > 0:
+        #Get current state
         state = stateStack.pop().copy()
         
-        #console.log(state['strength'], state['dexterity'], state['faith']);
-
+        #Subtract 1 from the first scaling stat
         if(state[scalingStats[0]] - 1 >= minStats[scalingStats[0]]):
-
             state[scalingStats[0]] -= 1
+
+            #For every other scaling stat, create a state in which the level taken away from the first scaling stat was added to the scaling stat. This (has the potential to) create multiple states.
             for i in range(1, len(scalingStats)):
                 newState = state.copy()
+                #If the stat is not maxed out (less than 99), then add 1 to that stat.
                 if(newState[scalingStats[i]]+1 <= 99):
                     newState[scalingStats[i]] += 1
                     newState['ar'] = calcWeapon.getWeaponAR(newState['strength'], newState['dexterity'], newState['intelligence'], newState['faith'], newState['arcane'], constants);
 
+                    #If the new state has a higher AR then the current optimal state, make the optimal state the new state.
                     if(newState['ar'] > optimialBuild['ar']):
                         optimialBuild = newState.copy()
                     
-                    
-                    if(str(newState) not in statesVisited.keys()):
+                    #If the children states from this state have not been expanded, add them tho the queue, and mark this current state as expanded.
+                    if(str(newState) not in statesVisited):
                         stateStack.append(newState.copy())
-                        statesVisited[str(newState)] = True
+                        statesVisited.update({str(newState):True})
                     
-    #setStats(optimialBuild)
-    print("Done Optimization: " + str(optimialBuild['ar']))
+    #Done with algorithm, print results to console (for now).
+    print("Done Optimization")
+    print("Str: " + str(optimialBuild['strength']))
+    print("Dex: " + str(optimialBuild['dexterity']))
+    print("Int: " + str(optimialBuild['intelligence']))
+    print("Fai: " + str(optimialBuild['faith']))
+    print("Arc: " + str(optimialBuild['arcane']))
+   
     return 1
 
-#///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#/** Helper functions */
-#Set the stats on the spreadsheet to the given stats. {str: ...}
-def setStats(stats):
-  calculator.set_value(stats['strength'], (2,2))
-  calculator.set_value(stats['dexterity'], (2,3))
-  calculator.set_value(stats['intelligence'], (2,4))
-  calculator.set_value(stats['faith'], (2,5))
-  calculator.set_value(stats['arcane'], (2,6))
+################################################################################################################
+### Helper functions ###
   
 #Return an array with the names of the stats that scale with the given weapon.
 def getScalingStats(scaling):
   scalingStats = []
 
   for i in range(len(scaling)):
-    if(scaling[i]!='-'):
+    if(scaling[i]!=0):
         if(i == 0):
             scalingStats.append('strength')
         elif(i==1):
@@ -127,7 +143,6 @@ def getScalingStats(scaling):
             scalingStats.append('arcane')
         
   return scalingStats
-
 
 def getMinStats(startingStats, weaponReq):
     #Minimum stats based off of starting class
