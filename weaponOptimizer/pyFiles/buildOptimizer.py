@@ -1,5 +1,5 @@
 '''
-
+Build Optimizer for a given weapon.
 '''
 #Import needed libraries
 import requests
@@ -50,7 +50,7 @@ def main():
             optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants)
         
 ################################################################################################################
-#Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. NEed to change algorithm to support 4 & 5.
+#Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. Need to change algorithm to support 4 & 5.
 def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants):
 
     #If too many levels are enterted, and all scaling stats can be maxed to 99, return every value being 99.
@@ -124,7 +124,6 @@ def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, cons
 
 ################################################################################################################
 ### Helper functions ###
-  
 #Return an array with the names of the stats that scale with the given weapon.
 def getScalingStats(scaling):
   scalingStats = []

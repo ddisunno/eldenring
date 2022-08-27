@@ -1,4 +1,7 @@
 '''
+Two main functions of this file:
+1. Get the needed constants for the weapon AR formula from the .csv files.
+2. Calculate and return the total AR of a weapon given the weapon name, affinity, weapon level, isTwoHanding, and current stats.
 '''
 
 #Import needed functions
