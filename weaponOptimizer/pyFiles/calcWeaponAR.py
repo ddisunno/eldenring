@@ -9,18 +9,19 @@ import math
 import pandas as pd
 
 #Declare global variables, this being dataframes build from CSV files holding weapon information.
-#CHANGE: Make these paths non-local to single machine.
-df_attack = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Attack.csv')
-df_scaling = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Scaling.csv')
-df_extraData = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\Extra_Data.csv')
-df_elementParam = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\AttackElementCorrectParam.csv')
-df_calcCorrect = pd.read_csv(r'C:\Users\Rudyd\Desktop\Coding Projects\EldenRingBuildOptimizer\eldenring\.csv\CalcCorrectGraph_ID.csv')
+df_attack = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Attack.csv')
+df_scaling = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Scaling.csv')
+df_extraData = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\CalcCorrectGraph_ID.csv')
 
 ################################################################################################################
 def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
 
     #Start by getting h2 and h4
     #Needs weapon name from user entered weapon
+    #print(weaponName)
+    #print(df_attack)
     H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
     H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
     F4 = int(df_calcCorrect.iloc[H2,6])
