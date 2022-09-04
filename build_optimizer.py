@@ -7,11 +7,16 @@ project goals:
     3. write build to .txt file
 """
 
+#import time
+#import progressbar
+
 import requests
 import pandas as pd
 import simplejson as json
 
-def API_pull(classes = False, weapons = False, armors = True):
+# WRITE JSONS FROM API DATA
+
+def API_pull(classes = True, weapons = True, armors = True):
     if classes:
         write_json('classes', 1)
 
@@ -33,7 +38,19 @@ def write_json(item, pages):
     with open(item + '.json', 'w') as json_file:
         json.dump(data_frame, json_file)
 
+# WEAPON STATS
+
+def data_test(source):
+    with open(source) as f:
+        weapons_pool = json.load(f)
+
+    print(type(weapons_pool['data']))
+    
+    #print(weapons_pool)
+
+
 def main():
     API_pull()
+    data_test("weapons.json")
 
 main()
