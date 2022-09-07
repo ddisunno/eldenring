@@ -7,50 +7,48 @@ project goals:
     3. write build to .txt file
 """
 
-#import time
-#import progressbar
-
 import requests
-import pandas as pd
+import time
 import simplejson as json
-
-# WRITE JSONS FROM API DATA
-
-def API_pull(classes = True, weapons = True, armors = True):
-    if classes:
-        write_json('classes', 1)
-
-    if weapons:
-        write_json("weapons", 16)
-
-    if armors:
-        write_json("armors", 29)
-
-def write_json(item, pages):
-    data_frame = []
-
-    for iter in range(pages):
-        url = "https://eldenring.fanapis.com/api/" + item +'?page='+ str(iter)
-        response = requests.get(url).text
-        data = json.loads(response)
-        data_frame.append(data)
-
-    with open(item + '.json', 'w') as json_file:
-        json.dump(data_frame, json_file)
-
-# WEAPON STATS
-
-def data_test(source):
-    with open(source) as f:
-        weapons_pool = json.load(f)
-
-    print(type(weapons_pool['data']))
-    
-    #print(weapons_pool)
+from tqdm import tqdm
 
 
-def main():
-    API_pull()
-    data_test("weapons.json")
+url_list = ["https://eldenring.fanapis.com/api/classes",
+            "https://eldenring.fanapis.com/api/weapons",
+            "https://eldenring.fanapis.com/api/armors",
+            "https://eldenring.fanapis.com/api/ashes"]
 
-main()
+
+
+def get_data(url, pull):
+    """Function get_data pulls data down from the API to local saves with .json extension
+    -----
+        inputs:
+            url     - a list of urls for API calls
+            pull    - a boolean condition determines if the function should execute
+        outputs:
+            generates/updates json files for each inputted url
+    """
+    if pull:
+
+        print(f"Creating json files from eldenring.fanapis.com/api/")
+
+        for current in tqdm(range(len(url))): #iterate every url
+
+            response = requests.get(url[current]) # initial response limit=20
+
+            limit = response.json()['total'] # total number of entries
+            domain_path = url[current][34:] # https://eldenring.fanapis.com/api/...
+
+            full_response = requests.get(f"{url[current]}?limit={limit}") # set response limit=limit
+            data = full_response.json() # all the data
+
+
+            with open(f'{domain_path}.json', 'w') as f:
+                json.dump(data,f)
+
+            
+            time.sleep(0.3)
+
+
+get_data(url_list, pull = False)
