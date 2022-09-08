@@ -23,6 +23,7 @@ Pertaining to JSON
 import requests
 import time
 import simplejson as json
+import math
 from tqdm import tqdm
 
 
@@ -46,28 +47,40 @@ def get_data(url, pull):
 
 		print(f"Creating json files from eldenring.fanapis.com/api/")
 
-		for current in tqdm(range(len(url))): #iterate every url
+		for current in range(len(url)): #iterate every url
 
 			response = requests.get(url[current]) # initial response limit=20
-			#print(response) # did it work? (200)
+			print(response) # did it work? (200)
 
-			limit = response.json()['total'] # total number of entries
+			pages = math.ceil(response.json()['total']/20) # total number of pages
 
 			domain_path = url[current][34:] # https://eldenring.fanapis.com/api/...
-			#print(f"Downloading {limit} {domain_path}") 
+			print(f"Downloading {pages} pages of {domain_path}")
 
+			for page in tqdm(range(pages)):
+				if page == 0: #For First Page include metadata
+					page_response = requests.get(f"{url[current]}?page={page}")
+					data = page_response.json()
+				else: # For all concurrent pages omit metadata
+					page_response = requests.get(f"{url[current]}?page={page}")
+					data['data'].extend(page_response.json()['data'])
 
-			full_response = requests.get(f"{url[current]}?limit={limit}") # set response limit=limit
-			data = full_response.json() # all the data
-
+				time.sleep(0.1)
 
 			with open(f'{domain_path}.json', 'w') as f:
-				json.dump(data,f)
+				json.dump(data,f, indent=2)
 
+			
 			time.sleep(0.3)
+
 
 
 get_data(url_list, pull = False)
 
+with open('weapons.json') as f:
+	weapons = json.load(f)
+
+print(len(weapons['data']))
+print(f"{weapons['count']}/{weapons['total']}")
 
 
