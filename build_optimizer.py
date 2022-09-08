@@ -9,6 +9,7 @@ project goals:
 
 import requests
 import time
+import math
 import simplejson as json
 from tqdm import tqdm
 
@@ -93,25 +94,27 @@ def optimal_class(weapon):
     with open('classes.json') as f:
         classes = json.load(f)
 
+        weapon_stats = dict()
+
     for j in range(len(weapon['requiredAttributes'])):
         print(weapon['requiredAttributes'][j])
 
-        attribute   = weapon['requiredAttributes'][j]['name']
-        required    = weapon['requiredAttributes'][j]['amount']
+        name   = weapon['requiredAttributes'][j]['name']
+        amount = weapon['requiredAttributes'][j]['amount']
+        weapon_stats[name] = amount
 
-    """
+    
     for i in range(classes['count']):
         print(f"{classes['data'][i]['name']}\
             \n\t{classes['data'][i]['stats']}")
-    """
+    
 
-
+    print(weapon_stats)
 
 get_data(url_list, pull = False)
 
 
-jar_cannon = fetch_from_json('Rivers Of Blood','weapons.json')
-print(jar_cannon)
+jar_cannon = fetch_from_json('Jar Cannon','weapons.json')
 
 optimal_class(jar_cannon)
 
