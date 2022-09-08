@@ -35,8 +35,7 @@ def get_data(url, pull):
 
         for current in range(len(url)): #iterate every url
 
-            response = requests.get(url[current]) # initial response limit=20
-            print(response) # did it work? (200)
+            response = requests.get(url[current]) # initial response; limit=20
 
             pages = math.ceil(response.json()['total']/20) # total number of pages
 
@@ -51,7 +50,9 @@ def get_data(url, pull):
                     page_response = requests.get(f"{url[current]}?page={page}")
                     data['data'].extend(page_response.json()['data'])
 
-                time.sleep(0.1)
+                time.sleep(0.1) # don't spam
+
+            data['count'] = len(data['data']) #change count from page total to file total
 
             with open(f'{domain_path}.json', 'w') as f:
                 json.dump(data,f, indent=2)
@@ -106,11 +107,10 @@ def optimal_class(weapon):
 
 
 
-
 get_data(url_list, pull = False)
 
 
-jar_cannon = fetch_from_json('Hand Axe','weapons.json')
+jar_cannon = fetch_from_json('Rivers Of Blood','weapons.json')
 print(jar_cannon)
 
 optimal_class(jar_cannon)

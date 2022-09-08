@@ -65,7 +65,9 @@ def get_data(url, pull):
 					page_response = requests.get(f"{url[current]}?page={page}")
 					data['data'].extend(page_response.json()['data'])
 
-				time.sleep(0.1)
+				time.sleep(0.1) # don't spam
+
+			data['count'] = len(data['data']) #change count from page total to file total
 
 			with open(f'{domain_path}.json', 'w') as f:
 				json.dump(data,f, indent=2)
@@ -74,8 +76,7 @@ def get_data(url, pull):
 			time.sleep(0.3)
 
 
-
-get_data(url_list, pull = False)
+get_data(url_list, pull = True)
 
 with open('weapons.json') as f:
 	weapons = json.load(f)
