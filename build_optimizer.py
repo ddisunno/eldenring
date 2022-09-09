@@ -137,31 +137,31 @@ def optimal_class(weapon):
     
     for i in range(classes['count']-3): # calculate best class
 
-        print(f"class: {classes['data'][i]['name']}")
+        #print(f"class: {classes['data'][i]['name']}")
 
         if 'strength' in weapon_stats.keys():
             if int(weapon_stats['strength']) > int(classes['data'][i]['stats']['strength']):
                 strength_diff = int(weapon_stats['strength']) - int(classes['data'][i]['stats']['strength'])
-                print(f"strength_diff: {strength_diff}")
+                #print(f"strength_diff: {strength_diff}")
         if 'dexterity' in weapon_stats.keys():
             if int(weapon_stats['dexterity']) > int(classes['data'][i]['stats']['dexterity']):
                 dexterity_diff = int(weapon_stats['dexterity']) - int(classes['data'][i]['stats']['dexterity'])
-                print(f"dexterity_diff: {dexterity_diff}")
+                #print(f"dexterity_diff: {dexterity_diff}")
         if 'intelligence' in weapon_stats.keys():
             if int(weapon_stats['intelligence']) > int(classes['data'][i]['stats']['intelligence']):
                 intelligence_diff = int(weapon_stats['intelligence']) - int(classes['data'][i]['stats']['intelligence'])
-                print(f"intelligence_diff: {intelligence_diff}")
+                #print(f"intelligence_diff: {intelligence_diff}")
         if 'faith' in weapon_stats.keys():
             if int(weapon_stats['faith']) > int(classes['data'][i]['stats']['faith']):
                 faith_diff = int(weapon_stats['faith']) - int(classes['data'][i]['stats']['faith'])
-                print(f"faith_diff: {faith_diff}")
+                #print(f"faith_diff: {faith_diff}")
         if 'arcane' in weapon_stats.keys():
             if int(weapon_stats['arcane']) > int(classes['data'][i]['stats']['arcane']):
                 arcane_diff = int(weapon_stats['arcane']) - int(classes['data'][i]['stats']['arcane'])
-                print(f"arcane_diff: {arcane_diff}")
+                #print(f"arcane_diff: {arcane_diff}")
 
         class_level = strength_diff + dexterity_diff + intelligence_diff + faith_diff + arcane_diff + int(classes['data'][i]['stats']['level'])
-        print(class_level)
+        #print(class_level)
         
         if class_level < current_lowest_level: # save the lowest level
             best_class.clear() # reset (new lowest)
