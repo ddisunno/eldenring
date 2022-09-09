@@ -50,7 +50,7 @@ def get_data(url, pull):
 		for current in range(len(url)): #iterate every url
 
 			response = requests.get(url[current]) # initial response limit=20
-			print(response) # did it work? (200)
+			#print(response) # did it work? (200)
 
 			pages = math.ceil(response.json()['total']/20) # total number of pages
 
