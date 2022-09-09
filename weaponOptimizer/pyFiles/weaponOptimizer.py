@@ -17,7 +17,7 @@ df_calcCorrect = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\CalcCorrec
 ### Main Function ### Takes in the user input, gets the needed information from the CSV files, and calculates the optimal stats needed for the given weapon. User input includes: Weapon Name, Weapon Level, Weapon Affinity(if any), isTwoHanded, Starting class, and the number of levels the user has left in their build to spend on damage stats (str, dex, int, fai, arc).
 def main():
     #These var should be entered from user in front-end
-    weaponName = "Erdsteel Dagger"
+    weaponName = "Dagger"
     weaponLevel = str(25)
     isTwoHanded = True
     numOfLevels = 90
