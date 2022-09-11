@@ -80,7 +80,7 @@ def fetch_from_json(item, file):
     for i in range(data['count']):
 
         #if item matches name
-        if item in data['data'][i]['name']:
+        if item == data['data'][i]['name']:
             item_index = i
 
 
@@ -100,7 +100,13 @@ def get_random_weapon():
 
 
 def optimal_class(weapon):
-    """Function optimal_class finds the class that reaches weapon requirements earliest
+    """Function optimal_class finds the best class by weapon requirements
+
+    inputs:
+        weapon - weapon to use for class optimization
+    outputs:
+        best_class              - list of lowest class/(classes if a tied) based on weapon
+        current_lowest_level    - level of the lowest class(es)
 
     """
 
@@ -182,7 +188,6 @@ get_data(url_list, pull = False)
 
 optimal_class(fetch_from_json(f'{get_random_weapon()}','weapons.json'))
 
-#optimal_class(fetch_from_json("Rivers Of Blood",'weapons.json'))
 
 #rivers_of_blood = fetch_from_json('Rivers Of Blood','weapons.json')
 #print(rivers_of_blood)
