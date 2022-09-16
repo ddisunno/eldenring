@@ -80,7 +80,7 @@ def fetch_from_json(item, file):
     for i in range(data['count']):
 
         #if item matches name
-        if item in data['data'][i]['name']:
+        if item == data['data'][i]['name']:
             item_index = i
 
 
@@ -92,7 +92,7 @@ def get_random_weapon():
     with open('weapons.json') as f:
         data = json.load(f)
 
-    weapon_index = random.randint(0,data['count'])
+    weapon_index = random.randint(0,data['count']-1)
 
     weapon_name = data['data'][weapon_index]['name']
 
@@ -100,18 +100,25 @@ def get_random_weapon():
 
 
 def optimal_class(weapon):
-    """Function optimal_class finds the class that reaches weapon requirements earliest
+    """Function optimal_class finds the best class by weapon requirements
+
+    inputs:
+        weapon - weapon to use for class optimization
+    outputs:
+        best_class              - list of lowest class/(classes if a tied) based on weapon
+        current_lowest_level    - level of the lowest class(es)
+
     """
 
     with open('classes.json') as f:
         classes = json.load(f)
     
-    if int(len(classes['data']) > 10):
+    if int(len(classes['data']) > 10): # remove classes no longer in the game
         del classes['data'][13]
         del classes['data'][12]
         del classes['data'][11]
     
-    # declare variables
+    # declare variables  
     strength_diff = 0
     dexterity_diff = 0
     intelligence_diff = 0
@@ -136,38 +143,65 @@ def optimal_class(weapon):
     
     for i in range(classes['count']-3): # calculate best class
 
+        #print(f"class: {classes['data'][i]['name']}")
+
         if 'strength' in weapon_stats.keys():
             if int(weapon_stats['strength']) > int(classes['data'][i]['stats']['strength']):
                 strength_diff = int(weapon_stats['strength']) - int(classes['data'][i]['stats']['strength'])
+                #print(f"strength_diff: {strength_diff}")
         if 'dexterity' in weapon_stats.keys():
             if int(weapon_stats['dexterity']) > int(classes['data'][i]['stats']['dexterity']):
                 dexterity_diff = int(weapon_stats['dexterity']) - int(classes['data'][i]['stats']['dexterity'])
+                #print(f"dexterity_diff: {dexterity_diff}")
         if 'intelligence' in weapon_stats.keys():
             if int(weapon_stats['intelligence']) > int(classes['data'][i]['stats']['intelligence']):
                 intelligence_diff = int(weapon_stats['intelligence']) - int(classes['data'][i]['stats']['intelligence'])
+                #print(f"intelligence_diff: {intelligence_diff}")
         if 'faith' in weapon_stats.keys():
             if int(weapon_stats['faith']) > int(classes['data'][i]['stats']['faith']):
                 faith_diff = int(weapon_stats['faith']) - int(classes['data'][i]['stats']['faith'])
+                #print(f"faith_diff: {faith_diff}")
         if 'arcane' in weapon_stats.keys():
             if int(weapon_stats['arcane']) > int(classes['data'][i]['stats']['arcane']):
                 arcane_diff = int(weapon_stats['arcane']) - int(classes['data'][i]['stats']['arcane'])
+                #print(f"arcane_diff: {arcane_diff}")
 
         class_level = strength_diff + dexterity_diff + intelligence_diff + faith_diff + arcane_diff + int(classes['data'][i]['stats']['level'])
+        #print(class_level)
         
         if class_level < current_lowest_level: # save the lowest level
+            best_class.clear() # reset (new lowest)
+
             current_lowest_level = class_level
             best_class.append(classes['data'][i]['name'])
 
-    
-    print(f"\nOptimal Class(es) for {weapon['name']} is {best_class} at level: {current_lowest_level}\n")
+        elif class_level == current_lowest_level:
+            best_class.append(classes['data'][i]['name']) # if tie: add winner
 
+
+import simplejson as json
+
+def API_pull(url_ext):
+    data_frame = []
+    response = requests.get("https://eldenring.fanapis.com/api" + str(url_ext)).text
+    data = json.loads(response)
+    data_frame.append(data)
+    return data_frame
+
+def write_json(classes = True, weapons = False):
+    data_frame = []
 
 
 get_data(url_list, pull = False)
 
 optimal_class(fetch_from_json(f'{get_random_weapon()}','weapons.json'))
 
-#optimal_class(fetch_from_json("Rivers Of Blood",'weapons.json'))
+
+#rivers_of_blood = fetch_from_json('Rivers Of Blood','weapons.json')
+#print(rivers_of_blood)
+#optimal_class(rivers_of_blood)
+
+
 
 #rivers_of_blood = fetch_from_json('Rivers Of Blood','weapons.json')
 #print(rivers_of_blood)
