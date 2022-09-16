@@ -2,9 +2,17 @@
 #Print out the name of each piece of armor in Elden Ring.
 #To use the requests module, had to move four files from Anaconda3/Library/bin to Anaconda3/DLLS.
 #Use the Acaconda3 based Python interpreter for this project. 
+'''
+First, call getArmorInfoJson().
+Then, use the returned list and the given weight left to call getArmorTier().
+Then, use the returned list from getArmorTier() and weight left in calling findOptimalArmor(), which returns a list of the optimiaed armor in the form: 
+{'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0}
+
+To do: 
+-return multiple best armor options
+'''
 from collections import deque
 import json
-import requests 
 
 ######################## User Input  & Constants ##############################################
 def main():
@@ -33,7 +41,7 @@ def main():
     #Player must add their weapons/tailsmans to calculate used weight. This would call API.
     usedWeight = 0
     weightLeft = round(maxWeightForMediumRoll - usedWeight,1)
-    weightLeft =  30#testing
+    weightLeft =  70#testing
 
 
     #Get armor from json and trim the search space to fit the problem
@@ -42,8 +50,8 @@ def main():
     
     #Run Optimizer, print results
     print(weightLeft)
-    print(findOptimalArmor(weightLeft,armors)) #Either finds full set or nothing at all
-
+    for i in range(2):
+        print(findOptimalArmor(weightLeft,armors,i)) #Either finds full set or nothing at all
 ###############################################################################################
 
 ############# Get all armor information from armors.json ######################################
@@ -57,11 +65,10 @@ def getArmorInfoJson():
     with open('eldenring/armors.json') as f:
         armor_data = json.load(f)
         for armor in armor_data['data']:
-            #We print out the name, type, weight, and physical damage negation of the armor piece.
+            #We print out the name, type, weight, poise, and physical damage negation of the armor piece.
             #0 is used in the snippet "armor['dmgNegation'][0]['amount']" as armor[dmgNegation] returns an array instead of a dictonary. The first value (0 index) of this array is a dictonary of the armors physical damage negation. 
-            #print("Name: " + armor['name']+ ' | Type: ' + armor['category']+' | Weight: ' + str(armor['weight'])+' | Phy Neg: ' + str(armor['dmgNegation'][0]['amount']))
             type = armor['category']
-            armor_info = {"name":armor['name'], 'weight': armor['weight'], 'phyNeg':armor['dmgNegation'][0]['amount']}
+            armor_info = {"name":armor['name'], 'weight': armor['weight'], 'phyNeg':armor['dmgNegation'][0]['amount'], 'poise':armor['resistance'][4]['amount']}
             if(type == "Helm"):
                 helm_array.append(armor_info)
             elif(type == "Chest Armor"):
@@ -70,8 +77,6 @@ def getArmorInfoJson():
                 gauntlet_array.append(armor_info)
             else:
                 leg_armor_array.append(armor_info)
-
-
 
     return {"helm": helm_array, "chest": chest_armor_array, "gauntlets":gauntlet_array, "legs":leg_armor_array}
 
@@ -134,34 +139,41 @@ def getArmorTier(weightLeft,armors):
     return {"helm": armors['helm'], "chest": armors['chest'], "gauntlets":armors['gauntlets'], "legs":armors['legs']}
 ################################################################################################
 
+########################## OPTIMIZATION ########################################################
+'''
+Todo:
+    -Does not work for: 0 < weighs <= 5
 
-################################################################################################
-#Does not work for: 0 < weighs <= 5
-#Have to round answers
-def findOptimalArmor(weightLeft,armors):
-    #If more than enough equp load for the best set in game
-    if(weightLeft >= 62.9):
-        return {'chest': 'Bull-goat Armor', 'legs': 'Fire Prelate Greaves', 'gauntlets': 'Bull-goat Gauntlets', 'helm': 'Pumpkin Helm', 'weight': 62.89999999999998, 'neg': 43.0}
+Params: 
+    -weightLeft: float of the amount of weight left in the build that the player can use in order to be medium/light rolling.
+    -armors: List of arrays consisting of the armor for each of the four armor types. Keys: {'helm': , 'chest': , 'gauntlets': , 'legs': }
+    -type: what the method should maximize. 0 = physical neg, 1 = poise.
 
+Returns list in the form of:
+    {'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0, 'poi':0},
+    where the answer has the highest maximum negation or poise, depending on the type
+'''
+def findOptimalArmor(weightLeft,armors,type):
     #Init vars
+    attribute = "poi" if(type == 1) else "neg"
     count = 0
-    optimalSet = {'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0}
+    optimalSet = {'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0, 'poi':0}
     stack = deque()
-    stack.append({'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0})
+    stack.append(optimalSet.copy())
 
-    #Loop through
+    #Loop through stack
     while(len(stack) > 0):
        
-        popped = stack.pop()
+        current= stack.pop().copy()
         count+=1
-        current = popped.copy()
        
         if(current['chest'] is None):
             for i in range(len(armors['chest'])):
-                #print(len(armors['chest']))
                 current['chest'] = armors['chest'][i]['name']
                 current['weight'] = armors['chest'][i]['weight']
                 current['neg'] = armors['chest'][i]['phyNeg']
+                current['poi'] = armors['chest'][i]['poise']
+
                 if(current['weight'] <= weightLeft):
                     stack.append(current.copy())
         
@@ -170,40 +182,52 @@ def findOptimalArmor(weightLeft,armors):
                 current['legs'] = armors['legs'][i]['name']
                 current['weight'] += armors['legs'][i]['weight']
                 current['neg'] += armors['legs'][i]['phyNeg']
+                current['poi'] += armors['legs'][i]['poise']
+
                 if(current['weight'] <= weightLeft):
                     stack.append(current.copy())
 
                 current['weight'] -= armors['legs'][i]['weight']
                 current['neg'] -= armors['legs'][i]['phyNeg']
+                current['poi'] -= armors['legs'][i]['poise']
 
         elif(current['gauntlets'] is None):
             for i in range(len(armors['gauntlets'])):
                 current['gauntlets'] = armors['gauntlets'][i]['name']
                 current['weight'] += armors['gauntlets'][i]['weight']
                 current['neg'] += armors['gauntlets'][i]['phyNeg']
+                current['poi'] += armors['gauntlets'][i]['poise']
+
                 if(current['weight'] <= weightLeft):
                     stack.append(current.copy())
                 
                 current['weight'] -= armors['gauntlets'][i]['weight']
                 current['neg'] -= armors['gauntlets'][i]['phyNeg']
+                current['poi'] -= armors['gauntlets'][i]['poise']
 
         elif(current['helm'] is None):
             for i in range(len(armors['helm'])):
                 current['helm'] = armors['helm'][i]['name']
                 current['weight'] += armors['helm'][i]['weight']
                 current['neg'] += armors['helm'][i]['phyNeg']
+                current['poi'] += armors['helm'][i]['poise']
+
                 if(current['weight'] <= weightLeft):
                     stack.append(current.copy())
 
                 current['weight'] -= armors['helm'][i]['weight']
                 current['neg'] -= armors['helm'][i]['phyNeg']
+                current['poi'] -= armors['helm'][i]['poise']
         
         else:
-            if(current['neg']>optimalSet['neg'] or (current['neg'] == optimalSet['neg'] and current['weight'] < optimalSet['weight'])):
+            if(current[attribute]>optimalSet[attribute] or (current[attribute] == optimalSet[attribute] and current['weight'] < optimalSet['weight'])):
                 optimalSet = current.copy()
 
+    #Round optimal set, and return list
+    optimalSet['weight'] = round(optimalSet['weight'],2)
+    optimalSet['neg'] = round(optimalSet['neg'],2)
+    optimalSet['poi'] = round(optimalSet['poi'],1)
     return optimalSet
-
 ################################################################################################
 
 ### NOTES ###
