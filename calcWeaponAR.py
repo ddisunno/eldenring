@@ -9,11 +9,11 @@ import math
 import pandas as pd
 
 #Declare global variables, this being dataframes build from CSV files holding weapon information.
-df_attack = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Attack.csv')
-df_scaling = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Scaling.csv')
-df_extraData = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\Extra_Data.csv')
-df_elementParam = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\AttackElementCorrectParam.csv')
-df_calcCorrect = pd.read_csv(r'eldenring\weaponOptimizer\pyFiles\.csv\CalcCorrectGraph_ID.csv')
+df_attack = pd.read_csv(r'eldenring\.csv\Attack.csv')
+df_scaling = pd.read_csv(r'eldenring\.csv\Scaling.csv')
+df_extraData = pd.read_csv(r'eldenring\.csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'eldenring\.csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'eldenring\.csv\CalcCorrectGraph_ID.csv')
 
 ################################################################################################################
 def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):

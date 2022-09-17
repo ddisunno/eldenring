@@ -10,27 +10,17 @@ roll_type = {'light'	: 0.299,
 			 'overencumbered' : None}
 
 def fetch_from_json(item, file):
-    """Function fetch_from_data finds an item in a file
-    -----
-        inputs:
-            item    - thing to find
-            file    - file to search
-        outputs:
-            item_info   - all item data from json
-    """
+	
     with open(file) as f:
         data = json.load(f)
     
     for i in range(data['count']):
 
         #if item matches name
-        if item == data['data'][i]['name']:
-            item_index = i
+        if(item == data['data'][i]['name']):
+            return data['data'][i]   
 
-
-    item_info = data['data'][item_index]   
-    return item_info
-
+    return None
 
 def endurance_calc(weight,roll_type):
 	"""Function endurance_calc parses endurance.csv; match equip load to endurance level,
@@ -61,8 +51,6 @@ def endurance_calc(weight,roll_type):
 			if weight <= equip_load_req: # if weight is less than equip load requirement
 				return int(level[0]) #column 1: endurance level
 			
-
-
 def get_reqs(item, file, roll_type):
 	"""Function get_reqs uses fetch_from_json to find an item
 	and generate a list of required item stats
@@ -132,6 +120,3 @@ def get_reqs(item, file, roll_type):
 
 #print(get_reqs("Rivers Of Blood",'weapons.json',roll_type['med']))
 #print(get_reqs("Omen Armor",'armors.json',roll_type['light']))
-
-greatsword_req = get_reqs("Greatsword",'weapons.json',roll_type['med'])
-print(greatsword_req)

@@ -1,8 +1,5 @@
-#Elden Ring API test
-#Print out the name of each piece of armor in Elden Ring.
-#To use the requests module, had to move four files from Anaconda3/Library/bin to Anaconda3/DLLS.
-#Use the Acaconda3 based Python interpreter for this project. 
 '''
+Given the amount of weight left in a build, Find the set of armor (helm, chest, gauntlets, legs) with the highest physical damage negation or highest poise.
 First, call getArmorInfoJson().
 Then, use the returned list and the given weight left to call getArmorTier().
 Then, use the returned list from getArmorTier() and weight left in calling findOptimalArmor(), which returns a list of the optimiaed armor in the form: 
@@ -13,36 +10,39 @@ To do:
 '''
 from collections import deque
 import json
+import get_reqs
+### Constants ##############################################################################
+#Roll thresholds- anything over 99.9% is overencumbered.
+lightRollThreshold = 0.299
+mediumRollThreshold = 0.699
+heavyRollThreshold = 0.999
 
-######################## User Input  & Constants ##############################################
+roll_type = {'light'	: 0.299,
+			 'med'		: 0.699,
+			 'fat'		: 0.999,
+			 'overencumbered' : None}
+
+#The rate at which each equip load talisman changes the equip load. (0.19 is a 19% increase).
+#Note
+arsenalTalismans = {'GreatJarArsenal':1.19, 'Arsenal+1':1.17, 'Arsenal':1.15, 'None': 1}
+erdtreeTalismans = {'Erdtree': 1.05, 'Erdtree+1': 1.065, 'Erdtree+2': 1.08, 'None': 1}
+
+#Endurance level to equip load- Endurance level is a value from 1-99. enduranceLevelToEquipLoad[level-1] = correctEquipLoad
+enduranceLevelToEquipLoad = [45.0,45.0,45.0,45.0,45.0,45.0,45.0,45.0,46.6,48.2,49.8,51.4,52.9,54.5,56.1,57.7,59.3,60.9,62.5,64.1,65.6,67.2,68.8,70.4,72.0,73.0,74.1,75.2,76.4,77.6,78.9,80.2,81.5,82.8,84.1,85.4,6.8,88.1,89.5,90.9,92.3,93.7,95.1,96.5,97.9,99.4,100.8,102.2,103.7,105.2,106.6,108.1,109.6,111.0,112.5,114.0,115.5,117.0,118.5,120.0,121.0,122.1,123.1,124.1,125.1,126.2,127.2,128.2,129.2,130.3,131.3,132.3,133.3,134.4,135.4,136.4,137.4,138.5,139.5,140.5,141.5,142.6,143.6,144.6,145.6,146.7,147.7,148.7,149.7,150.8,151.8,152.8,153.8,154.9,155.9,156.9,157.9,159.0,160.0]
+##############################################################################################
+
+######################## User Input  ##############################################
 def main():
     
-    #Roll thresholds- anything over 99.9% is overencumbered.
-    lightRollThreshold = 0.299
-    mediumRollThreshold = 0.699
-    heavyLoadThreshold = 0.999
-
-    #The rate at which each equip load talisman changes the equip load. (0.19 is a 19% increase).
-    #Note
-    arsenalTalismans = {'GreatJarArsenal':1.19, 'Arsenal+1':1.17, 'Arsenal':1.15}
-    erdtreeTalismans = {'Erdtree': 1.05, 'Erdtree+1': 1.065, 'Erdtree+2': 1.08}
-
-    #Endurance level to equip load- Endurance level is a value from 1-99. enduranceLevelToEquipLoad[level-1] = correctEquipLoad
-    enduranceLevelToEquipLoad = [45.0,45.0,45.0,45.0,45.0,45.0,45.0,45.0,46.6,48.2,49.8,51.4,52.9,54.5,56.1,57.7,59.3,60.9,62.5,64.1,65.6,67.2,68.8,70.4,72.0,73.0,74.1,75.2,76.4,77.6,78.9,80.2,81.5,82.8,84.1,85.4,6.8,88.1,89.5,90.9,92.3,93.7,95.1,96.5,97.9,99.4,100.8,102.2,103.7,105.2,106.6,108.1,109.6,111.0,112.5,114.0,115.5,117.0,118.5,120.0,121.0,122.1,123.1,124.1,125.1,126.2,127.2,128.2,129.2,130.3,131.3,132.3,133.3,134.4,135.4,136.4,137.4,138.5,139.5,140.5,141.5,142.6,143.6,144.6,145.6,146.7,147.7,148.7,149.7,150.8,151.8,152.8,153.8,154.9,155.9,156.9,157.9,159.0,160.0]
-
     #Example of calculating a player's total equip load (Level 99 endurance + Great Jar and Ertree+2). Rounded to tenths.
-    level = 99
-    totalEquipLoad = round(enduranceLevelToEquipLoad[level-1] * arsenalTalismans['GreatJarArsenal']*erdtreeTalismans['Erdtree+2'],1)
-
-    #With total equip load, can calculate the max weight a player can have for each equip load state.
-    maxWeightForMediumRoll = round(totalEquipLoad*mediumRollThreshold,1)
-    maxWeightForLightRoll = round(totalEquipLoad*lightRollThreshold,1)
-
-    #Player must add their weapons/tailsmans to calculate used weight. This would call API.
+    enduranceLevel = 99
+    arsenalTalisman = 'GreatJarArsenal'
+    erdtreeTalisman = 'Erdtree+2'
+    desiredRollType = 'med'
     usedWeight = 0
-    weightLeft = round(maxWeightForMediumRoll - usedWeight,1)
-    weightLeft =  70#testing
+    
 
+    weightLeft = calcWeightLeft(enduranceLevel, arsenalTalisman, erdtreeTalisman, desiredRollType, usedWeight) #0 for light roll, 1 for medium, 2 for heavy
 
     #Get armor from json and trim the search space to fit the problem
     armors = getArmorInfoJson()
@@ -53,6 +53,26 @@ def main():
     for i in range(2):
         print(findOptimalArmor(weightLeft,armors,i)) #Either finds full set or nothing at all
 ###############################################################################################
+
+def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, usedWeight):
+    totalEquipLoad = round(enduranceLevelToEquipLoad[level-1] * arsenalTalismans[arsenalTalisman]*erdtreeTalismans[erdtreeTalisman],1)
+
+    #With total equip load, can calculate the max weight a player can have for each equip load state.
+    maxWeightForRoll = round(totalEquipLoad*mediumRollThreshold,1) if(desiredRollType == 'med') else round(totalEquipLoad*lightRollThreshold,1)
+    weightLeft = round(maxWeightForRoll - usedWeight,1)
+    return weightLeft
+
+def calcUsedWeight(weapon, talismans):
+    weight = 0
+
+    weaponInfo = get_reqs.fetch_from_json(weapon, 'eldenring/weapons.json')
+    weight += weaponInfo['weight']
+
+    for i in range(len(talismans)):
+        talismanInfo = get_reqs.fetch_from_json(talismans[i], 'eldenring/talismans.json')
+        weight += talismanInfo['weight']
+    
+    return weight
 
 ############# Get all armor information from armors.json ######################################
 #Returns dict with four values- one for each armor type. Each of these values is a list of dicts containing the info of each armor in the cooresponding armor type.
@@ -230,25 +250,22 @@ def findOptimalArmor(weightLeft,armors,type):
     return optimalSet
 ################################################################################################
 
-### NOTES ###
-#0 wL = 1 node expanded
-#6 wL = 1034 nodes
-#10 wL = 1,382,804 nodes
-#15 wL = 36,023,046 nodes
-#20 wL = 136,735,341 nodes
-#25 wL = 240,270,445 nodes
-#30 wL = 299,179,522 nodes
-#35 wL = 322,888,116 Nodes
-#40 wL = 330,627,057 nodes
-#45 wL = 332,627,937 nodes
-#50 wL = 332,997,271 nodes
-#55 wL = 332,997,271 nodes
-#60 wL = 333,047,011 nodes
-#62.9 = 333,047,079 nodes
-#65 wL = 333,047,079 nodes
-#Worst case = 333,047,079 nodes (~6 min runtime on Rudy's laptop)
+def calcOptimalArmorSets(weaponName, talismans, targetEndurance, arsenalTalisman, erdtreeTalisman, rollType):
+    usedWeight = calcUsedWeight(weaponName, talismans)
+    weightLeft = calcWeightLeft(targetEndurance, arsenalTalisman, erdtreeTalisman, rollType, usedWeight) 
 
-#Higher wL means less trees are pruned, since more armor fits.
-#Any search where wL >= 62.9 is {'chest': 'Bull-goat Armor', 'legs': 'Fire Prelate Greaves', 'gauntlets': 'Bull-goat Gauntlets', 'helm': 'Pumpkin Helm', 'weight': 62.89999999999998, 'neg': 43.0}.
+    armors = getArmorInfoJson()
+    armors = getArmorTier(weightLeft,armors) 
 
-main()
+    phyNegSet = findOptimalArmor(weightLeft,armors,0)
+    poiseSet = findOptimalArmor(weightLeft,armors,1)
+
+    return [phyNegSet, poiseSet]
+
+def getRollThreshold(rollType):
+    rollThresh = {'light'	: 0.299,
+			 'med'		: 0.699,
+			 'fat'		: 0.999,
+			 'overencumbered' : None}
+    
+    return rollThresh[rollType]

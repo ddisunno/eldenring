@@ -19,7 +19,8 @@ from tqdm import tqdm
 url_list = ["https://eldenring.fanapis.com/api/classes",
             "https://eldenring.fanapis.com/api/weapons",
             "https://eldenring.fanapis.com/api/armors",
-            "https://eldenring.fanapis.com/api/ashes"]
+            "https://eldenring.fanapis.com/api/ashes",
+            "https://eldenring.fanapis.com/api/talismans"]
 
 
 
