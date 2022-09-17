@@ -66,8 +66,9 @@ def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, cons
 
     #If too many levels are enterted, and all scaling stats can be maxed to 99, return every value being 99.
     if(isNumOfLevelsOver(numOfLevels, startingStats, scalingStats)):
-        print("Enough levels to max out every damage stat.")
-        return 1
+        #print("Enough levels to max out every damage stat.")
+        ar = calcWeapon.getWeaponAR(99, 99, 99, 99, 99, constants)
+        return {'strength': 99, 'dexterity': 99, 'intelligence': 99, 'faith': 99, 'arcane': 99, 'ar': ar}
     
     #Get min stats, then get the number of levels to be initially added to the stats that scale.
     minStats = getMinStats(startingStats, weaponReq)
@@ -160,7 +161,7 @@ def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, cons
     #print("Int: " + str(optimialBuild['intelligence']))
     #print("Fai: " + str(optimialBuild['faith']))
     #print("Arc: " + str(optimialBuild['arcane']))
-    print("AR: " + str(optimialBuild["ar"]))
+    #print("AR: " + str(optimialBuild["ar"]))
    
     return optimialBuild
 
@@ -259,9 +260,9 @@ def getScaling(weapon, weaponLevel):
     return scaling
 
 def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded):
-    levelsLeft = targetLevel - (int(startingClass['stats']['level']) + targetVitality + targetEndurance + targetMind)
+    levelsLeft = targetLevel - (int(startingClass['startLevel']) + targetVitality + targetEndurance + targetMind)
     startingStats = getStartingStats(startingClass['name'].lower())
-    constants =calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded)
+    constants = calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded)
 
     weaponReq = getWeaponReq(weaponName)
     scaling = getScaling(weaponName, weaponLevel)

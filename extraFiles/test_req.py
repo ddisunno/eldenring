@@ -1,24 +1,36 @@
 import simplejson as json
 import csv
 
+
 global roll_type
+
 roll_type = {'light'	: 0.299,
 			 'med'		: 0.699,
 			 'fat'		: 0.999,
 			 'overencumbered' : None}
 
 def fetch_from_json(item, file):
-	
+    """Function fetch_from_data finds an item in a file
+    -----
+        inputs:
+            item    - thing to find
+            file    - file to search
+        outputs:
+            item_info   - all item data from json
+    """
     with open(file) as f:
         data = json.load(f)
     
     for i in range(data['count']):
 
         #if item matches name
-        if(item == data['data'][i]['name']):
-            return data['data'][i]   
+        if item == data['data'][i]['name']:
+            item_index = i
 
-    return None
+
+    item_info = data['data'][item_index]   
+    return item_info
+
 
 def endurance_calc(weight,roll_type):
 	"""Function endurance_calc parses endurance.csv; match equip load to endurance level,
@@ -185,7 +197,6 @@ def optimize_class(req_stats):
 	lowest_level = 999
 	best_class = ""
 	best_stats = []
-	best_start_level = None
 
 
 	for classes_index in range(11): # 11 classes
@@ -208,8 +219,8 @@ def optimize_class(req_stats):
 
 		current_level = sum(needed_stats) + base_level
 
-		#print(f"{class_name}: {current_level}")
-		#print(f"\t{current_stats}")
+		print(f"{class_name}: {current_level}")
+		print(f"\t{current_stats}")
 
 		# store the lowest level class
 
@@ -218,8 +229,22 @@ def optimize_class(req_stats):
 			best_class = class_name
 			lowest_level = current_level
 			best_stats = current_stats.copy()
-			best_start_level = base_level
 
 		#print(best_class, best_current_stats)
 
-	return {"name":best_class, "lowest":lowest_level, "stats":best_stats, "startLevel":best_start_level}
+			
+
+	print(f"best class is:\
+		\n\t{best_class}: {lowest_level}\
+		\n\t{best_stats}")
+
+
+
+
+item_req = get_reqs("Greatsword",'eldenring/.json/weapons.json',roll_type['med'], 1900)
+#print(item_req)
+
+
+# RETURNING MIND FOR INTELLIGENCE????
+
+optimize_class(item_req)

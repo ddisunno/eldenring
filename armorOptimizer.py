@@ -11,6 +11,7 @@ To do:
 from collections import deque
 import json
 import get_reqs
+
 ### Constants ##############################################################################
 #Roll thresholds- anything over 99.9% is overencumbered.
 lightRollThreshold = 0.299
@@ -36,7 +37,7 @@ def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, use
 
     #With total equip load, can calculate the max weight a player can have for each equip load state.
     maxWeightForRoll = round(totalEquipLoad*mediumRollThreshold,1) if(desiredRollType == 'med') else round(totalEquipLoad*lightRollThreshold,1)
-    weightLeft = round(maxWeightForRoll - usedWeight,1)
+    weightLeft = round(maxWeightForRoll - usedWeight -0.1 ,1)
     return weightLeft
 
 def calcUsedWeight(weapon, talismans):
