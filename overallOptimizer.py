@@ -6,8 +6,8 @@ import get_reqs
 def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans):
     ### Calc starting class
     rollThreshold = armorOptimization.getRollThreshold(rollType)
-    reqs = get_reqs.get_reqs(weaponName,'eldenring/weapons.json',rollThreshold)
-    startingClass = get_reqs.fetch_from_json('Prophet', 'eldenring/classes.json') #Find Optimal starting class
+    reqs = get_reqs.get_reqs(weaponName,'eldenring/.json/weapons.json',rollThreshold)
+    startingClass = get_reqs.fetch_from_json('Prophet', 'eldenring/.json/classes.json') #Find Optimal starting class
 
     ### Calc Optimal Weapon Stats
     dmgStats = weaponOptimizer.calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded)

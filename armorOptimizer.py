@@ -31,29 +31,6 @@ erdtreeTalismans = {'Erdtree': 1.05, 'Erdtree+1': 1.065, 'Erdtree+2': 1.08, 'Non
 enduranceLevelToEquipLoad = [45.0,45.0,45.0,45.0,45.0,45.0,45.0,45.0,46.6,48.2,49.8,51.4,52.9,54.5,56.1,57.7,59.3,60.9,62.5,64.1,65.6,67.2,68.8,70.4,72.0,73.0,74.1,75.2,76.4,77.6,78.9,80.2,81.5,82.8,84.1,85.4,6.8,88.1,89.5,90.9,92.3,93.7,95.1,96.5,97.9,99.4,100.8,102.2,103.7,105.2,106.6,108.1,109.6,111.0,112.5,114.0,115.5,117.0,118.5,120.0,121.0,122.1,123.1,124.1,125.1,126.2,127.2,128.2,129.2,130.3,131.3,132.3,133.3,134.4,135.4,136.4,137.4,138.5,139.5,140.5,141.5,142.6,143.6,144.6,145.6,146.7,147.7,148.7,149.7,150.8,151.8,152.8,153.8,154.9,155.9,156.9,157.9,159.0,160.0]
 ##############################################################################################
 
-######################## User Input  ##############################################
-def main():
-    
-    #Example of calculating a player's total equip load (Level 99 endurance + Great Jar and Ertree+2). Rounded to tenths.
-    enduranceLevel = 99
-    arsenalTalisman = 'GreatJarArsenal'
-    erdtreeTalisman = 'Erdtree+2'
-    desiredRollType = 'med'
-    usedWeight = 0
-    
-
-    weightLeft = calcWeightLeft(enduranceLevel, arsenalTalisman, erdtreeTalisman, desiredRollType, usedWeight) #0 for light roll, 1 for medium, 2 for heavy
-
-    #Get armor from json and trim the search space to fit the problem
-    armors = getArmorInfoJson()
-    armors = getArmorTier(weightLeft,armors) #Split armors into tiers based on weight left.
-    
-    #Run Optimizer, print results
-    print(weightLeft)
-    for i in range(2):
-        print(findOptimalArmor(weightLeft,armors,i)) #Either finds full set or nothing at all
-###############################################################################################
-
 def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, usedWeight):
     totalEquipLoad = round(enduranceLevelToEquipLoad[level-1] * arsenalTalismans[arsenalTalisman]*erdtreeTalismans[erdtreeTalisman],1)
 
@@ -65,24 +42,22 @@ def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, use
 def calcUsedWeight(weapon, talismans):
     weight = 0
 
-    weaponInfo = get_reqs.fetch_from_json(weapon, 'eldenring/weapons.json')
+    weaponInfo = get_reqs.fetch_from_json(weapon, 'eldenring/.json/weapons.json')
     weight += weaponInfo['weight']
 
     for i in range(len(talismans)):
-        talismanInfo = get_reqs.fetch_from_json(talismans[i], 'eldenring/talismans.json')
+        talismanInfo = get_reqs.fetch_from_json(talismans[i], 'eldenring/.json/talismans.json')
         weight += talismanInfo['weight']
     
     return weight
 
-############# Get all armor information from armors.json ######################################
-#Returns dict with four values- one for each armor type. Each of these values is a list of dicts containing the info of each armor in the cooresponding armor type.
 def getArmorInfoJson():
     helm_array = []
     chest_armor_array = []
     gauntlet_array = []
     leg_armor_array = []
 
-    with open('eldenring/armors.json') as f:
+    with open('eldenring/.json/armors.json') as f:
         armor_data = json.load(f)
         for armor in armor_data['data']:
             #We print out the name, type, weight, poise, and physical damage negation of the armor piece.
@@ -157,7 +132,26 @@ def getArmorTier(weightLeft,armors):
         armors['legs'] = armors['legs'][int(numLegs*.8):]
 
     return {"helm": armors['helm'], "chest": armors['chest'], "gauntlets":armors['gauntlets'], "legs":armors['legs']}
-################################################################################################
+
+def calcOptimalArmorSets(weaponName, talismans, targetEndurance, arsenalTalisman, erdtreeTalisman, rollType):
+    usedWeight = calcUsedWeight(weaponName, talismans)
+    weightLeft = calcWeightLeft(targetEndurance, arsenalTalisman, erdtreeTalisman, rollType, usedWeight) 
+
+    armors = getArmorInfoJson()
+    armors = getArmorTier(weightLeft,armors) 
+
+    phyNegSet = findOptimalArmor(weightLeft,armors,0)
+    poiseSet = findOptimalArmor(weightLeft,armors,1)
+
+    return [phyNegSet, poiseSet]
+
+def getRollThreshold(rollType):
+    rollThresh = {'light'	: 0.299,
+			 'med'		: 0.699,
+			 'fat'		: 0.999,
+			 'overencumbered' : None}
+    
+    return rollThresh[rollType]
 
 ########################## OPTIMIZATION ########################################################
 '''
@@ -249,23 +243,3 @@ def findOptimalArmor(weightLeft,armors,type):
     optimalSet['poi'] = round(optimalSet['poi'],1)
     return optimalSet
 ################################################################################################
-
-def calcOptimalArmorSets(weaponName, talismans, targetEndurance, arsenalTalisman, erdtreeTalisman, rollType):
-    usedWeight = calcUsedWeight(weaponName, talismans)
-    weightLeft = calcWeightLeft(targetEndurance, arsenalTalisman, erdtreeTalisman, rollType, usedWeight) 
-
-    armors = getArmorInfoJson()
-    armors = getArmorTier(weightLeft,armors) 
-
-    phyNegSet = findOptimalArmor(weightLeft,armors,0)
-    poiseSet = findOptimalArmor(weightLeft,armors,1)
-
-    return [phyNegSet, poiseSet]
-
-def getRollThreshold(rollType):
-    rollThresh = {'light'	: 0.299,
-			 'med'		: 0.699,
-			 'fat'		: 0.999,
-			 'overencumbered' : None}
-    
-    return rollThresh[rollType]

@@ -36,7 +36,7 @@ def endurance_calc(weight,roll_type):
 
 	"""
 	
-	with open('eldenring/endurance.csv','r') as f:
+	with open('eldenring/.csv/endurance.csv','r') as f:
 		endurance_scaling = csv.reader(f)
 
 		next(endurance_scaling) #skip header
