@@ -1,7 +1,6 @@
 import simplejson as json
 import csv
 
-
 global roll_type
 
 roll_type = {'light'	: 0.299,
@@ -118,5 +117,4 @@ def get_reqs(item, file, roll_type):
 	return [vigor_req, mind_req, endurance_req, 
 	strength_req, dexterity_req, intelligence_req, faith_req, arcane_req]
 
-#print(get_reqs("Rivers Of Blood",'weapons.json',roll_type['med']))
-#print(get_reqs("Omen Armor",'armors.json',roll_type['light']))
+

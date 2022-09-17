@@ -76,12 +76,5 @@ def get_data(url, pull):
 			time.sleep(0.3)
 
 
-get_data(url_list, pull = True)
 
-with open('weapons.json') as f:
-	weapons = json.load(f)
-
-print(len(weapons['data']))
-print(f"{weapons['count']}/{weapons['total']}")
-
-
+get_data(["https://eldenring.fanapis.com/api/talismans"], True)

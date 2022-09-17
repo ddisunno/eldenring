@@ -38,7 +38,7 @@ targetMind = 15
 
 arsenalTalisman = 'GreatJarArsenal'
 erdtreeTalisman = 'None'
-#talismans = [arsenalTalisman,erdtreeTalisman] #ADD TALISMANS.JSON
+#talismans = [arsenalTalisman,erdtreeTalisman] #Does not work bc API does not include talisman weight for some reason
 talismans = []
 
 totalOptimalBuild = optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans)
