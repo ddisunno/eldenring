@@ -257,6 +257,5 @@ item_req = get_reqs("Greatsword",'weapons.json',roll_type['med'], 1900)
 #print(item_req)
 
 
-# RETURNING MIND FOR INTELLIGENCE????
 
 optimize_class(item_req)
