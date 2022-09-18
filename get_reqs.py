@@ -2,12 +2,18 @@ import simplejson as json
 import csv
 
 
-global roll_type
+global roll_type, items_list
 
 roll_type = {'light'	: 0.299,
 			 'med'		: 0.699,
 			 'fat'		: 0.999,
 			 'overencumbered' : None}
+
+items_list = [{"name": "Greatsword",
+			   "file": "weapons.json"},
+			  {"name": "Blasphemous Blade",
+			   "file": "weapons.json"}]
+
 
 def fetch_from_json(item, file):
     """Function fetch_from_data finds an item in a file
@@ -197,18 +203,31 @@ def get_base_stats(classes_index):
 	return class_name, base_level, base_stats
 
 
-def optimize_class(req_stats):
+def optimize_class(items_list, roll_type, desired_health):
 
 
 	#LIST FORM
-	needed_stats = [0,0,0,0,0,0,0,0] #INITIALIZE NEEDED STATS
-
-	current_stats = [0,0,0,0,0,0,0,0] #INITIALIZE CURRENT STATS
+	item_reqs = []
+	needed_stats = [0,0,0,0,0,0,0,0] #NEEDED STATS = REQUIRED STATS - BASE STATS
+	current_stats = [0,0,0,0,0,0,0,0] #CURRENT STATS = BASE STATS + NEEDED STATS
+	req_stats = [0,0,0,0,0,0,0,0] # REQUIRED STATS = HIGHEST OF EACH STAT FOR A LIST OF ITEMS
 
 	#TO PICK WINNER
 	lowest_level = 999
 	best_class = ""
 	best_stats = []
+
+	# GET A LIST OF ITEMS
+	for item in range(len(items_list)):
+		item_reqs.append(get_reqs(items_list[item]['name'], items_list[item]['file'],roll_type,desired_health))
+
+		# KEEP ONLY THE HIGHEST FOR EACH INDEX
+		for stat in range(8):
+			if item_reqs[item][stat] > req_stats[stat]:
+				req_stats[stat] = item_reqs[item][stat]
+
+
+	#print(req_stats)
 
 
 	for classes_index in range(11): # 11 classes
@@ -231,8 +250,8 @@ def optimize_class(req_stats):
 
 		current_level = sum(needed_stats) + base_level
 
-		print(f"{class_name}: {current_level}")
-		print(f"\t{current_stats}")
+		#print(f"{class_name}: {current_level}") #testing
+		#print(f"\t{current_stats}") #testing
 
 		# store the lowest level class
 
@@ -240,7 +259,7 @@ def optimize_class(req_stats):
 
 			best_class = class_name
 			lowest_level = current_level
-			best_stats = [current_stats]
+			best_stats = current_stats.copy()
 
 		#print(best_class, best_current_stats)
 
@@ -253,9 +272,4 @@ def optimize_class(req_stats):
 
 
 
-item_req = get_reqs("Greatsword",'weapons.json',roll_type['med'], 1900)
-#print(item_req)
-
-
-
-optimize_class(item_req)
+optimize_class(items_list, roll_type['med'], 1900)
