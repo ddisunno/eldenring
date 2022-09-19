@@ -11,6 +11,6 @@ def vigorLevelToHealth(level):
 def calcStartingClass(weaponName, targetVitality, rollType):
     rollThreshold = armorOptimization.getRollThreshold(rollType)
     health = vigorLevelToHealth(targetVitality)
-    reqs = get_reqs.get_reqs(weaponName,'eldenring/.json/weapons.json',rollThreshold, health)
+    reqs = get_reqs.get_reqs(weaponName,'.json/weapons.json',rollThreshold, health)
     startingClass = get_reqs.optimize_class(reqs)
     return startingClass

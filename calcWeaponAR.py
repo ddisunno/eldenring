@@ -9,11 +9,11 @@ import math
 import pandas as pd
 
 #Declare global variables, this being dataframes build from CSV files holding weapon information.
-df_attack = pd.read_csv(r'eldenring\.csv\Attack.csv')
-df_scaling = pd.read_csv(r'eldenring\.csv\Scaling.csv')
-df_extraData = pd.read_csv(r'eldenring\.csv\Extra_Data.csv')
-df_elementParam = pd.read_csv(r'eldenring\.csv\AttackElementCorrectParam.csv')
-df_calcCorrect = pd.read_csv(r'eldenring\.csv\CalcCorrectGraph_ID.csv')
+df_attack = pd.read_csv(r'.csv\Attack.csv')
+df_scaling = pd.read_csv(r'.csv\Scaling.csv')
+df_extraData = pd.read_csv(r'.csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'.csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'.csv\CalcCorrectGraph_ID.csv')
 
 ################################################################################################################
 def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
@@ -41,7 +41,25 @@ def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
     #Return as dict, with one key-value pair for each damage type.
     constants= {'physical':physical, 'magic':magic, "fire":fire, "lightning":lightning, 'holy':holy, 'strength':strength}
     return constants
-    
+
+def getSpellScalingFormulaConstants(weaponName, weaponLevel, isTwoHanding):
+    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
+    F4 = int(df_calcCorrect.iloc[H2,6])
+    F6 = int(df_elementParam.loc[df_elementParam['ID']==F4].index[0])
+    G4 = int(df_attack.columns.get_loc("Phys +" + str(weaponLevel)))
+
+    physical = getPhyDamageFormulaConstants(H2,H4,F6,G4)
+    magic = getMagicDamageFormulaConstants(H2,H4,F6,G4)
+    fire = getFireDamageFormulaConstants(H2,H4,F6,G4)
+    lightning = getLightningDamageFormulaConstants(H2,H4,F6,G4)
+    holy = getHolyDamageFormulaConstants(H2,H4,F6,G4)
+
+    strength = getStrFormula(H2, isTwoHanding)
+
+    constants= {'physical':physical, 'magic':magic, "fire":fire, "lightning":lightning, 'holy':holy, 'strength':strength}
+    return constants
+
 def getStrFormula(H2, isTwoHanding):
     #Get data on whether weapon gives str bonus based off two-handing or not. Return answer as dict.
     extraData = df_extraData.iloc[H2,13]
@@ -332,4 +350,22 @@ def calcStr(B2,J2, extraData, F10):
         else:
             return math.trunc(B2*1.5)
         
-    
+def calcSpellScaling(str, dex, int, fai, arc, constants, strength):
+    A2 = calcStr(str, strength['J2'], strength['extraData'], strength["F10"])
+
+    A12 = switchX8(constants['G12'],constants['B8'],A2)
+    B12 = switchX8(constants['H12'],constants['B8'],dex)
+    C12 = switchX8(constants['I12'],constants['B8'],int)
+    D12 = switchX8(constants['J12'],constants['B8'],fai)
+    E12 = switchX8(constants['K12'],constants['B8'],arc)
+
+    #constants has G12-K12, A6-E6
+    strScale = constants['A6'] * A12
+    dexScale = constants['B6'] * B12
+    intScale = constants['C6'] * C12
+    faiScale = constants['D6'] * D12
+    arcScale = constants['E6'] * E12
+
+    spellScaling = 100 + strScale + dexScale + intScale + faiScale + arcScale
+
+    return math.trunc(spellScaling)

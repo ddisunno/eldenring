@@ -43,11 +43,11 @@ def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, use
 def calcUsedWeight(weapon, talismans):
     weight = 0
 
-    weaponInfo = get_reqs.fetch_from_json(weapon, 'eldenring/.json/weapons.json')
+    weaponInfo = get_reqs.fetch_from_json(weapon, '.json/weapons.json')
     weight += weaponInfo['weight']
 
     for i in range(len(talismans)):
-        talismanInfo = get_reqs.fetch_from_json(talismans[i], 'eldenring/.json/talismans.json')
+        talismanInfo = get_reqs.fetch_from_json(talismans[i], '.json/talismans.json')
         weight += talismanInfo['weight']
     
     return weight
@@ -58,7 +58,7 @@ def getArmorInfoJson():
     gauntlet_array = []
     leg_armor_array = []
 
-    with open('eldenring/.json/armors.json') as f:
+    with open('.json/armors.json') as f:
         armor_data = json.load(f)
         for armor in armor_data['data']:
             #We print out the name, type, weight, poise, and physical damage negation of the armor piece.
