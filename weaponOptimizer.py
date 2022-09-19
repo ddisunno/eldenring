@@ -10,11 +10,11 @@ import calcWeaponAR as calcWeapon
 import pandas as pd
 
 #Declare global variables, this being dataframes build from CSV files holding weapon information.
-df_attack = pd.read_csv(r'csv\\Attack.csv')
-df_scaling = pd.read_csv(r'csv\\Scaling.csv')
-df_extraData = pd.read_csv(r'csv\\Extra_Data.csv')
-df_elementParam = pd.read_csv(r'csv\\AttackElementCorrectParam.csv')
-df_calcCorrect = pd.read_csv(r'csv\\CalcCorrectGraph_ID.csv')
+df_attack = pd.read_csv(r'csv\Attack.csv')
+df_scaling = pd.read_csv(r'csv\Scaling.csv')
+df_extraData = pd.read_csv(r'csv\Extra_Data.csv')
+df_elementParam = pd.read_csv(r'csv\AttackElementCorrectParam.csv')
+df_calcCorrect = pd.read_csv(r'csv\CalcCorrectGraph_ID.csv')
 
 ### Main Function ### Takes in the user input, gets the needed information from the CSV files, and calculates the optimal stats needed for the given weapon. User input includes: Weapon Name, Weapon Level, Weapon Affinity(if any), isTwoHanded, Starting class, and the number of levels the user has left in their build to spend on damage stats (str, dex, int, fai, arc).
 def main():
