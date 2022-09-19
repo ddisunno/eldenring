@@ -5,6 +5,7 @@ import optimizeClass
 # Catching errors in user input can be done on the frontend
 #Todo: function that determines what level to make vigor based on desiered health total (including talismans)
 #Combines all other optimizers into one, to output the final correct build
+#If weapon AR cannot be calc, just calculates armor
 def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weaponNameDmg): #WeaponName is for the base weapon, weaponNameDmg is the weapon name with affinities.
     ### Calc starting class
     startingClass = optimizeClass.calcStartingClass(weaponName, targetVitality, rollType) #Might want to make this take target endurance and mind aswell
@@ -27,9 +28,9 @@ def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, t
 
 ### User Entered Information - Example on how optimizeBuild should be called.
 affinity = None #Either an affinity ('Flame Art', 'Sacred', etc. or None)
-weaponName = "Glintstone Staff"
+weaponName = "Golden Order Greatsword"
 weapon = affinity + " " + weaponName if(affinity) else weaponName
-weaponLevel = str(25) #Should check if entered weapon level is in correct range (1-10 for somber, 1-25 for non-somber)
+weaponLevel = str(10) #Should check if entered weapon level is in correct range (1-10 for somber, 1-25 for non-somber)
 isTwoHanded = True
 rollType = 'med'
 

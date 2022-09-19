@@ -1,7 +1,7 @@
 '''
 Build Optimizer for a given weapon.
 Todo: 
-    -Make staves/seals optimize by maximizing scorc/incant scaling
+   
 '''
 #Import needed libraries
 import requests
@@ -15,54 +15,8 @@ df_scaling = pd.read_csv(r'csv/Scaling.csv')
 df_extraData = pd.read_csv(r'csv/Extra_Data.csv')
 df_elementParam = pd.read_csv(r'csv/AttackElementCorrectParam.csv')
 df_calcCorrect = pd.read_csv(r'csv/CalcCorrectGraph_ID.csv')
-
-### Main Function ### Takes in the user input, gets the needed information from the CSV files, and calculates the optimal stats needed for the given weapon. User input includes: Weapon Name, Weapon Level, Weapon Affinity(if any), isTwoHanded, Starting class, and the number of levels the user has left in their build to spend on damage stats (str, dex, int, fai, arc).
-def main():
-    #These var should be entered from user in front-end
-    weaponName = "Dagger"
-    weaponLevel = str(25)
-    isTwoHanded = True
-    numOfLevels = 90
-    startingClass = "prophet"
-    
-    #Get if weapon upgrades to +10 or +25, and if it can have affinities.
-    affinities = getAffinities(weaponName)
-    isSomberWeapon = True if len(affinities) == 1 else False
-
-    #If user enters a weapon level above 10 for a somber weapon, set the weapon level to 10 (Max level)
-    weaponLevel = str(10) if (isSomberWeapon and int(weaponLevel) > 10) else weaponLevel
-
-    #Get starting class stats
-    startingStats = getStartingStats(startingClass)
-    
-    #If somber, run once, if can have affinities, run once for each affinity
-    for i in range(len(affinities)):
-        #If non-somber, then get the next affinity and update weaon name. Else, weapon becomes weaponName.
-        if not isSomberWeapon:
-            weaponAffinity = affinities[i]
-            weapon = weaponAffinity + " " + weaponName
-        else:
-            weaponAffinity = ""
-            weapon = weaponName
-
-        #Get constants for the weapon AR formula for the given weapon. This comes from CSV files parsed by Pandas Dataframes.
-        constants = calcWeapon.getWeaponFormulaConstants(weapon,weaponLevel,isTwoHanded)
-        print('Done constants')
-
-        #Get the wepon requirement levels & scaling of the chosen weapon. (Repeated work with H2 and H4)
-        H2 = int(df_attack.loc[df_attack['Name'] == weapon].index[0])
-        H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
-
-        result = df_extraData.iloc[H2,5:10]
-        weaponReq = {'strength':int(result[0]),'dexterity':int(result[1]),'intelligence':int(result[2]),'faith':int(result[3]),'arcane':int(result[4])}
-        
-        scaling = df_scaling.iloc[H2,H4:H4+5].astype(float)
-        scalingStats = getScalingStats(scaling)
-
-        #Call optimizeBuildStats()
-        optimizeWeaponAR(numOfLevels, startingStats, weaponReq, scalingStats, constants)
                 
-################################################################################################################
+#### Optimize Functions ############################
 #Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. Need to change algorithm to support 4 & 5.
 def optimizeWeaponAR(numOfLevels, startingStats, weaponReq, scalingStats, constants):
 
@@ -251,9 +205,30 @@ def optimizeWeaponSpellScaling(numOfLevels, startingStats, weaponReq, scalingSta
                             statesVisited.update({str(newState):True})
                         
     return optimialBuild
+####################################################
 
-################################################################################################################
-### Helper functions ###
+### Helper functions ###############################
+#Returns false if user entered weapon level is not in range. WeaponLevel is int
+def checkWeaponLevel(weaponName, weaponLevel):
+    
+    affinities = getAffinities(weaponName)
+    isSomberWeapon = True if len(affinities) == 1 else False
+
+    if(isSomberWeapon):
+        if(weaponLevel > 10):
+            print("Error: Weapon level not in correct range. (1-10)")
+            return False
+        elif(weaponLevel < 1):
+            print("Error: Weapon level not in correct range. (1-10)")
+            return False
+    else:
+        if(weaponLevel > 25):
+            print("Error: Weapon level not in correct range. (1-25)")
+            return False
+        elif(weaponLevel < 1):
+            print("Error: Weapon level not in correct range. (1-25)")
+            return False
+    return True
 #Return an array with the names of the stats that scale with the given weapon.
 def getScalingStats(scaling):
   scalingStats = []
@@ -347,12 +322,20 @@ def getScaling(weapon, weaponLevel):
     return scaling
 
 def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded):
+
+    #Check user entered data is correct
+    if(not checkWeaponLevel(weaponName, int(weaponLevel))):
+        return {}
+
+    #Get how many levels are left in the build, the class startiung stats, and the weapon type
     levelsLeft = targetLevel - (int(startingClass['startLevel']) + targetVitality + targetEndurance + targetMind)
     startingStats = getStartingStats(startingClass['name'].lower())
     weaponType = calcWeapon.getWeaponType(weaponName)
+
     #Get the right contants based on weapon type (AR for real weapons, Spell Scaling for spell casters)
     constants = calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded) if(weaponType != 'Glintstone Staff' and weaponType != 'Sacred Seal') else calcWeapon.getSpellScalingFormulaConstants(weaponName,weaponLevel,isTwoHanded)
 
+    #Get weapon requirements and weapon scaling
     weaponReq = getWeaponReq(weaponName)
     scaling = getScaling(weaponName, weaponLevel)
     scalingStats = getScalingStats(scaling)
@@ -361,4 +344,4 @@ def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind,
     dmgStats = optimizeWeaponAR(levelsLeft, startingStats, weaponReq, scalingStats, constants) if(weaponType != 'Glintstone Staff' and weaponType != 'Sacred Seal') else optimizeWeaponSpellScaling(levelsLeft, startingStats, weaponReq, scalingStats, constants)
 
     return dmgStats
-
+###################################################
