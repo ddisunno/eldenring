@@ -6,12 +6,12 @@ import optimizeClass
 #Todo: function that determines what level to make vigor based on desiered health total (including talismans)
 #Combines all other optimizers into one, to output the final correct build
 #If weapon AR cannot be calc, just calculates armor
-def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weaponNameDmg): #WeaponName is for the base weapon, weaponNameDmg is the weapon name with affinities.
+def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weaponNameDmg, affinity): #WeaponName is for the base weapon, weaponNameDmg is the weapon name with affinities.
     ### Calc starting class
     startingClass = optimizeClass.calcStartingClass(weaponName, targetVitality, rollType) #Might want to make this take target endurance and mind aswell
    
     ### Calc Optimal Weapon Stats
-    dmgStats = weaponOptimizer.calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponNameDmg, weaponLevel, isTwoHanded)
+    dmgStats = weaponOptimizer.calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponNameDmg, weaponLevel, isTwoHanded, affinity, weaponName)
 
     ### Get Optimal Armor Sets 
     armorSets = armorOptimization.calcOptimalArmorSets(weaponName, talismans, targetEndurance, arsenalTalisman, erdtreeTalisman, rollType) #Need to change this to include talisman weight (Change talismans.json to include)
@@ -46,7 +46,7 @@ erdtreeTalisman = 'None' #{'Erdtree': 1.05, 'Erdtree+1': 1.065, 'Erdtree+2': 1.0
 
 talismans = ["Great-jar's Arsenal"] #Array of up to size 4 consisting of strings of the names of the user-chosen talismans
 
-totalOptimalBuild = optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weapon)
+totalOptimalBuild = optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weapon, affinity)
 #######################
 
 

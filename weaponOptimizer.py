@@ -208,11 +208,14 @@ def optimizeWeaponSpellScaling(numOfLevels, startingStats, weaponReq, scalingSta
 ####################################################
 
 ### Helper functions ###############################
+def isSomber(weaponName):
+    affinities = calcWeapon.getAffinities(weaponName)
+    return True if len(affinities) == 1 else False
 #Returns false if user entered weapon level is not in range. WeaponLevel is int
+
 def checkWeaponLevel(weaponName, weaponLevel):
     
-    affinities = calcWeapon.getAffinities(weaponName)
-    isSomberWeapon = True if len(affinities) == 1 else False
+    isSomberWeapon = isSomber(weaponName)
 
     if(isSomberWeapon):
         if(weaponLevel > 10):
@@ -228,6 +231,13 @@ def checkWeaponLevel(weaponName, weaponLevel):
         elif(weaponLevel < 1):
             print("Error: Weapon level not in correct range. (1-25)")
             return False
+    return True
+
+def checkAffinity(weaponName, affinity):
+    isSomberWeapon = isSomber(weaponName)
+    if(isSomberWeapon and affinity != None):
+        print("Error: Affinity added for somber weapon")
+        return False
     return True
 
 #Return an array with the names of the stats that scale with the given weapon.
@@ -300,10 +310,10 @@ def getStartingStats(startingClass):
     startClass = get_reqs.fetch_from_json(startingClass, 'json/classes.json')
     return startClass['stats']
                 
-def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded):
-
+def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded, affinity, baseName):
+    #WeaponName here is affinity + name. affinity is just the affinity, used for checking input error.
     #Check user entered data is correct
-    if(not checkWeaponLevel(weaponName, int(weaponLevel))):
+    if(not checkWeaponLevel(baseName, int(weaponLevel)) or not checkAffinity(baseName, affinity)):
         return {}
 
     #Get how many levels are left in the build, the class startiung stats, and the weapon type
