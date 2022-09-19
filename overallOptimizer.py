@@ -9,7 +9,7 @@ import optimizeClass
 def optimizeBuild(weaponName, weaponLevel, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans, weaponNameDmg): #WeaponName is for the base weapon, weaponNameDmg is the weapon name with affinities.
     ### Calc starting class
     startingClass = optimizeClass.calcStartingClass(weaponName, targetVitality, rollType) #Might want to make this take target endurance and mind aswell
-
+   
     ### Calc Optimal Weapon Stats
     dmgStats = weaponOptimizer.calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponNameDmg, weaponLevel, isTwoHanded)
 

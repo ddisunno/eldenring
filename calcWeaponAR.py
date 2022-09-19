@@ -15,7 +15,7 @@ df_extraData = pd.read_csv(r'csv/Extra_Data.csv')
 df_elementParam = pd.read_csv(r'csv/AttackElementCorrectParam.csv')
 df_calcCorrect = pd.read_csv(r'csv/CalcCorrectGraph_ID.csv')
 
-################################################################################################################
+#### Contants ############################################################################
 def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
 
     #Start by getting h2 and h4
@@ -75,11 +75,31 @@ def getStrFormula(H2, isTwoHanding):
     extraData = df_extraData.iloc[H2,13]
     return {"J2":isTwoHanding,"F10":extraData,"extraData":extraData}
 
+### Weapon Contants 
 def getWeaponType(weaponName):
     H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
     return df_extraData.iloc[H2,12]
 
-################################################################################################################
+def getWeaponReq(weapon):
+    H2 = int(df_attack.loc[df_attack['Name'] == weapon].index[0])
+    result = df_extraData.iloc[H2,5:10]
+    weaponReq = {'strength':int(result[0]),'dexterity':int(result[1]),'intelligence':int(result[2]),'faith':int(result[3]),'arcane':int(result[4])}
+    return weaponReq
+
+def getScaling(weapon, weaponLevel):
+    H2 = int(df_attack.loc[df_attack['Name'] == weapon].index[0])
+    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
+        
+    scaling = df_scaling.iloc[H2,H4:H4+5].astype(float)
+
+    return scaling
+
+#Get the weapon's affinities
+def getAffinities(weaponName):
+    H2 = int(df_extraData.loc[df_extraData['Name'] == weaponName].index[0])
+
+    return [""] if int(df_extraData.iloc[H2,4]) == 10 else ["Heavy","Keen","Quality","Flame Art","Sacred","Magic","Cold","Fire","Lightning","Poison","Blood","Occult"]
+
 #Get the contants for the five different damage types. These five functions are all functionally the same, they just return slightly different data. (A6-E6 is calculated 5 times, work is re-done for simplicity)
 def getPhyDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     
@@ -189,10 +209,9 @@ def getHolyDamageFormulaConstants(rowNum,scalingCol, F6, G4):
     result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
     X6 = [[]]
     X6[0] = [float(item) for item in result]
-    return {"A8": E8, "A4":E4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G18, "H10":H18, 'I10':I18, "J10":J18, 'K10':K18}
-    
-################################################################################################################
-### Calculate damage given the constants ###
+    return {"A8": E8, "A4":E4, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G10":G18, "H10":H18, 'I10':I18, "J10":J18, 'K10':K18}    
+
+### Calculate damage given the constants ######################################################################
 def getWeaponAR(str,dex,int,fai,arc,constants):
 
     #Get the damage for each damage type 
@@ -363,7 +382,8 @@ def calcStr(B2,J2, extraData, F10):
             return 150
         else:
             return math.trunc(B2*1.5)
-        
+
+#Calc spell scaling for casters        
 def getSpellScaling(str, dex, int, fai, arc, constants):
 
     strength = constants['strength']

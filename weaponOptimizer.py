@@ -4,10 +4,10 @@ Todo:
    
 '''
 #Import needed libraries
-import requests
 import simplejson as JSON
 import calcWeaponAR as calcWeapon
 import pandas as pd
+import get_reqs
 
 #Declare global variables, this being dataframes build from CSV files holding weapon information.
 df_attack = pd.read_csv(r'csv/Attack.csv')
@@ -211,7 +211,7 @@ def optimizeWeaponSpellScaling(numOfLevels, startingStats, weaponReq, scalingSta
 #Returns false if user entered weapon level is not in range. WeaponLevel is int
 def checkWeaponLevel(weaponName, weaponLevel):
     
-    affinities = getAffinities(weaponName)
+    affinities = calcWeapon.getAffinities(weaponName)
     isSomberWeapon = True if len(affinities) == 1 else False
 
     if(isSomberWeapon):
@@ -229,6 +229,7 @@ def checkWeaponLevel(weaponName, weaponLevel):
             print("Error: Weapon level not in correct range. (1-25)")
             return False
     return True
+
 #Return an array with the names of the stats that scale with the given weapon.
 def getScalingStats(scaling):
   scalingStats = []
@@ -294,33 +295,11 @@ def getInitialAddedLevelsPerStat(minStats, scalingStats, numOfLevels):
             break
     return numOfLevelsStack
     
-#Get the weapon's affinities
-def getAffinities(weaponName):
-    H2 = int(df_extraData.loc[df_extraData['Name'] == weaponName].index[0])
-
-    return [""] if int(df_extraData.iloc[H2,4]) == 10 else ["Heavy","Keen","Quality","Flame Art","Sacred","Magic","Cold","Fire","Lightning","Poison","Blood","Occult"]
-
 #Get starting stats based off of starting class
 def getStartingStats(startingClass):
-    classes = JSON.loads(requests.get("https://eldenring.fanapis.com/api/classes").text)
-    for i in range(len(classes['data'])):
-        if(startingClass == classes['data'][i]['name'].lower()):
-            return classes['data'][i]['stats']
+    startClass = get_reqs.fetch_from_json(startingClass, 'json/classes.json')
+    return startClass['stats']
                 
-def getWeaponReq(weapon):
-    H2 = int(df_attack.loc[df_attack['Name'] == weapon].index[0])
-    result = df_extraData.iloc[H2,5:10]
-    weaponReq = {'strength':int(result[0]),'dexterity':int(result[1]),'intelligence':int(result[2]),'faith':int(result[3]),'arcane':int(result[4])}
-    return weaponReq
-
-def getScaling(weapon, weaponLevel):
-    H2 = int(df_attack.loc[df_attack['Name'] == weapon].index[0])
-    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
-        
-    scaling = df_scaling.iloc[H2,H4:H4+5].astype(float)
-
-    return scaling
-
 def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded):
 
     #Check user entered data is correct
@@ -329,15 +308,15 @@ def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind,
 
     #Get how many levels are left in the build, the class startiung stats, and the weapon type
     levelsLeft = targetLevel - (int(startingClass['startLevel']) + targetVitality + targetEndurance + targetMind)
-    startingStats = getStartingStats(startingClass['name'].lower())
+    startingStats = getStartingStats(startingClass['name'])
     weaponType = calcWeapon.getWeaponType(weaponName)
 
     #Get the right contants based on weapon type (AR for real weapons, Spell Scaling for spell casters)
     constants = calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded) if(weaponType != 'Glintstone Staff' and weaponType != 'Sacred Seal') else calcWeapon.getSpellScalingFormulaConstants(weaponName,weaponLevel,isTwoHanded)
 
     #Get weapon requirements and weapon scaling
-    weaponReq = getWeaponReq(weaponName)
-    scaling = getScaling(weaponName, weaponLevel)
+    weaponReq = calcWeapon.getWeaponReq(weaponName)
+    scaling = calcWeapon.getScaling(weaponName, weaponLevel)
     scalingStats = getScalingStats(scaling)
 
     #Call the right optimizer based on weapon type (AR for real weapons, Spell Scaling for spell casters)
