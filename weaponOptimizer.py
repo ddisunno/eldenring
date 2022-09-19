@@ -60,11 +60,11 @@ def main():
         scalingStats = getScalingStats(scaling)
 
         #Call optimizeBuildStats()
-        optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants)
+        optimizeWeaponAR(numOfLevels, startingStats, weaponReq, scalingStats, constants)
                 
 ################################################################################################################
 #Works for weapons that scale off of 0,1, or 2 stats. 3 stats takes too long due to using calculator. 4 or 5 is not supported. Need to change algorithm to support 4 & 5.
-def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, constants):
+def optimizeWeaponAR(numOfLevels, startingStats, weaponReq, scalingStats, constants):
 
     #If too many levels are enterted, and all scaling stats can be maxed to 99, return every value being 99.
     if(isNumOfLevelsOver(numOfLevels, startingStats, scalingStats)):
@@ -156,15 +156,100 @@ def optimizeBuildStats(numOfLevels, startingStats, weaponReq, scalingStats, cons
                             stateStack.append(newState.copy())
                             statesVisited.update({str(newState):True})
                         
-    #Done with algorithm, print results to console (for now).
-    #print("Done Optimization")
-    #print("Str: " + str(optimialBuild['strength']))
-    #print("Dex: " + str(optimialBuild['dexterity']))
-    #print("Int: " + str(optimialBuild['intelligence']))
-    #print("Fai: " + str(optimialBuild['faith']))
-    #print("Arc: " + str(optimialBuild['arcane']))
-    #print("AR: " + str(optimialBuild["ar"]))
-   
+    return optimialBuild
+
+def optimizeWeaponSpellScaling(numOfLevels, startingStats, weaponReq, scalingStats, constants):
+
+    #If too many levels are enterted, and all scaling stats can be maxed to 99, return every value being 99.
+    if(isNumOfLevelsOver(numOfLevels, startingStats, scalingStats)):
+        #print("Enough levels to max out every damage stat.")
+        spellScaling = calcWeapon.getSpellScaling(99, 99, 99, 99, 99, constants)
+        return {'strength': 99, 'dexterity': 99, 'intelligence': 99, 'faith': 99, 'arcane': 99, 'spellScaling': spellScaling}
+    
+    #Get min stats, then get the number of levels to be initially added to the stats that scale.
+    minStats = getMinStats(startingStats, weaponReq)
+    numOfLevels = getLevelsAfterStatReq(numOfLevels, scalingStats, startingStats, weaponReq)
+    numOfLevelsStack = getInitialAddedLevelsPerStat(minStats, scalingStats, numOfLevels)
+
+    #Create the starting state
+    startState = {'strength': minStats['strength'], 'dexterity': minStats['dexterity'], 'intelligence': minStats['intelligence'], 'faith': minStats['faith'], 'arcane': minStats['arcane'], 'spellScaling': None}
+    statesVisited = {}
+    optimialBuild = None
+
+    #Loop through starting here, intililize stateVisted above, each loop has starting stats changed.
+    for stat in range(len(scalingStats)):
+
+        state = startState.copy()
+
+        index = 0
+        for i in range(stat, len(scalingStats)):
+           state[scalingStats[i]] += numOfLevelsStack[index]
+           index+=1
+        if stat > 0:
+            for i in reversed(range(stat-1, 0)):
+                state[scalingStats[i]] += numOfLevelsStack[index]
+                index+=1
+        
+        statesVisited[str(state)] = True
+
+        state['spellScaling'] = calcWeapon.getSpellScaling(state['strength'], state['dexterity'], state['intelligence'], state['faith'], state['arcane'], constants)
+
+        #If no stats scale or only one stat scales, return startState
+        if len(scalingStats) == 0 or len(scalingStats) == 1:
+            return 1
+
+        #Min-max for state with the highest AR (Valid state cannot have a stat under the stat minimum defined in minStats, or total # of levels != starting # of levels)
+        #Brute Force approach (although other methods won't be much better) */
+        #optimialBuild = state.copy() #Initially the start state
+        if optimialBuild is None:
+            optimialBuild = state.copy()
+        
+        #Create a queue to hold the state nodes, starting with the startState. A dict is used to keep track of whether or not a node has been visited, so that the same node is not added back into the queue.
+        stateStack = [state]
+        
+        #Note: With 2 scaling stats, there is a branching factor of 1. With 3 sclaing stats, branching factor of 2.
+        #While our queue is not empty, pop the queue.
+        while len(stateStack) > 0:
+            #Get current state
+            state = stateStack.pop().copy()
+            
+            #Subtract 1 from the first scaling stat
+            if(state[scalingStats[stat]] - 1 >= minStats[scalingStats[stat]]):
+                state[scalingStats[stat]] -= 1
+
+                #For every other scaling stat, create a state in which the level taken away from the first scaling stat was added to the scaling stat. This (has the potential to) create multiple states.
+                for i in range(stat+1, len(scalingStats)):
+                    newState = state.copy()
+                    #If the stat is not maxed out (less than 99), then add 1 to that stat.
+                    if(newState[scalingStats[i]]+1 <= 99):
+                        newState[scalingStats[i]] += 1
+                        newState['spellScaling'] = calcWeapon.getSpellScaling(newState['strength'], newState['dexterity'], newState['intelligence'], newState['faith'], newState['arcane'], constants);
+
+                        #If the new state has a higher AR then the current optimal state, make the optimal state the new state.
+                        if(newState['spellScaling'] > optimialBuild['spellScaling']):
+                            optimialBuild = newState.copy()
+                        
+                        #If the children states from this state have not been expanded, add them tho the queue, and mark this current state as expanded.
+                        if(str(newState) not in statesVisited):
+                            stateStack.append(newState.copy())
+                            statesVisited.update({str(newState):True})
+                #From stat - 1 to 0
+                for i in reversed(range(stat-1, 0)):
+                    newState = state.copy()
+                    #If the stat is not maxed out (less than 99), then add 1 to that stat.
+                    if(newState[scalingStats[i]]+1 <= 99):
+                        newState[scalingStats[i]] += 1
+                        newState['spellScaling'] = calcWeapon.getSpellScaling(newState['strength'], newState['dexterity'], newState['intelligence'], newState['faith'], newState['arcane'], constants);
+
+                        #If the new state has a higher AR then the current optimal state, make the optimal state the new state.
+                        if(newState['spellScaling'] > optimialBuild['spellScaling']):
+                            optimialBuild = newState.copy()
+                        
+                        #If the children states from this state have not been expanded, add them tho the queue, and mark this current state as expanded.
+                        if(str(newState) not in statesVisited):
+                            stateStack.append(newState.copy())
+                            statesVisited.update({str(newState):True})
+                        
     return optimialBuild
 
 ################################################################################################################
@@ -264,12 +349,16 @@ def getScaling(weapon, weaponLevel):
 def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded):
     levelsLeft = targetLevel - (int(startingClass['startLevel']) + targetVitality + targetEndurance + targetMind)
     startingStats = getStartingStats(startingClass['name'].lower())
-    constants = calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded)
+    weaponType = calcWeapon.getWeaponType(weaponName)
+    #Get the right contants based on weapon type (AR for real weapons, Spell Scaling for spell casters)
+    constants = calcWeapon.getWeaponFormulaConstants(weaponName,weaponLevel,isTwoHanded) if(weaponType != 'Glintstone Staff' and weaponType != 'Sacred Seal') else calcWeapon.getSpellScalingFormulaConstants(weaponName,weaponLevel,isTwoHanded)
 
     weaponReq = getWeaponReq(weaponName)
     scaling = getScaling(weaponName, weaponLevel)
     scalingStats = getScalingStats(scaling)
 
-    dmgStats = optimizeBuildStats(levelsLeft, startingStats, weaponReq, scalingStats, constants)
+    #Call the right optimizer based on weapon type (AR for real weapons, Spell Scaling for spell casters)
+    dmgStats = optimizeWeaponAR(levelsLeft, startingStats, weaponReq, scalingStats, constants) if(weaponType != 'Glintstone Staff' and weaponType != 'Sacred Seal') else optimizeWeaponSpellScaling(levelsLeft, startingStats, weaponReq, scalingStats, constants)
 
     return dmgStats
+

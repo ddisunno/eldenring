@@ -43,27 +43,41 @@ def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
     return constants
 
 def getSpellScalingFormulaConstants(weaponName, weaponLevel, isTwoHanding):
-    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
-    H4 = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
-    F4 = int(df_calcCorrect.iloc[H2,6])
+    #Need A6,B6,C6,D6,E6 | B8 | G12,H12,I12,J12,K12, strength constants
+    rowNum = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    scalingCol = int(df_scaling.columns.get_loc("Str +" + str(weaponLevel)))
+    F4 = int(df_calcCorrect.iloc[rowNum,6])
     F6 = int(df_elementParam.loc[df_elementParam['ID']==F4].index[0])
-    G4 = int(df_attack.columns.get_loc("Phys +" + str(weaponLevel)))
+    
+    #Get scaling info
+    G12 = int(df_elementParam.iloc[F6,6])
+    H12 = int(df_elementParam.iloc[F6,7])
+    I12 = int(df_elementParam.iloc[F6,8])
+    J12 = int(df_elementParam.iloc[F6,9])
+    K12 = int(df_elementParam.iloc[F6,10])
 
-    physical = getPhyDamageFormulaConstants(H2,H4,F6,G4)
-    magic = getMagicDamageFormulaConstants(H2,H4,F6,G4)
-    fire = getFireDamageFormulaConstants(H2,H4,F6,G4)
-    lightning = getLightningDamageFormulaConstants(H2,H4,F6,G4)
-    holy = getHolyDamageFormulaConstants(H2,H4,F6,G4)
+    #Physical damage group ID
+    B8 = int(df_calcCorrect.iloc[rowNum,2])
 
-    strength = getStrFormula(H2, isTwoHanding)
+    #Str Scaling
+    result = df_scaling.iloc[rowNum,scalingCol:scalingCol+5]
+    X6 = [[]]
+    X6[0] = [float(item) for item in result]
+   
 
-    constants= {'physical':physical, 'magic':magic, "fire":fire, "lightning":lightning, 'holy':holy, 'strength':strength}
-    return constants
+    strength = getStrFormula(rowNum, isTwoHanding)
+
+    
+    return {"B8": B8, "A6":X6[0][0], "B6":X6[0][1], "C6":X6[0][2], "D6":X6[0][3], "E6":X6[0][4], "G12":G12, "H12":H12, 'I12':I12, "J12":J12, 'K12':K12, 'strength':strength}
 
 def getStrFormula(H2, isTwoHanding):
     #Get data on whether weapon gives str bonus based off two-handing or not. Return answer as dict.
     extraData = df_extraData.iloc[H2,13]
     return {"J2":isTwoHanding,"F10":extraData,"extraData":extraData}
+
+def getWeaponType(weaponName):
+    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    return df_extraData.iloc[H2,12]
 
 ################################################################################################################
 #Get the contants for the five different damage types. These five functions are all functionally the same, they just return slightly different data. (A6-E6 is calculated 5 times, work is re-done for simplicity)
@@ -350,7 +364,11 @@ def calcStr(B2,J2, extraData, F10):
         else:
             return math.trunc(B2*1.5)
         
-def calcSpellScaling(str, dex, int, fai, arc, constants, strength):
+def getSpellScaling(str, dex, int, fai, arc, constants):
+
+    strength = constants['strength']
+
+    #Strength['F10'] is weaponType: "Glintstone Staff" or "Sacred Seal"
     A2 = calcStr(str, strength['J2'], strength['extraData'], strength["F10"])
 
     A12 = switchX8(constants['G12'],constants['B8'],A2)
@@ -369,3 +387,4 @@ def calcSpellScaling(str, dex, int, fai, arc, constants, strength):
     spellScaling = 100 + strScale + dexScale + intScale + faiScale + arcScale
 
     return math.trunc(spellScaling)
+
