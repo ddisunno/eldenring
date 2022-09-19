@@ -33,7 +33,7 @@ def endurance_calc(weight,roll_type):
 		at desired roll type
 	"""
 	
-	with open('.csv/endurance.csv','r') as f:
+	with open('csv/endurance.csv','r') as f:
 		endurance_scaling = csv.reader(f)
 
 		next(endurance_scaling) #skip header
@@ -57,7 +57,7 @@ def vigor_calc(desired_health):
 	outputs:
 		level of vigor required to have desired health
 	"""
-	with open('.csv/vigor.csv') as f:
+	with open('csv/vigor.csv') as f:
 		vigor_scaling = csv.reader(f)
 
 		next(vigor_scaling) #skip header
@@ -103,7 +103,7 @@ def get_reqs(item, file, roll_type, desired_health):
 	arcane_req 			= 0
 	
 
-	if file == '.json/weapons.json':
+	if file == 'json/weapons.json':
 
 		for stats in item_info['requiredAttributes']:
 			
@@ -132,7 +132,7 @@ def get_reqs(item, file, roll_type, desired_health):
 			\n\tEnd: {endurance_req}")
 		"""
 
-	elif file == '.json/armors.json':
+	elif file == 'json/armors.json':
 		pass
 
 	req_stats = [vigor_req, mind_req, endurance_req, 
@@ -150,7 +150,7 @@ def get_base_stats(classes_index):
 		base_level - level of the class at given index
 		base_stats - list[vigor,mind,endurance,strength,dexterity,intelligence,faith,arcane]
 	"""
-	with open('.json/classes.json') as f:
+	with open('json/classes.json') as f:
 		classes = json.load(f)
 
 	#INITIALIZE NAME
