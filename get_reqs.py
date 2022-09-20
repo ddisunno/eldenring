@@ -72,8 +72,8 @@ def vigor_calc(desired_health):
 				return int(level[0])
 			
 
-
-def get_reqs(item, file, roll_type, desired_health):
+#Changed tso that this takes vigor levels instead of health
+def get_reqs(item, file, roll_type, vigor):
 	"""Function get_reqs uses fetch_from_json to find an item
 	and generate a list of required item stats
 	inputs:
@@ -91,7 +91,7 @@ def get_reqs(item, file, roll_type, desired_health):
 	weight = item_info.get('weight')
 
 	# UNIVERSAL REQUIREMENTS
-	vigor_req 	  = vigor_calc(desired_health)
+	vigor_req 	  = vigor
 	mind_req 	  = 1
 	endurance_req = endurance_calc(weight,roll_type)
 

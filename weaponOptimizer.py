@@ -310,14 +310,15 @@ def getStartingStats(startingClass):
     startClass = get_reqs.fetch_from_json(startingClass, 'json/classes.json')
     return startClass['stats']
                 
-def calcStatsForWeapon(targetLevel, targetVitality, targetEndurance, targetMind, startingClass, weaponName, weaponLevel, isTwoHanded, affinity, baseName):
+def calcStatsForWeapon(targetLevel, startingClass, weaponName, weaponLevel, isTwoHanded, affinity, baseName):
     #WeaponName here is affinity + name. affinity is just the affinity, used for checking input error.
     #Check user entered data is correct
     if(not checkWeaponLevel(baseName, int(weaponLevel)) or not checkAffinity(baseName, affinity)):
         return {}
 
     #Get how many levels are left in the build, the class startiung stats, and the weapon type
-    levelsLeft = targetLevel - (int(startingClass['startLevel']) + targetVitality + targetEndurance + targetMind)
+    #levelsLeft = targetLevel - (int(startingClass['startLevel']) + int(startingClass['stats'][0]) + targetEndurance + targetMind) #stats[0] is vigor
+    levelsLeft = targetLevel - startingClass['lowest']
     startingStats = getStartingStats(startingClass['name'])
     weaponType = calcWeapon.getWeaponType(weaponName)
 

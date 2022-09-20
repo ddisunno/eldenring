@@ -24,12 +24,10 @@ def calcVigorLevels(health, crimsonMedallion, erdtreesFavor):
     health = health / (crimsonHealthBonus[crimsonMedallion] * erdtreesFavorHealthBonus[erdtreesFavor])
     return healthToVigorLevel(health)
 
-def calcStartingClass(weaponName, targetVitality, rollType):
+def calcStartingClass(weaponName, targetHealth, rollType, crimsonMedallion, erdtreesFavor):
     rollThreshold = armorOptimization.getRollThreshold(rollType)
-    health = vigorLevelToHealth(targetVitality)
-    reqs = get_reqs.get_reqs(weaponName,'json/weapons.json',rollThreshold, health)
+    levels = calcVigorLevels(targetHealth,crimsonMedallion, erdtreesFavor)
+    reqs = get_reqs.get_reqs(weaponName,'json/weapons.json',rollThreshold, levels)
     startingClass = get_reqs.optimize_class(reqs)
     return startingClass
 
-
-print(calcVigorLevels(1500, 'Crimson Amber Medallion +2', "Erdtree's Favor +2"))
