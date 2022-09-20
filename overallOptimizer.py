@@ -36,10 +36,10 @@ isTwoHanded = True
 rollType = 'med'
 
 #User entered target levels
-targetLevel = 150
+targetLevel = 150 #User enters this. This is the total level of the build, no more, no less.
 targetVitality = 50 #Viality is affected by talismans
-targetEndurance = 20
-targetMind = 15
+targetEndurance = 20 #Make based off stamina?
+targetMind = 15 #Make mind based off entered spells/ashes of war/spirit summons
 
 #User enterted talismans that effect equipload
 arsenalTalisman = 'GreatJarArsenal' #{'GreatJarArsenal':1.19, 'Arsenal+1':1.17, 'Arsenal':1.15, 'None': 1}
@@ -49,5 +49,3 @@ talismans = ["Great-jar's Arsenal"] #Array of up to size 4 consisting of strings
 
 totalOptimalBuild = optimizeBuild(weaponName, weapon, weaponLevel, affinity, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, arsenalTalisman, erdtreeTalisman, talismans)
 #######################
-
-
