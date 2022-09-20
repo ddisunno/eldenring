@@ -29,8 +29,12 @@ from tqdm import tqdm
 
 url_list = ["https://eldenring.fanapis.com/api/classes",
 			"https://eldenring.fanapis.com/api/weapons",
+			"https://eldenring.fanapis.com/api/shields",
+			"https://eldenring.fanapis.com/api/ashes",
 			"https://eldenring.fanapis.com/api/armors",
-			"https://eldenring.fanapis.com/api/ashes"]
+			"https://eldenring.fanapis.com/api/talismans",
+			"https://eldenring.fanapis.com/api/incantations",
+			"https://eldenring.fanapis.com/api/sorceries"]
 
 
 
@@ -81,7 +85,5 @@ get_data(url_list, pull = True)
 with open('weapons.json') as f:
 	weapons = json.load(f)
 
-print(len(weapons['data']))
-print(f"{weapons['count']}/{weapons['total']}")
 
 

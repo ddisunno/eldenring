@@ -14,6 +14,8 @@ items_list = [{"name": "Greatsword",
 			  {"name": "Blasphemous Blade",
 			   "file": "weapons.json"}]
 
+equipped_talismans = []
+
 
 def fetch_from_json(item, file):
     """Function fetch_from_data finds an item in a file
