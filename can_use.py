@@ -1,6 +1,13 @@
 import simplejson as json
 import csv
 
+# SAMPLE CHARACTER STATS FROM SIR CAINE PALADIN BUILD
+character_stats = [50,10,31,34,13,9,50,7]
+
+
+import simplejson as json
+import csv
+
 
 global roll_type, items_list
 
@@ -216,112 +223,48 @@ def get_reqs(item, file, roll_type, desired_health):
 	return req_stats
 
 
-def get_base_stats(classes_index):
-	"""Function get_base_stats
-	inputs:
-		classes_index - index of class to pull
-
-	outputs:
-		class_name - name of the class at given index
-		base_level - level of the class at given index
-		base_stats - list[vigor,mind,endurance,strength,dexterity,intelligence,faith,arcane]
 
 
-	"""
-	with open('classes.json') as f:
-		classes = json.load(f)
-
-	#INITIALIZE NAME
-	class_name		  = classes['data'][classes_index]['name']
-	#INITIALIZE BASE STATS
-	base_level		  = int(classes['data'][classes_index]['stats']['level'])
-	base_vigor		  = int(classes['data'][classes_index]['stats']['vigor'])
-	base_mind		  = int(classes['data'][classes_index]['stats']['mind'])
-	base_endurance	  = int(classes['data'][classes_index]['stats']['endurance'])
-	base_strength	  = int(classes['data'][classes_index]['stats']['strength'])
-	base_dexterity	  = int(classes['data'][classes_index]['stats']['dexterity'])
-	base_intelligence = int(classes['data'][classes_index]['stats']['intelligence'])
-	base_faith		  = int(classes['data'][classes_index]['stats']['faith'])
-	base_arcane		  = int(classes['data'][classes_index]['stats']['arcane'])
 
 
-	base_stats = [base_vigor, base_mind, base_endurance,
-	base_strength, base_dexterity, base_intelligence, base_faith, base_arcane]
-	
-	return class_name, base_level, base_stats
 
 
-def optimize_class(items_list, roll_type, desired_health):
-	"""Function optimize_class takes a list of items and picks the lowest class that
-	can use ALL of them INDIVIDUALLY with desired roll_type and HP
+
+
+
+
+
+################################################################################
+
+def can_use_with_stats(character_stats, file):
+	"""Function can_use_with_stats takes character stats and returns all items that
+	can be equipped (required stats <= current stats)
 
 	inputs:
-		items_list - list of items in dictionary form containing ['name'] - name of the item
-																 ['file'] - file the item can be found in
-		roll_type - desired roll type from dictionary (multiplier for total equip load)
-		desired_health - amount of health to exceed on character
+		character_stats - stats of character
+		file			- file to parse
 
-	outputs:
-		best_class - name of the best class (able to use everything with the lowest level)
-		lowest_level - level of the best class
-		best_stats - list of stats of the best class [vig,min,end,str,dex,int,fai,arc]
-
+	outputs: equippable_...
 	"""
 
-	#LIST FORM
-	item_reqs = []
-	needed_stats = [0,0,0,0,0,0,0,0] #NEEDED STATS = REQUIRED STATS - BASE STATS
-	current_stats = [0,0,0,0,0,0,0,0] #CURRENT STATS = BASE STATS + NEEDED STATS
-	req_stats = [0,0,0,0,0,0,0,0] # REQUIRED STATS = HIGHEST OF EACH STAT FOR A LIST OF ITEMS
+	with open(file) as f:
+		data = json.load(f)
 
-	#TO PICK WINNER
-	lowest_level = 999
-	best_class = ""
-	best_stats = []
+	for item in range(data['count']):
 
-	# GET A LIST OF ITEMS
-	for item in range(len(items_list)):
-		item_reqs.append(get_reqs(items_list[item]['name'], items_list[item]['file'],roll_type,desired_health))
+		"""
+		if file == "weapons.json": #different naming conventions for stats by json
+			print(data['data'][item]['name'])
 
-		# KEEP ONLY THE HIGHEST FOR EACH INDEX
-		for stat in range(8):
-			if item_reqs[item][stat] > req_stats[stat]:
-				req_stats[stat] = item_reqs[item][stat]
+			for stat in data['data'][item]['requiredAttributes']:
+				print(f"{stat['name']}: {stat['amount']}")
+		"""
 
-
-	for classes_index in range(11): # 11 classes
-		class_name, base_level, base_stats = get_base_stats(classes_index)
-
-		for stat in range((len(needed_stats))): #subtract each stat (required - base) not less than 0
-			needed_stats[stat] = max(req_stats[stat] - base_stats[stat], 0)
-
-			if needed_stats[stat] != 0: #base is lower than required save required stats
-				current_stats[stat] = req_stats[stat]
-				#print(f"\tfrom requirements: {current_stats[stat]}") #for testing
-
-			else: #base is higher than required save base stats
-				current_stats[stat] = base_stats[stat]
-				#print(f"\tfrom base: {class_name} {current_stats[stat]}") #for testing
-		
-		
-
-		current_level = sum(needed_stats) + base_level
-
-		# store the lowest level class
-
-		if current_level < lowest_level: # new winner
-
-			best_class = class_name
-			lowest_level = current_level
-			best_stats = current_stats.copy()
-			
-
-	print(f"best class is:\
-		\n\t{best_class}: {lowest_level}\
-		\n\t{best_stats}")
+		item_reqs = get_reqs(data['data'][item],file,roll_type['med'],0)
+		print(item_reqs)
 
 
 
 
-optimize_class(items_list, roll_type['med'], 1900)
+can_use_with_stats(character_stats, 'weapons.json')
 
