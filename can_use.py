@@ -247,6 +247,8 @@ def can_use_with_stats(character_stats, file):
 	outputs: equippable_...
 	"""
 
+	can_use = []
+
 	with open(file) as f:
 		data = json.load(f)
 
@@ -260,11 +262,21 @@ def can_use_with_stats(character_stats, file):
 				print(f"{stat['name']}: {stat['amount']}")
 		"""
 
-		item_reqs = get_reqs(data['data'][item],file,roll_type['med'],0)
-		print(item_reqs)
+		item_reqs = get_reqs(data['data'][item]['name'],file,roll_type['med'],0)
 
+		for stat in range(len(character_stats)):
+			if item_reqs[stat] > character_stats[stat]:
+				requirements_met = False
+				break
+			else:
+				requirements_met = True
 
+		if requirements_met:
+			can_use.append(data['data'][item]['name'])
+
+	return can_use
 
 
 can_use_with_stats(character_stats, 'weapons.json')
+can_use_with_stats(character_stats, 'incantations.json')
 
