@@ -14,9 +14,7 @@ items_list = [{"name": "Greatsword",
 			  {"name": "Blasphemous Blade",
 			   "file": "weapons.json"},
 			  {"name": "Elden Stars",
-			   "file": "incantations.json"},
-			  {"name": "Rock Sling",
-			   "file": "sorceries.json"}]
+			   "file": "incantations.json"}]
 
 equipped_talismans = []
 
@@ -163,7 +161,7 @@ def get_reqs(item, file, roll_type, desired_health):
 	arcane_req 			= 0
 	
 
-	if file == 'weapons.json':
+	if file == 'weapons.json' or file == 'shields.json':
 
 		for stats in item_info['requiredAttributes']:
 			
@@ -320,8 +318,46 @@ def optimize_class(items_list, roll_type, desired_health):
 		\n\t{best_class}: {lowest_level}\
 		\n\t{best_stats}")
 
+	return best_class, lowest_level, best_stats
 
 
+def can_use_with_stats(character_stats, file):
+	"""Function can_use_with_stats takes character stats and returns all items that
+	can be equipped (required stats <= current stats)
 
-optimize_class(items_list, roll_type['med'], 1900)
+	inputs:
+		character_stats - stats of character
+		file			- file to parse
+
+	outputs:
+		can_use 		- list of usable item names
+	"""
+
+	can_use = []
+
+	with open(file) as f:
+		data = json.load(f)
+
+	for item in range(data['count']):
+
+		item_reqs = get_reqs(data['data'][item]['name'],file,roll_type['med'],0)
+
+		for stat in range(len(character_stats)):
+			if item_reqs[stat] > character_stats[stat]:
+				requirements_met = False
+				break
+			else:
+				requirements_met = True
+
+		if requirements_met:
+			can_use.append(data['data'][item]['name'])
+
+		#print(data['data'][item]['name'], requirements_met) #testing
+
+	return can_use
+
+
+best_class, lowest_level, best_stats = optimize_class(items_list, roll_type['med'], 1900)
+
+print(can_use_with_stats(best_stats, 'weapons.json'))
 

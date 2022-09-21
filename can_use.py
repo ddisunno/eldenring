@@ -170,7 +170,7 @@ def get_reqs(item, file, roll_type, desired_health):
 	arcane_req 			= 0
 	
 
-	if file == 'weapons.json':
+	if file == 'weapons.json' or file == 'shields.json':
 
 		for stats in item_info['requiredAttributes']:
 			
@@ -244,7 +244,8 @@ def can_use_with_stats(character_stats, file):
 		character_stats - stats of character
 		file			- file to parse
 
-	outputs: equippable_...
+	outputs:
+		can_use 		- list of usable item names
 	"""
 
 	can_use = []
@@ -253,14 +254,6 @@ def can_use_with_stats(character_stats, file):
 		data = json.load(f)
 
 	for item in range(data['count']):
-
-		"""
-		if file == "weapons.json": #different naming conventions for stats by json
-			print(data['data'][item]['name'])
-
-			for stat in data['data'][item]['requiredAttributes']:
-				print(f"{stat['name']}: {stat['amount']}")
-		"""
 
 		item_reqs = get_reqs(data['data'][item]['name'],file,roll_type['med'],0)
 
@@ -274,9 +267,14 @@ def can_use_with_stats(character_stats, file):
 		if requirements_met:
 			can_use.append(data['data'][item]['name'])
 
+		#print(data['data'][item]['name'], requirements_met) #testing
+
 	return can_use
 
 
-can_use_with_stats(character_stats, 'weapons.json')
-can_use_with_stats(character_stats, 'incantations.json')
+can_use_weapons = (can_use_with_stats(character_stats, 'weapons.json'))
+can_use_shields = (can_use_with_stats(character_stats, 'shields.json'))
+can_use_incantations = (can_use_with_stats(character_stats, 'incantations.json'))
+can_use_sorceries = (can_use_with_stats(character_stats, 'sorceries.json'))
+
 
