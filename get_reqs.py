@@ -9,6 +9,8 @@ roll_type = {'light'	: 0.299,
 			 'fat'		: 0.999,
 			 'overencumbered' : None}
 
+
+# IMITATES PICKING ARMAMENTS / SPELLS FROM THE FRONT END
 items_list = [{"name": "Greatsword",
 			   "file": "weapons.json"},
 			  {"name": "Blasphemous Blade",
