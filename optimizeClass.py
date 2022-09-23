@@ -2,6 +2,7 @@ import pandas as pd
 import armorOptimizer as armorOptimization
 import get_reqs
 
+#Todo- getReqs optimizes endurnace and mind levels, whic hare returned in starting class
 df_vigor = pd.read_csv(r'csv/vigor.csv')
 
 #Talismans that affect health total
@@ -20,13 +21,13 @@ def healthToVigorLevel(health):
     return df_vigor.iloc[index]['Level']
 
 #Calculates the levels of vigor needed to reach user-inputted health goal, including health-boosting talismans
-def calcVigorLevels(health, crimsonMedallion, erdtreesFavor):
-    health = health / (crimsonHealthBonus[crimsonMedallion] * erdtreesFavorHealthBonus[erdtreesFavor])
+def calcVigorLevels(health, healthIncrease):
+    health = health / healthIncrease
     return healthToVigorLevel(health)
 
-def calcStartingClass(weaponName, targetHealth, rollType, crimsonMedallion, erdtreesFavor):
+def calcStartingClass(weaponName, targetHealth, rollType, healthIncrease):
     rollThreshold = armorOptimization.getRollThreshold(rollType)
-    levels = calcVigorLevels(targetHealth,crimsonMedallion, erdtreesFavor)
+    levels = calcVigorLevels(targetHealth,healthIncrease)
     reqs = get_reqs.get_reqs(weaponName,'json/weapons.json',rollThreshold, levels)
     startingClass = get_reqs.optimize_class(reqs)
     return startingClass

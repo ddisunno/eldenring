@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <form>
+            <label for="tLevel">Target Level:</label>
+            <input type="text" id="tLevel" name="tLevel"><br>
+
+            <label for="tHealth">Target Health:</label>
+            <input type="text" id="tHealth" name="tHealth"><br>
+
+            <label for="tEnd">Target Endurance:</label>
+            <input type="text" id="tEnd" name="tEnd"><br>
+
+            <label for="tMind">Target Mind:</label>
+            <input type="text" id="tMind" name="tMind"><br>
+
+            <label for="tWeap">Weapon Name:</label>
+            <input type="text" id="tWeap" name="tWeap"><br>
+
+            <label for="aff">Weapon Affinity:</label>
+            <input type="text" id="aff" name="aff"><br>
+
+            <label for="weapLvl">Weapon Level:</label>
+            <input type="text" id="weapLvl" name="weapLvl"><br>
+
+            <label for="twoHand">Two Handing Weapon:</label>
+            <input type="text" id="twoHand" name="twoHand"><br>
+
+            <label for="tRoll">Target Roll Type:</label>
+            <input type="text" id="tRoll" name="tRoll"><br>
+
+            <label for="talisman1">Talisman 1:</label>
+            <input type="text" id="talisman1" name="talisman1"><br>
+            <label for="talisman2">Talisman 2:</label>
+            <input type="text" id="talisman2" name="talisman2"><br>
+            <label for="talisman3">Talisman 3:</label>
+            <input type="text" id="talisman3" name="talisman3"><br>
+            <label for="talisman4">Talisman 4:</label>
+            <input type="text" id="talisman4" name="talisman4"><br>
+
+            <input id = 'build-button' type="button" value="Create Build">
+          </form>
+        
+        <script>
+            var ipv4 = '192.168.1.2:3000' //Server Ipv4 Address
+
+            var button = document.getElementById('build-button');
+
+            var targetLevel = document.getElementById('tLevel').value;
+            var targetHealth = document.getElementById('tHealth').value;
+            var targetEndurance = document.getElementById('tEnd').value;
+            var targetMind = document.getElementById('tMind').value;
+            var weaponName = document.getElementById('tWeap').value;
+            var affinity = document.getElementById('aff').value;
+            var weaponLevel = document.getElementById('weapLvl').value;
+            var isTwoHanding = document.getElementById('twoHand').value;
+            var rollType = document.getElementById('tRoll').value;
+            var talisman1 = document.getElementById('talisman1').value;
+            var talisman2 = document.getElementById('talisman2').value;
+            var talisman3 = document.getElementById('talisman3').value;
+            var talisman4 = document.getElementById('talisman4').value;
+            
+            button.addEventListener('click', async _ => {
+            try {     
+                const response = await fetch(ipv4, {
+                method: 'post',
+                body: 
+                    JSON.stringify(
+                        {type: 'build', data:{level:targetLevel, health:targetHealth, endurance:targetEndurance, mind:targetMind, weaponName: weaponName, affinity: affinity, weapon: TODO, weaponLevel: str(weaponLevel), isTwoHanded: isTwoHanding, rollType: rollType, arsenalTalisman: TODO, erdtreeTalisman: TODO, crimsonAmberMedallion:TODO, talismans: TODO}})
+                    })
+                console.log("Server Response: " + response.statusText);
+            } catch(err) {
+                console.error(`Error: ${err}`);
+            }
+            });
+
+        </script>
+        
+    </body>
+
+</html>

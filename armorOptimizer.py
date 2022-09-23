@@ -32,8 +32,8 @@ erdtreeTalismans = {"Erdtree's Favor": 1.05, "Erdtree's Favor +1": 1.065, "Erdtr
 enduranceLevelToEquipLoad = [45.0,45.0,45.0,45.0,45.0,45.0,45.0,45.0,46.6,48.2,49.8,51.4,52.9,54.5,56.1,57.7,59.3,60.9,62.5,64.1,65.6,67.2,68.8,70.4,72.0,73.0,74.1,75.2,76.4,77.6,78.9,80.2,81.5,82.8,84.1,85.4,6.8,88.1,89.5,90.9,92.3,93.7,95.1,96.5,97.9,99.4,100.8,102.2,103.7,105.2,106.6,108.1,109.6,111.0,112.5,114.0,115.5,117.0,118.5,120.0,121.0,122.1,123.1,124.1,125.1,126.2,127.2,128.2,129.2,130.3,131.3,132.3,133.3,134.4,135.4,136.4,137.4,138.5,139.5,140.5,141.5,142.6,143.6,144.6,145.6,146.7,147.7,148.7,149.7,150.8,151.8,152.8,153.8,154.9,155.9,156.9,157.9,159.0,160.0]
 ##############################################################################################
 
-def calcWeightLeft(level, arsenalTalisman, erdtreeTalisman, desiredRollType, usedWeight):
-    totalEquipLoad = round(enduranceLevelToEquipLoad[level-1] * arsenalTalismans[arsenalTalisman]*erdtreeTalismans[erdtreeTalisman],1)
+def calcWeightLeft(level, equipLoadIncrease, desiredRollType, usedWeight):
+    totalEquipLoad = round(enduranceLevelToEquipLoad[level-1] * equipLoadIncrease,1)
 
     #With total equip load, can calculate the max weight a player can have for each equip load state.
     maxWeightForRoll = round(totalEquipLoad*mediumRollThreshold,1) if(desiredRollType == 'med') else round(totalEquipLoad*lightRollThreshold,1)
@@ -134,9 +134,9 @@ def getArmorTier(weightLeft,armors):
 
     return {"helm": armors['helm'], "chest": armors['chest'], "gauntlets":armors['gauntlets'], "legs":armors['legs']}
 
-def calcOptimalArmorSets(weaponName, talismans, targetEndurance, arsenalTalisman, erdtreeTalisman, rollType):
+def calcOptimalArmorSets(weaponName, talismans, targetEndurance, equipLoadIncrease, rollType):
     usedWeight = calcUsedWeight(weaponName, talismans)
-    weightLeft = calcWeightLeft(targetEndurance, arsenalTalisman, erdtreeTalisman, rollType, usedWeight) 
+    weightLeft = calcWeightLeft(targetEndurance, equipLoadIncrease, rollType, usedWeight) 
 
     armors = getArmorInfoJson()
     armors = getArmorTier(weightLeft,armors) 

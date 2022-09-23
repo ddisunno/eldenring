@@ -223,3 +223,41 @@ def optimize_class(req_stats):
 		#print(best_class, best_current_stats)
 
 	return {"name":best_class, "lowest":lowest_level, "stats":best_stats, "startLevel":best_start_level}
+
+
+def can_use_with_stats(character_stats, file):
+	"""Function can_use_with_stats takes character stats and returns all items that
+	can be equipped (required stats <= current stats)
+	inputs:
+		character_stats - stats of character
+		file			- file to parse
+	outputs: equippable_...
+	"""
+
+	can_use = []
+
+	with open(file) as f:
+		data = json.load(f)
+
+	for item in range(data['count']):
+
+		"""
+		if file == "weapons.json": #different naming conventions for stats by json
+			print(data['data'][item]['name'])
+			for stat in data['data'][item]['requiredAttributes']:
+				print(f"{stat['name']}: {stat['amount']}")
+		"""
+
+		item_reqs = get_reqs(data['data'][item]['name'],file,roll_type['med'],0)
+
+		for stat in range(len(character_stats)):
+			if item_reqs[stat] > character_stats[stat]:
+				requirements_met = False
+				break
+			else:
+				requirements_met = True
+
+		if requirements_met:
+			can_use.append(data['data'][item]['name'])
+
+	return can_use
