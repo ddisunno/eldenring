@@ -15,11 +15,11 @@ def handlePostData(data):
 
     if(type == 'build'):
         input = data['data']
-        message = overallOptimizer.optimizeBuild(input['weaponName'], input['weapon'], input['weaponLevel'], input['affinity'], input['isTwoHanded'], input['rollType'], input['level'], input['health'], input['endurance'], input['mind'], input['arsenalTalisman'], input['erdtreeTalisman'], input['talismans'], input['crimsonAmberMedallion'])
+        message = overallOptimizer.optimizeBuild(input['weaponName'], input['weaponLevel'], input['affinity'], input['isTwoHanded'], input['rollType'], input['level'], input['health'], input['endurance'], input['mind'], input['talismans'])
     else:
         message = "Hello, World! Here is a POST response"
     
-    return message
+    return json.dumps(message)
 
 class Serv(BaseHTTPRequestHandler):
 
@@ -45,9 +45,11 @@ class Serv(BaseHTTPRequestHandler):
 
         message = handlePostData(data)
 
-        self.send_response(200, message)
+        self.send_response(200)
         self.send_header('Content-type','text/html')
         self.end_headers()
+
+        self.wfile.write(bytes(message,"utf-8"))
                 
 httpd = HTTPServer(('localhost',3000), Serv)
 httpd.serve_forever()

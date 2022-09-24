@@ -18,22 +18,22 @@
             <label for="tMind">Target Mind:</label>
             <input type="text" id="tMind" name="tMind"><br>
 
-            <label for="tWeap">Weapon Name:</label>
+            <label for="tWeap">Weapon Name (Dropdown/Search):</label>
             <input type="text" id="tWeap" name="tWeap"><br>
 
-            <label for="aff">Weapon Affinity:</label>
+            <label for="aff">Weapon Affinity (Optional/Dropdown/Greyed out if weaponName is null or somber):</label>
             <input type="text" id="aff" name="aff"><br>
 
-            <label for="weapLvl">Weapon Level:</label>
+            <label for="weapLvl">Weapon Level (Dropdown that changes based on if somber or not):</label>
             <input type="text" id="weapLvl" name="weapLvl"><br>
 
-            <label for="twoHand">Two Handing Weapon:</label>
+            <label for="twoHand">Two Handing Weapon (Checkbox):</label>
             <input type="text" id="twoHand" name="twoHand"><br>
 
-            <label for="tRoll">Target Roll Type:</label>
+            <label for="tRoll">Target Roll Type (Dropdown):</label>
             <input type="text" id="tRoll" name="tRoll"><br>
 
-            <label for="talisman1">Talisman 1:</label>
+            <label for="talisman1">Talisman 1 (Dropdown/Search/ Talismans of different levels that are already equipped are greyed out):</label>
             <input type="text" id="talisman1" name="talisman1"><br>
             <label for="talisman2">Talisman 2:</label>
             <input type="text" id="talisman2" name="talisman2"><br>
@@ -43,39 +43,64 @@
             <input type="text" id="talisman4" name="talisman4"><br>
 
             <input id = 'build-button' type="button" value="Create Build">
+
+            <p id = "results">No results</p>
           </form>
         
         <script>
             var ipv4 = '192.168.1.2:3000' //Server Ipv4 Address
 
             var button = document.getElementById('build-button');
+            var results = document.getElementById('results');
+            var serverResult = null;
 
-            var targetLevel = document.getElementById('tLevel').value;
-            var targetHealth = document.getElementById('tHealth').value;
-            var targetEndurance = document.getElementById('tEnd').value;
-            var targetMind = document.getElementById('tMind').value;
-            var weaponName = document.getElementById('tWeap').value;
-            var affinity = document.getElementById('aff').value;
-            var weaponLevel = document.getElementById('weapLvl').value;
-            var isTwoHanding = document.getElementById('twoHand').value;
-            var rollType = document.getElementById('tRoll').value;
-            var talisman1 = document.getElementById('talisman1').value;
-            var talisman2 = document.getElementById('talisman2').value;
-            var talisman3 = document.getElementById('talisman3').value;
-            var talisman4 = document.getElementById('talisman4').value;
-            
             button.addEventListener('click', async _ => {
-            try {     
-                const response = await fetch(ipv4, {
-                method: 'post',
-                body: 
-                    JSON.stringify(
-                        {type: 'build', data:{level:targetLevel, health:targetHealth, endurance:targetEndurance, mind:targetMind, weaponName: weaponName, affinity: affinity, weapon: TODO, weaponLevel: str(weaponLevel), isTwoHanded: isTwoHanding, rollType: rollType, arsenalTalisman: TODO, erdtreeTalisman: TODO, crimsonAmberMedallion:TODO, talismans: TODO}})
-                    })
-                console.log("Server Response: " + response.statusText);
-            } catch(err) {
-                console.error(`Error: ${err}`);
-            }
+                
+                var targetLevel = parseInt(document.getElementById('tLevel').value);
+                var targetHealth = parseInt(document.getElementById('tHealth').value);
+                var targetEndurance = parseInt(document.getElementById('tEnd').value);
+                var targetMind = parseInt(document.getElementById('tMind').value);
+                var weaponName = document.getElementById('tWeap').value;
+                var affinity = document.getElementById('aff').value;
+                var weaponLevel = document.getElementById('weapLvl').value;
+                var isTwoHanding = document.getElementById('twoHand').value;
+                var rollType = document.getElementById('tRoll').value;
+                var talisman1 = document.getElementById('talisman1').value;
+                var talisman2 = document.getElementById('talisman2').value;
+                var talisman3 = document.getElementById('talisman3').value;
+                var talisman4 = document.getElementById('talisman4').value;
+
+                var talismans = []
+                if(talisman1 != ''){
+                    talismans.push(talisman1)
+                }
+                if(talisman2 != ''){
+                    talismans.push(talisman2)
+                }
+                if(talisman3 != ''){
+                    talismans.push(talisman3)
+                }
+                if(talisman4 != ''){
+                    talismans.push(talisman4)
+                }
+
+                if(affinity == ""){
+                    affinity = null
+                }
+                
+                try {     
+                    const response = await fetch(ipv4, {
+                    method: 'post',
+                    body: 
+                        JSON.stringify(
+                            {type: 'build', data:{level:targetLevel, health:targetHealth, endurance:targetEndurance, mind:targetMind, weaponName: weaponName, affinity: affinity,  weaponLevel: weaponLevel, isTwoHanded: isTwoHanding, rollType: rollType, talismans: talismans}})
+                        }).then(body => body.json().then(result => serverResult = result));
+                } catch(err) {
+                    console.error(`Error: ${err}`);
+                }
+
+                console.log("Server Result: " + serverResult.build.strength)
+                results.innerHTML = JSON.stringify(serverResult)
             });
 
         </script>

@@ -46,8 +46,8 @@ def calcUsedWeight(weapon, talismans):
     weaponInfo = get_reqs.fetch_from_json(weapon, 'json/weapons.json')
     weight += weaponInfo['weight']
 
-    for i in range(len(talismans)):
-        talismanInfo = get_reqs.fetch_from_json(talismans[i], 'json/talismans.json')
+    for talisman in talismans:
+        talismanInfo = get_reqs.fetch_from_json(talisman, 'json/talismans.json')
         weight += talismanInfo['weight']
     
     return weight
