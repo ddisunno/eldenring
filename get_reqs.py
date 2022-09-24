@@ -147,7 +147,7 @@ def get_reqs(item, file, roll_type, desired_health):
 
 	item_info = fetch_from_json(item, file)
 
-	weight = item_info.get('weight') or 0
+	weight  = item_info.get('weight') or 0
 	fp_cost = item_info.get('cost') or 0
 
 	# UNIVERSAL REQUIREMENTS
@@ -323,7 +323,7 @@ def optimize_class(items_list, roll_type, desired_health):
 	return best_class, lowest_level, best_stats
 
 
-def can_use_with_stats(character_stats, file):
+def can_equip(character_stats, file):
 	"""Function can_use_with_stats takes character stats and returns all items that
 	can be equipped (required stats <= current stats)
 
@@ -361,5 +361,5 @@ def can_use_with_stats(character_stats, file):
 
 best_class, lowest_level, best_stats = optimize_class(items_list, roll_type['med'], 1900)
 
-print(can_use_with_stats(best_stats, 'weapons.json'))
+print(can_equip(best_stats, 'weapons.json'))
 
