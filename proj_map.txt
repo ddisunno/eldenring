@@ -1,0 +1,103 @@
+Boc's BRILLIANT Build Optimizer
+
+Authors: Dylan DiSunno, Rudy DeSanti
+
+
+
+### OPTIMIZER ROAD MAP ###
+
+Inputs:
+	Armaments
+		- is_two_handing
+		- is_power_stancing
+			+ Should Have 13 Normal, 8 Somber (Highest Number of Armaments that can be maxxed per playthrough)
+			+ Allows Player to highlight items (considers highlighted items as part of a group / equipped together)
+	Armor
+		- pick specific pieces/sets
+		- ban specific pieces/sets
+		- pick Negation/Poise/Resistance goals (or highest)
+	Talismans
+	Spells
+	Stats
+
+Outputs:
+	Optimized - Stat Distribution,
+				Weapons (Highest AR)
+				Armor (Best Negation/Poise/Resistance)
+
+
+1. fetch data (optional; may want a new fetch after patches/updates)
+
+?. optimize armor to specifications
+
+2. get requirements of inputs (& armor)
+3. pick the best class to meet requirements
+4. get all armaments that can be used with best class stats as base
+
+
+?. optimize all inputs with best class stats as base
+?. 
+
+
+#####################################################################################################################################
+Necessary Functions:
+
+### COMPLETE ###
+
+1. get_data()
+	- function to fetch data from the open source API and store it locally
+	inputs:
+		LIST OF URLS
+	outputs:
+		NONE (generates json files from list of urls)
+
+
+
+2. get_requirements()
+	- function to get stat requirements for armaments / armor / spells
+	inputs:
+		LIST OF WEAPONS IN DICTIONARY FORM	[
+											{
+												'name' 				: "Name of Item (armament / armor / spell)",
+												'file' 				: "File for Item (file.json)",
+												'is_two_handing' 	: True/False,		# TWO HANDED WEAPONS ONLY REQUIRE 2/3 STR REQ
+												'is_power_stancing' : True/False		# POWER STANCING WEAPONS DOUBLES WEIGHT
+											},
+											{
+												etc.
+											}
+											]
+	outputs:
+		LIST OF STATS REQUIRED TO WEILD EVERY GIVEN ITEM	[vigor,
+															 mind,
+															 endurance,
+															 strength,
+															 dexterity,
+															 intelligence,
+															 faith,
+															 arcane]
+
+
+
+3. optimize class()
+	- function to determine which class can reach required levels for each stat while maintaining the lowest overall level
+	inputs:
+		LIST OF STATS
+	outputs:
+		lowest classes:
+			name,
+			level,
+			stat distribution
+
+
+
+4. can_weild()
+	- function to determine all equippable items at a stat distribution
+	inputs:
+		LIST OF STATS
+		file (weapons, shields, armor, spells)
+	- outputs:
+		LIST OF NAMES FOR EQUIPPABLE ITEMS
+
+
+### INCOMPLETE ###
