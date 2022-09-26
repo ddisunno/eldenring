@@ -11,6 +11,7 @@ To do:
 from collections import deque
 import json
 import get_reqs
+import math
 
 ### Constants ##############################################################################
 #Roll thresholds- anything over 99.9% is overencumbered.
@@ -244,3 +245,157 @@ def findOptimalArmor(weightLeft,armors,type):
     optimalSet['poi'] = round(optimalSet['poi'],1)
     return optimalSet
 ################################################################################################
+
+### Get Armor with target poise, then highest resistance, then lowest weight
+#Poise goes from 0-100 from armor
+def getArmorWithPoise(targetPoise,armors,tieBreaker,bgTalisman): #tieBreaker is either weight or neg
+
+    if(bgTalisman):
+        targetPoise = math.trunc(targetPoise/1.33)
+
+    secondaryTieBreaker = 'weight' if(tieBreaker == 'neg') else 'neg'
+
+    optimalSet = {'chest':None, 'legs':None, 'gauntlets':None, 'helm': None, 'weight':0, 'neg':0, 'poi':0}
+
+    stack = deque()
+    stack.append(optimalSet.copy())
+
+    #Loop through stack
+    while(len(stack) > 0):
+       
+        current = stack.pop()
+       
+        if(current['chest'] is None):
+            for chest in armors['chest']:
+                current['chest'] = chest['name']
+                current['weight'] = chest['weight']
+                current['neg'] = chest['phyNeg']
+                current['poi'] = chest['poise']
+
+                if(current['poi'] <= targetPoise):
+                    stack.append(current.copy())
+        
+        elif(current['legs'] is None):
+            for legs in armors['legs']:
+                temp = current.copy()
+                temp['legs'] = legs['name']
+                temp['weight'] += legs['weight']
+                temp['neg'] += legs['phyNeg']
+                temp['poi'] += legs['poise']
+
+                if(temp['poi'] <= targetPoise):
+                    stack.append(temp.copy())
+
+        elif(current['gauntlets'] is None):
+            for gauntlet in armors['gauntlets']:
+                temp = current.copy()
+                temp['gauntlets'] = gauntlet['name']
+                temp['weight'] += gauntlet['weight']
+                temp['neg'] += gauntlet['phyNeg']
+                temp['poi'] += gauntlet['poise']
+
+                if(temp['poi'] <= targetPoise):
+                    stack.append(temp.copy())
+                
+        elif(current['helm'] is None): 
+            neededPoise = targetPoise - current['poi']
+            for helm in armors['helm']:
+                optimalPoiseDif = abs(targetPoise - optimalSet['poi'])
+                currentPoiseDif = abs(neededPoise - helm['poise'])
+                if(helm['poise'] == neededPoise or optimalPoiseDif > currentPoiseDif): #0 > any # is always false
+                    temp = current.copy()
+                    temp['helm'] = helm['name']
+                    temp['weight'] += helm['weight']
+                    temp['neg'] += helm['phyNeg']
+                    temp['poi'] += helm['poise']
+                    
+                    #If poise is beter
+                    if(optimalPoiseDif > currentPoiseDif):
+                        optimalSet = temp.copy()
+
+                    #Else, use tiebreaker
+                    elif(tieBreaker == "neg"):
+                        if(temp[tieBreaker] > optimalSet[tieBreaker] or optimalSet[tieBreaker] == 0):
+                            optimalSet = temp.copy()
+                        elif(temp[tieBreaker] == optimalSet[tieBreaker] and temp[secondaryTieBreaker] < optimalSet[secondaryTieBreaker]):
+                            optimalSet = temp.copy()
+
+                    else:
+                        if(temp[tieBreaker] < optimalSet[tieBreaker] or optimalSet[tieBreaker] == 0):
+                            optimalSet = temp.copy()
+                        elif(temp[tieBreaker] == optimalSet[tieBreaker] and temp[secondaryTieBreaker] > optimalSet[secondaryTieBreaker]):
+                            optimalSet = temp.copy()
+
+    #Round optimal set, and return list
+    optimalSet['weight'] = round(optimalSet['weight'],2)
+    optimalSet['neg'] = round(optimalSet['neg'],2)
+    optimalSet['poi'] = round(optimalSet['poi'] * 1.33,0) if(bgTalisman) else round(optimalSet['poi'],0)
+    return optimalSet
+
+def getArmorTierByPoise(targetPoise, armors):
+    armors['helm'].sort(key = lambda x:x['poise']) #size- 167
+    armors['chest'].sort(key = lambda x:x['poise']) #203
+    armors['gauntlets'].sort(key = lambda x:x['poise']) #93
+    armors['legs'].sort(key = lambda x:x['poise']) #105
+
+    numHelms = int(len(armors['helm']))
+    numChests = int(len(armors['chest']))
+    numGauntlets = int(len(armors['gauntlets']))
+    numLegs = int(len(armors['legs']))
+    
+    #Want to reduce search space by atleast 70%.
+    if(targetPoise < 30): 
+        armors['helm'] = armors['helm'][:int(numHelms*.75)]
+        armors['chest'] = armors['chest'][:int(numChests*.75)]
+        armors['gauntlets'] = armors['gauntlets'][:int(numGauntlets*.75)]
+        armors['legs'] = armors['legs'][:int(numLegs*.75)]
+    #80-100
+    else:
+        armors['helm'] = armors['helm'][int(numHelms*.25):]
+        armors['chest'] = armors['chest'][int(numChests*.25):]
+        armors['gauntlets'] = armors['gauntlets'][int(numGauntlets*.25):]
+        armors['legs'] = armors['legs'][int(numLegs*.25):]
+
+    return {"helm": armors['helm'], "chest": armors['chest'], "gauntlets":armors['gauntlets'], "legs":armors['legs']}
+
+#TieBreaker is either neg or weight (if two or more armor sets hit the target poise, then break ties with the chosen value (weight or physical negation))
+def calcArmorWithPoise(targetPoise, tieBreaker,bgtalisman):
+    
+    armors = getArmorInfoJson()
+    #armors = getArmorTierByPoise(targetPoise,armors) 
+
+    armorSet = getArmorWithPoise(targetPoise,armors,tieBreaker,bgtalisman)
+
+    return armorSet
+
+def armorPoiseToJson():
+
+    talismanWeight = []
+    talismanNeg = []
+    noTalismanWeight = []
+    noTalismanNeg = []
+
+    for i in range(0,134):
+        if(i <= 100):
+            noTalismanWeight.append({"Target Poise": i, "Armor Set":calcArmorWithPoise(i,"weight",False)})
+            noTalismanNeg.append({"Target Poise": i, "Armor Set":calcArmorWithPoise(i,"neg",False)})
+        talismanWeight.append({"Target Poise": i, "Armor Set":calcArmorWithPoise(i,"weight",True)})
+        talismanNeg.append({"Target Poise": i, "Armor Set":calcArmorWithPoise(i,"neg",True)})
+        print("Done with: " + str(i))
+
+    bgTalisman = {"weight":talismanWeight, "neg":talismanNeg}
+    noTalisman = {"weight":noTalismanWeight, "neg":noTalismanNeg}
+
+    string = {"Yes BG Talisman": bgTalisman, "No BG Talisman": noTalisman}
+
+    with open(f'poiseArmorSets2.json', 'w') as f:
+        json.dump(string,f)
+    
+    return string
+
+def testArmorPoise():
+    for i in range(2):
+        print(calcArmorWithPoise(i,"weight",True))
+
+#armorPoiseToJson()
+testArmorPoise()

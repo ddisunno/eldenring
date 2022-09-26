@@ -55,18 +55,18 @@ def optimizeBuild(baseName, weaponLevel, affinity, isTwoHanded, rollType, target
     dmgStats = weaponOptimizer.calcStatsForWeapon(targetLevel, startingClass, fullName, weaponLevel, isTwoHanded, affinity, baseName)
 
     ### Get Optimal Armor Sets 
-    armorSets = armorOptimization.calcOptimalArmorSets(baseName, talismans, targetEndurance, statBoostsFromTalismans['equipLoadIncrease'], rollType) #Need to change this to include talisman weight (Change talismans.json to include)
-
+    #armorSets = armorOptimization.calcOptimalArmorSets(baseName, talismans, targetEndurance, statBoostsFromTalismans['equipLoadIncrease'], rollType) #Need to change this to include talisman weight (Change talismans.json to include)
+    armorSet = armorOptimization.calcArmorWithPoise(99,"neg")
     ### Add Up & Print Results ########
     build = {'StartingClass': startingClass['name'], 'Level': targetLevel, 'Vitality':int(startingClass['stats'][0]), 'Endurance': targetEndurance, 'Mind':targetMind} 
     build = {**build,**dmgStats}
 
     print("Weapon Name: " + fullName + " | Weapon Level: " + weaponLevel + " | Roll Type: " + rollType + " | isTwoHanded: " + str(isTwoHanded))
     print("Build Stats: " + str(build))
-    print('Physical Neg Set: ' + str(armorSets[0]))
-    print('Poise Set: ' + str(armorSets[1]))
+    #print('Physical Neg Set: ' + str(armorSet[0]))
+    print('Poise Set: ' + str(armorSet))
 
-    return {'build':dmgStats, "armorSets":armorSets}
+    return {'build':dmgStats, "armorSets":armorSet}
 
 ### User Entered Information - Example on how optimizeBuild should be called.
 affinity = None #Either an affinity string (Heavy, Quality, Keen, Fire, Flame Art, Sacred, Lightning, Magic, Poision, Bloody, Occult, Cold) or None/Null type
