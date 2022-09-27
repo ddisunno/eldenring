@@ -40,7 +40,7 @@ def checkTalismans(talismans):
 
 #Combines all other optimizers into one, to output the final correct build
 #If weapon AR cannot be calc, just calculates armor
-def optimizeBuild(baseName, weaponLevel, affinity, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetMind, talismans): #baseName is for the base weapon, fullName is the weapon name with affinities.
+def optimizeBuild(baseName, weaponLevel, affinity, isTwoHanded, rollType, targetLevel, targetVitality, targetEndurance, targetPoise, targetMind, talismans): #baseName is for the base weapon, fullName is the weapon name with affinities.
     
     #Pre-process full weapon name
     fullName = affinity + " " + weaponName if(affinity) else weaponName
@@ -78,14 +78,14 @@ rollType = 'med' #light, med, fat, overencumbered
 #User entered target levels
 targetLevel = 150 #User enters this. This is the total level of the build, no more, no less.
 targetHealth = 1700 #Health is affected by talismans
-targetEndurance = 20 #Make based off stamina?
-
+targetEndurance = None #Make based off stamina?
+targetPoise = 51
 targetMind = 15 #Make mind based off entered spells/ashes of war
 spells = []
 ashesOfAWar = []
 
 talismans = ["Great-jar's Arsenal", "Crimson Amber Medallion", "Erdtree's Favor +2", "Blessed Dew Talisman"] #Array of up to size 4 consisting of strings of the names of the user-chosen talismans. Used for calc the total weight of talismans.
 
-totalOptimalBuild = optimizeBuild(weaponName, weaponLevel, affinity, isTwoHanded, rollType, targetLevel, targetHealth, targetEndurance, targetMind, talismans)
+totalOptimalBuild = optimizeBuild(weaponName, weaponLevel, affinity, isTwoHanded, rollType, targetLevel, targetHealth, targetEndurance, targetPoise, targetMind, talismans)
 #######################
 

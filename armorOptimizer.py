@@ -249,9 +249,11 @@ def findOptimalArmor(weightLeft,armors,type):
 ### Get Armor with target poise, then highest resistance, then lowest weight
 #Poise goes from 0-100 from armor
 def getArmorWithPoise(targetPoise,armors,tieBreaker,bgTalisman): #tieBreaker is either weight or neg
+    if(targetPoise > 133):
+        targetPoise = 133
 
     if(bgTalisman):
-        targetPoise = math.trunc(targetPoise/1.33)
+        targetPoise = round(targetPoise/1.33,0)
 
     secondaryTieBreaker = 'weight' if(tieBreaker == 'neg') else 'neg'
 
@@ -300,21 +302,16 @@ def getArmorWithPoise(targetPoise,armors,tieBreaker,bgTalisman): #tieBreaker is 
         elif(current['helm'] is None): 
             neededPoise = targetPoise - current['poi']
             for helm in armors['helm']:
-                optimalPoiseDif = abs(targetPoise - optimalSet['poi'])
-                currentPoiseDif = abs(neededPoise - helm['poise'])
-                if(helm['poise'] == neededPoise or optimalPoiseDif > currentPoiseDif): #0 > any # is always false
+                
+                if(helm['poise'] == neededPoise): #0 > any # is always false
                     temp = current.copy()
                     temp['helm'] = helm['name']
                     temp['weight'] += helm['weight']
                     temp['neg'] += helm['phyNeg']
-                    temp['poi'] += helm['poise']
+                    temp['poi'] = targetPoise
                     
-                    #If poise is beter
-                    if(optimalPoiseDif > currentPoiseDif):
-                        optimalSet = temp.copy()
-
                     #Else, use tiebreaker
-                    elif(tieBreaker == "neg"):
+                    if(tieBreaker == "neg"):
                         if(temp[tieBreaker] > optimalSet[tieBreaker] or optimalSet[tieBreaker] == 0):
                             optimalSet = temp.copy()
                         elif(temp[tieBreaker] == optimalSet[tieBreaker] and temp[secondaryTieBreaker] < optimalSet[secondaryTieBreaker]):
@@ -386,7 +383,7 @@ def armorPoiseToJson():
     bgTalisman = {"weight":talismanWeight, "neg":talismanNeg}
     noTalisman = {"weight":noTalismanWeight, "neg":noTalismanNeg}
 
-    string = {"Yes BG Talisman": bgTalisman, "No BG Talisman": noTalisman}
+    string = {"Bull Goat Increase": bgTalisman, "Standard": noTalisman}
 
     with open(f'poiseArmorSets2.json', 'w') as f:
         json.dump(string,f)
@@ -394,8 +391,23 @@ def armorPoiseToJson():
     return string
 
 def testArmorPoise():
-    for i in range(2):
+    for i in range(11):
         print(calcArmorWithPoise(i,"weight",True))
 
-#armorPoiseToJson()
-testArmorPoise()
+def getArmorByPoise(poise, tieBreaker, bullGoatTalisman):
+    talisman = None
+    if(bullGoatTalisman):
+        talisman = "Bull Goat Increase"
+    else:
+        talisman = "Standard"
+
+    with open('json/poiseArmorSets.json') as f:
+        data = json.load(f)
+    
+    for set in data[talisman][tieBreaker]:
+        if(set["Target Poise"] == poise):
+            return set["Armor Set"]
+
+    return None
+
+print(getArmorByPoise(10,"weight",False))
