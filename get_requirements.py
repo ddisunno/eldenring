@@ -28,16 +28,14 @@ items_list = [{"name": "Greatsword",
 			  {"name": "Crimson Amber Medallion +2",
 			   "file": "talismans.json"},
 			  {"name": "Erdtree's Favor +2",
+			   "file": "talismans.json"},
+			  {"name": "Great-jar's Arsenal",
+			   "file": "talismans.json"},
+			  {"name": "Radagon Icon",
 			   "file": "talismans.json"}]
 
-desired_health = 1900
 
-"""
-equipped_talismans = ["Radagon Icon",
-					  "Great-jar's Arsenal",
-					  "Crimson Amber Medallion +2",
-					  "Erdtree's Favor +2"]
-"""
+
 
 def fetch_from_json(item, file):
     """Function fetch_from_data finds an item in a file
