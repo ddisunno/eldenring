@@ -13,11 +13,31 @@ roll_type = {'light'	: 0.299,
 # IMITATES PICKING ARMAMENTS / SPELLS FROM THE FRONT END (EVERYTHING IN ITEMS_LIST IS CONSIDERED EQUIPPED)
 items_list = [{"name": "Greatsword",
 			   "file": "weapons.json"},
-			  {"name": "Blasphemous Blade",
+			  {"name": "Clawmark Seal",
 			   "file": "weapons.json"},
 			  {"name": "Elden Stars",
-			   "file": "incantations.json"}]
+			   "file": "incantations.json"},
+			  {"name": "Veteran's Helm",
+			   "file": "armors.json"},
+			  {"name": "Erdtree Surcoat",
+			   "file": "armors.json"},
+			  {"name": "Veteran's Gauntlets",
+			   "file": "armors.json"},
+			  {"name": "Bull-goat Greaves",
+			   "file": "armors.json"},
+			  {"name": "Crimson Amber Medallion +2",
+			   "file": "talismans.json"},
+			  {"name": "Erdtree's Favor +2",
+			   "file": "talismans.json"}]
 
+desired_health = 1900
+
+"""
+equipped_talismans = ["Radagon Icon",
+					  "Great-jar's Arsenal",
+					  "Crimson Amber Medallion +2",
+					  "Erdtree's Favor +2"]
+"""
 
 def fetch_from_json(item, file):
     """Function fetch_from_data finds an item in a file
@@ -44,7 +64,6 @@ def fetch_from_json(item, file):
 
 def vigor_calc(desired_health):
 	"""Function vigor_calc parses vigor.csv; match HP to vigor level,
-	account for talismans
 
 	inputs:
 		desired_health - amount of health you would like to have
@@ -53,6 +72,7 @@ def vigor_calc(desired_health):
 		level of vigor required to have desired health
 
 	"""
+
 	with open('vigor.csv') as f:
 		vigor_scaling = csv.reader(f)
 
@@ -60,9 +80,9 @@ def vigor_calc(desired_health):
 
 		for level in vigor_scaling:
 
-			HP = level[1]
+			HP = float(level[1])
 
-			#print(f"{level[0]}: {HP}")
+			#print(level[0], HP)
 
 			if int(HP) >= desired_health:
 				return int(level[0])
@@ -70,7 +90,6 @@ def vigor_calc(desired_health):
 
 def mind_calc(fp_cost):
 	"""Function vigor_calc parses vigor.csv; match HP to vigor level,
-	account for talismans
 
 	inputs:
 		fp_cost - fp cost of spell/ash/etc
@@ -88,21 +107,17 @@ def mind_calc(fp_cost):
 
 			FP = level[1]
 
-			#print(f"{level[0]}: {HP}")
-
 			if int(FP) >= fp_cost:
 				return int(level[0])
 			
 
 def endurance_calc(weight,roll_type):
 	"""Function endurance_calc parses endurance.csv; match equip load to endurance level,
-	account for talismans
 	then returns required endurance to use items at a specified weight with specified roll type
 
 	inputs:
 		weight - weight of an item/character
 		roll_type - ideal roll_type from dictionary ['light']['med']['fat']['']
-		talismans - [list of talismans] if ___ in talismans:
 
 	returns:
 		level of endurance required to have an equip load that can manage inputted weight
@@ -127,6 +142,47 @@ def endurance_calc(weight,roll_type):
 
 
 ####################################################
+def modify_stats(item_name, stat, stat_value, stat_limiter):
+
+	with open('stat_modifiers.json') as f:
+		data = json.load(f)
+
+	for item in range(len(data[stat])):
+		
+		if data[stat][item]['name'] == item_name:
+
+			# because we are lowering a requirement, operations will be reversed
+			if data[stat][item]['operation'] == "addition":
+				new_stat_value = max(stat_value - data[stat][item]['modifier'], 0)
+				return new_stat_value
+
+			elif data[stat][item]['operation'] == "subtraction":
+				new_stat_value = stat_value + data[stat][item]['modifier']
+				return new_stat_value
+
+			elif data[stat][item]['operation'] == "multiplication":
+				if stat_limiter:
+					new_stat_limiter = stat_limiter / data[stat][item]['modifier']	
+					return new_stat_limiter
+				else:
+					return stat_limiter
+
+			elif data[stat][item]['operation'] == "division":
+				if stat_limiter:
+					new_stat_limiter = stat_limiter * data[stat][item]['modifier']
+					return new_stat_limiter
+				else:
+					return stat_limiter
+
+
+	# if item does not modify stat: return the original value
+	if stat_limiter != None:
+		return stat_limiter	
+	else:
+		return stat_value
+
+
+
 def get_requirements(items_list, desired_health, roll_type):
 	"""Function get_requirements
 
@@ -181,7 +237,7 @@ def get_requirements(items_list, desired_health, roll_type):
 				if stats['name'] == "Arc":
 					arcane_req = stats['amount']
 
-		elif item_file == 'armors.json':
+		elif item_file == 'armors.json' or item_file == 'talismans.json':
 			pass
 
 		elif item_file == 'incantations.json' or file == 'sorceries.json':
@@ -208,7 +264,40 @@ def get_requirements(items_list, desired_health, roll_type):
 			if item_reqs[item][stat] > req_stats[stat]:
 				req_stats[stat] = item_reqs[item][stat]
 
+
+	# time to apply modifiers
+	# CALCULATE STAT_LIMITERS FIRST
+	for item in range(len(items_list)):
+
+		item_name = items_list[item]['name']
+
+		#print(item_info)
+
+		desired_health = modify_stats(item_name, 'HP', req_stats[0], desired_health)
+		req_stats[0] = vigor_calc(desired_health)
+
+		weight = modify_stats(item_name, 'EQUIP LOAD', req_stats[2], weight)
+		req_stats[2] = endurance_calc(weight, roll_type)
+
+	# CALCULATE STAT_VALUES LAST
+	for item in range(len(items_list)):
+
+		item_name = items_list[item]['name']
+
+		req_stats[0] = modify_stats(item_name, 'vigor', req_stats[0], None)
+		req_stats[1] = modify_stats(item_name, 'mind', req_stats[1], None)
+		req_stats[2] = modify_stats(item_name, 'endurance', req_stats[2], None)
+		req_stats[3] = modify_stats(item_name, 'strength', req_stats[3], None)
+		req_stats[4] = modify_stats(item_name, 'dexterity', req_stats[4], None)
+		req_stats[5] = modify_stats(item_name, 'intelligence', req_stats[5], None)
+		req_stats[6] = modify_stats(item_name, 'faith', req_stats[6], None)
+		req_stats[7] = modify_stats(item_name, 'arcane', req_stats[7], None)
+
 	return req_stats
 
 
-get_requirements(items_list, 1900, roll_type['med'])
+req_stats = get_requirements(items_list, 1900, roll_type['med'])
+
+print(req_stats)
+
+

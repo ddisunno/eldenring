@@ -31,9 +31,3 @@ def fetch_from_json(item, file):
     """
     
     return item_info
-
-jar_cannon = fetch_from_json('Jar Cannon','weapons.json')
-banished_knight_armor = fetch_from_json('Banished Knight Armor','armors.json')
-
-print(jar_cannon)
-print(banished_knight_armor)

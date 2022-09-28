@@ -1,0 +1,213 @@
+{
+	"HP" : [
+  		{
+  			"name" : "Crimson Amber Medallion",
+  			"category" : "talisman",
+  			"modifier" : 1.06,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Crimson Amber Medallion +1",
+  			"category" : "talisman",
+  			"modifier" : 1.07,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Crimson Amber Medallion +2",
+  			"category" : "talisman",
+  			"modifier" : 1.08,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor",
+  			"category" : "talisman",
+  			"modifier" : 1.03,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +1",
+  			"category" : "talisman",
+  			"modifier" : 1.035,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +2",
+  			"category" : "talisman",
+  			"modifier" : 1.04,
+  			"operation" : "multiplication"
+  		}
+  	],
+  	"FP" : [
+  		
+  	],
+  	"STAMINA" : [
+  		{
+  			"name" : "Erdtree's Favor",
+  			"category" : "talisman",
+  			"modifier" : 1.0675,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +1",
+  			"category" : "talisman",
+  			"modifier" : 1.0825,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +2",
+  			"category" : "talisman",
+  			"modifier" : 1.096,
+  			"operation" : "multiplication"
+  		}
+  	],
+  	"EQUIP LOAD" : [
+  		{
+  			"name" : "Erdtree's Favor",
+  			"category" : "talisman",
+  			"modifier" : 1.05,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +1",
+  			"category" : "talisman",
+  			"modifier" : 1.065,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Erdtree's Favor +2",
+  			"category" : "talisman",
+  			"modifier" : 1.08,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Arsenal Charm",
+  			"category" : "talisman",
+  			"modifier" : 1.15,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Arsenal Charm +1",
+  			"category" : "talisman",
+  			"modifier" : 1.17,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Great-jar's Arsenal",
+  			"category" : "talisman",
+  			"modifier" : 1.19,
+  			"operation" : "multiplication"
+  		}
+  	],
+  	"vigor" : [
+  		{
+  			"name" : "Radagon's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Radagon's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"mind" : [
+  		{
+  			"name" : "Marika's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Marika's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"endurance" : [
+  		{
+  			"name" : "Radagon's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Radagon's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"strength" : [
+  		{
+  			"name" : "Radagon's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Radagon's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"dexterity" : [
+  		{
+  			"name" : "Radagon's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Radagon's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"intelligence" : [
+  		{
+  			"name" : "Marika's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Marika's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"faith" : [
+  		{
+  			"name" : "Marika's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Marika's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	],
+  	"arcane" : [
+  		{
+  			"name" : "Marika's Scarseal",
+  			"category" : "talisman",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Marika's Soreseal",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+		}
+  	]
+}
