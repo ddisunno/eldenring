@@ -1,55 +1,36 @@
-# Python 3 server example
-from dataclasses import field
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import json
-import overallOptimizer
+'''
+Author: Rudy DeSanti
+Last Modified: September 29, 2022
+Description: Webserver using Flask. Serves HTML file built using React found at path 'react/build-optimizer-react/build'. Supports GET and POST requests. Runs on port 5000.
+'''
+import os
+from flask import Flask, send_from_directory, request
+import serverMethods as server
 
-hostName = "localhost"
-serverPort = 3000
+app = Flask(__name__, static_folder='react/build-optimizer-react/build')
 
-def handlePostData(data):
-    print(data)
+# Serve React App
+@app.route('/', methods = ['GET','POST'])
+def home():
+    if request.method == 'POST':
+        """return the information for <user_id>"""
+        data = request.get_json(force=True)
+        print(data['type'])
+        return server.handleType(data)
 
-    data = json.loads(data)
-    type = data['type']
-
-    if(type == 'build'):
-        input = data['data']
-        message = overallOptimizer.optimizeBuild(input['weaponName'], input['weaponLevel'], input['affinity'], input['isTwoHanded'], input['rollType'], input['level'], input['health'], input['endurance'], input['mind'], input['talismans'])
+    elif request.method == 'GET':
+        return send_from_directory(app.static_folder, 'index.html')
     else:
-        message = "Hello, World! Here is a POST response"
-    
-    return json.dumps(message)
+        # POST Error 405 Method Not Allowed
+        print("Error 405")
+        return send_from_directory(app.static_folder, 'index.html')
 
-class Serv(BaseHTTPRequestHandler):
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
-    def do_GET(self):
-
-        if(self.path == '/'):
-            self.path = '/index.html'
-
-        try:
-            file_to_open = open(self.path[1:]).read()
-            self.send_response(200)
-        except:
-            file_to_open = "File not found"
-            self.send_response(404)
-        
-        self.end_headers()
-        self.wfile.write(bytes(file_to_open, 'utf-8'))
-
-    def do_POST(self):
-        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-        post_data = self.rfile.read(content_length) # <--- Gets the data itself
-        data = post_data.decode('utf-8')
-
-        message = handlePostData(data)
-
-        self.send_response(200)
-        self.send_header('Content-type','text/html')
-        self.end_headers()
-
-        self.wfile.write(bytes(message,"utf-8"))
-                
-httpd = HTTPServer(('localhost',3000), Serv)
-httpd.serve_forever()
+if __name__ == '__main__':
+    app.run(use_reloader=True, port=5000, threaded=True)

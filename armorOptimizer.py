@@ -410,4 +410,4 @@ def getArmorByPoise(poise, tieBreaker, bullGoatTalisman):
 
     return None
 
-print(getArmorByPoise(10,"weight",False))
+

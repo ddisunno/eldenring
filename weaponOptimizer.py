@@ -4,7 +4,6 @@ Todo:
    
 '''
 #Import needed libraries
-import simplejson as JSON
 import calcWeaponAR as calcWeapon
 import pandas as pd
 import get_reqs
@@ -209,7 +208,11 @@ def optimizeWeaponSpellScaling(numOfLevels, startingStats, weaponReq, scalingSta
 
 ### Helper functions ###############################
 def isSomber(weaponName):
-    affinities = calcWeapon.getAffinities(weaponName)
+    try: 
+        affinities = calcWeapon.getAffinities(weaponName)
+    except:
+        print(f"Error: {weaponName} not found")
+        affinities = [""]
     return True if len(affinities) == 1 else False
 #Returns false if user entered weapon level is not in range. WeaponLevel is int
 

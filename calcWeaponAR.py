@@ -15,6 +15,8 @@ df_extraData = pd.read_csv(r'csv/Extra_Data.csv')
 df_elementParam = pd.read_csv(r'csv/AttackElementCorrectParam.csv')
 df_calcCorrect = pd.read_csv(r'csv/CalcCorrectGraph_ID.csv')
 
+df_extraData['Name'] = df_extraData['Name'].str.lower()
+
 #### Contants ############################################################################
 def getWeaponFormulaConstants(weaponName, weaponLevel, isTwoHanding):
 
@@ -77,7 +79,8 @@ def getStrFormula(H2, isTwoHanding):
 
 ### Weapon Contants 
 def getWeaponType(weaponName):
-    H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    #H2 = int(df_attack.loc[df_attack['Name'] == weaponName].index[0])
+    H2 = int(df_extraData.loc[df_extraData['Name'] == weaponName.lower()].index[0])
     return df_extraData.iloc[H2,12]
 
 def getWeaponReq(weapon):
@@ -96,7 +99,8 @@ def getScaling(weapon, weaponLevel):
 
 #Get the weapon's affinities
 def getAffinities(weaponName):
-    H2 = int(df_extraData.loc[df_extraData['Name'] == weaponName].index[0])
+    
+    H2 = int(df_extraData.loc[df_extraData['Name'] == weaponName.lower()].index[0])
 
     return [""] if int(df_extraData.iloc[H2,4]) == 10 else ["Heavy","Keen","Quality","Flame Art","Sacred","Magic","Cold","Fire","Lightning","Poison","Blood","Occult"]
 

@@ -3527,7 +3527,7 @@
     },
     {
       "id": "17f698fbfe3l0i1onysor0mpgg5yes",
-      "name": "Axe Of Godfrey",
+      "name": "Axe of Godfrey",
       "image": "https://eldenring.fanapis.com/images/weapons/17f698fbfe3l0i1onysor0mpgg5yes.png",
       "description": "Weapon of Godfrey, Elden Lord. It was broken in a battle fought as leader of the Tarnished during the Long March. This weapon is symbolic of Godfrey's vow to conduct himself as a lord, later becoming an emblem of the golden lineage. In the days of the past, a crown was warranted with strength. ",
       "attack": [
@@ -3775,7 +3775,7 @@
     },
     {
       "id": "17f69dc1749l0i1ooc0npawnyrf3d",
-      "name": "Staff Of The Avatar",
+      "name": "Staff of the Avatar",
       "image": "https://eldenring.fanapis.com/images/weapons/17f69dc1749l0i1ooc0npawnyrf3d.png",
       "description": "Ceremonial staff depicting the Erdtree in its historic radiance. Wielded by the avatars who protect the Minor Erdtrees. The avatars, emerging in the wake of the Elden Ring's shattering, were determined to protect the withering Erdtree's offspring.",
       "attack": [
@@ -3927,7 +3927,7 @@
     },
     {
       "id": "17f698d50ael0i1ooor7m3e3wm1ksn",
-      "name": "Giant-crusher",
+      "name": "Giant-Crusher",
       "image": "https://eldenring.fanapis.com/images/weapons/17f698d50ael0i1ooor7m3e3wm1ksn.png",
       "description": "A hammer made from a boulder, used in the War against the Giants. One of the heftiest weapons in the entire Lands Between. After the giants were quelled, and man turned against man in violence, this weapon was all but forgotten. Man has grown feeble in comparison to his forebears. ",
       "attack": [
@@ -4814,7 +4814,7 @@
     },
     {
       "id": "17f697ea1a4l0i1oq4te6lr8su01zs",
-      "name": "Crepus's Black-key Crossbow",
+      "name": "Crepus's Black-Key Crossbow",
       "image": "https://eldenring.fanapis.com/images/weapons/17f697ea1a4l0i1oq4te6lr8su01zs.png",
       "description": "Black crossbow featuring a long stock. Used for sniping, it has a very long range. Weapon of Crepus, who served the Two Fingers from the shadows of the Roundtable as the head confessor.",
       "attack": [
@@ -6117,7 +6117,7 @@
     },
     {
       "id": "17f695b60e8l0i1osrls9u8la9bek",
-      "name": "Wing Of Astel",
+      "name": "Wing of Astel",
       "image": "https://eldenring.fanapis.com/images/weapons/17f695b60e8l0i1osrls9u8la9bek.png",
       "description": "Sword fashioned from a delicate wing, suffused with the magic of the stars. Strong attack unleashes a wave of enchanted light. Crafted from a relic of the Naturalborn of the Void who is said to have assailed the Eternal City.",
       "attack": [
@@ -7021,7 +7021,7 @@
     },
     {
       "id": "17f69aa066dl0i1ouek4e8nmlybotp",
-      "name": "Mis\u00e9ricorde",
+      "name": "Misericorde",
       "image": "https://eldenring.fanapis.com/images/weapons/17f69aa066dl0i1ouek4e8nmlybotp.png",
       "description": "Dagger favored by military physicians in white.  The pointed blade is hard and sharp, making critical hits especially potent.  Medicine is mercy. and mercy upon the battlefield is ruthless. Beware the killers clothes as men of compassion",
       "attack": [
@@ -9857,7 +9857,7 @@
     },
     {
       "id": "17f697c8bb1l0i1ozxd3885l5ejmcw",
-      "name": "Prince Of Death's Star",
+      "name": "Prince Of Death's Staff",
       "image": "https://eldenring.fanapis.com/images/weapons/17f697c8bb1l0i1ozxd3885l5ejmcw.png",
       "description": "Staff embedded with sullied amber, said to be a very part of the Prince of Death. Enhances death sorceries. One of the staves deemed heretical by the academy for its ability to allow sorceries to be augmented through faith in addition to intelligence.",
       "attack": [
@@ -10545,7 +10545,7 @@
     },
     {
       "id": "17f698cdcd5l0i1p17cuvrv89tk1t",
-      "name": "Staff Of The Guilty",
+      "name": "Staff of the Guilty",
       "image": "https://eldenring.fanapis.com/images/weapons/17f698cdcd5l0i1p17cuvrv89tk1t.png",
       "description": "A heretical staff fashioned from a smoldering, withered sapling that turns the blood of sacrifices pierced by it into glinstone. Similar to hex magic. Sorceries are scaled with faith rather than intelligence when weilding this staff which enhances Thorn sorceries in particular.",
       "attack": [
@@ -15900,7 +15900,7 @@
     },
     {
       "id": "17f69aced5el0i1pcsbypcz3lxclfq",
-      "name": "Varr\u00e9's Bouquet",
+      "name": "Varre's Bouquet",
       "image": "https://eldenring.fanapis.com/images/weapons/17f69aced5el0i1pcsbypcz3lxclfq.png",
       "description": "A steel mace resembling a charming bouquet of roses. Each petal has a sharpened edge, leaving the roses perpetually colored with blood.  This weapon reflects White Mask Varr\u00e9's manner of speech rather well, enticing in its splendor, but full of deadly consequence.",
       "attack": [
@@ -16708,7 +16708,7 @@
     },
     {
       "id": "17f696cbcb2l0i1pe89fm2alskh2df",
-      "name": "Great \u00c9p\u00e9e",
+      "name": "Great Epee",
       "image": "https://eldenring.fanapis.com/images/weapons/17f696cbcb2l0i1pe89fm2alskh2df.png",
       "description": "Large rapier featuring a thin, sharp blade.  Commonly used in life or death duels. Like its smaller counterparts, its made for thrusting attacks, and can be used while guarding with a shield. ",
       "attack": [
@@ -20415,86 +20415,6 @@
       "weight": 4.5
     },
     {
-      "id": "17f697d5fe2l0i1pkvirys2xrxe0un",
-      "name": "Winged Spear",
-      "image": "https://eldenring.fanapis.com/images/weapons/17f697d5fe2l0i1pkvirys2xrxe0un.png",
-      "description": "A spear with winged ornamentation at the base of its head. A thrusting weapon with long reach that can be used to attack from behind a shield. It is also effective against mounted foes.",
-      "attack": [
-        {
-          "name": "Phy",
-          "amount": 78
-        },
-        {
-          "name": "Mag",
-          "amount": 0
-        },
-        {
-          "name": "Fire",
-          "amount": 0
-        },
-        {
-          "name": "Ligt",
-          "amount": 0
-        },
-        {
-          "name": "Holy",
-          "amount": 0
-        },
-        {
-          "name": "Crit",
-          "amount": 100
-        }
-      ],
-      "defence": [
-        {
-          "name": "Phy",
-          "amount": 40
-        },
-        {
-          "name": "Mag",
-          "amount": 25
-        },
-        {
-          "name": "Fire",
-          "amount": 20
-        },
-        {
-          "name": "Ligt",
-          "amount": 30
-        },
-        {
-          "name": "Holy",
-          "amount": 25
-        },
-        {
-          "name": "Boost",
-          "amount": 35
-        }
-      ],
-      "scalesWith": [
-        {
-          "name": "Str",
-          "scaling": "D"
-        },
-        {
-          "name": "Dex",
-          "scaling": "C"
-        }
-      ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
-      "category": "Spear",
-      "weight": 4.5
-    },
-    {
       "id": "17f69a84ec9l0i1pl7rf93vq4jlbt8",
       "name": "Longsword",
       "image": "https://eldenring.fanapis.com/images/weapons/17f69a84ec9l0i1pl7rf93vq4jlbt8.png",
@@ -21415,7 +21335,7 @@
     },
     {
       "id": "17f698685e3l0i1pmwzhhrnhxcf81",
-      "name": "Sword Of St Trina",
+      "name": "Sword Of St. Trina",
       "image": "https://eldenring.fanapis.com/images/weapons/17f698685e3l0i1pmwzhhrnhxcf81.png",
       "description": "Silver sword carried by clerics of St. Trina. Inflicts sleep ailment upon foes. St. Trina is an enigmatic figure. Some say she is a comely young girl, others are sure he is a boy. The only certainty is that their appearance was as sudden as their disappearance.",
       "attack": [
