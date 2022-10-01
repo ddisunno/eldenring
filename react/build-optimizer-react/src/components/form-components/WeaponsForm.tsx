@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AffinitySelection from './AffinitySelection';
 
+interface Weapon{
+    name: string,
+    somber: boolean,
+    affinity: string
+}
 interface Props{
     weapons: string[],
     setWeapons: React.Dispatch<React.SetStateAction<string[]>>
@@ -9,7 +14,7 @@ interface Props{
 const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
     
     //All weapons in options 
-    const [weaponArray, setWeaponArray] = useState<Array<{'name':string, "somber":boolean}>>([]);
+    const [weaponArray, setWeaponArray] = useState<Array<{'name':string, "somber":boolean,'affinity': }>>([]);
     const [getWeaponOptions, setWeaponOptions] = useState<JSX.Element[]>()
 
     //Weapons the user adds to their build.
@@ -45,13 +50,13 @@ const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
         setChosenWeaponsJSX(chosenWeapons.map((key:{name:string, somber:boolean}) => {
             //If key is not somber weapon, the add affinity
             if(key['somber'] == false){
-                return <AffinitySelection keyName = {key['name']}></AffinitySelection>;
+                return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key['name']}></AffinitySelection>;
             }
             else{
                 return <li key = {key['name']} value = {key['name']}>{key['name']}</li>
             }
         }));
-           
+        console.log(chosenWeapons);
     }, [chosenWeapons]);
 
     //Press the add weapon button.
