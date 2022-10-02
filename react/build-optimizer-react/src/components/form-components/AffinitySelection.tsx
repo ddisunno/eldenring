@@ -1,33 +1,40 @@
 import React, { useState } from 'react';
 
+interface Weapon{
+    name: string,
+    somber: boolean,
+    affinity: string,
+    pngUrl: string
+}
+
 interface Props{
-    keyName:string,
-    chosenWeapons:{name: string;somber: boolean;}[],
-    setChosenWeapons:React.Dispatch<React.SetStateAction<{name: string; somber: boolean;}[]>>
+    keyName:Weapon,
+    chosenWeapons:Weapon[],
+    setChosenWeapons:React.Dispatch<React.SetStateAction<Weapon[]>>
 }
 
 const AffinitySelection:React.FC<Props> = ({keyName, chosenWeapons, setChosenWeapons}) => {
 
-    const [weaponName, setWeaponName] = useState<string>(keyName);
+    const [weaponName, setWeaponName] = useState<string>(keyName['name']);
 
     //Handle change in affinity selection
     function handleChangeWeapon(e:any){
-        var tempList:{name: string;somber: boolean;}[] = [...chosenWeapons]
+        var tempList:Weapon[] = [...chosenWeapons]
         tempList.forEach(weapon => {
-            if(weapon['name'] == keyName ){
-                weapon['name'] = e.target.value + " " + keyName;
+            if(weapon['name'] == keyName['name']){
+                weapon['affinity'] = e.target.value;
             }
         });
 
         setChosenWeapons(tempList);
         
-        setWeaponName(e.target.value + " " + keyName);
+        setWeaponName(e.target.value + " " + keyName['name']);
     }
 
     return(
-        <div>
-            <li key = {keyName} value = {weaponName}>{weaponName}</li>
-            <label>Affinity: </label>
+        <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
+            <img src = {keyName['pngUrl']} width = {50} height = {50}></img>
+            <li key = {keyName['name']} value = {weaponName} style = {{listStyle:'none'}}>{weaponName}</li>
             <select defaultValue="" onChange={handleChangeWeapon}> 
                 <option value = "">Standard</option>
                 <option value = "Heavy">Heavy</option>
@@ -36,7 +43,7 @@ const AffinitySelection:React.FC<Props> = ({keyName, chosenWeapons, setChosenWea
                 <option value = "Magic">Magic</option>
                 <option value = "Cold">Cold</option>
                 <option value = "Fire">Fire</option>
-                <option value = "Flame art">Flame Art</option>
+                <option value = "Flame Art">Flame Art</option>
                 <option value = "Lightning">Lightning</option>
                 <option value = "Sacred">Sacred</option>
                 <option value = "Poison">Poison</option>

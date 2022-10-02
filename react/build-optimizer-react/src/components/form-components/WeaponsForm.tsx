@@ -4,27 +4,26 @@ import AffinitySelection from './AffinitySelection';
 interface Weapon{
     name: string,
     somber: boolean,
-    affinity: string
+    affinity: string,
+    pngUrl: string
 }
 interface Props{
-    weapons: string[],
-    setWeapons: React.Dispatch<React.SetStateAction<string[]>>
+    chosenWeapons: Weapon[],
+    setChosenWeapons: React.Dispatch<React.SetStateAction<Weapon[]>>
 }
 
-const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
+const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
     
     //All weapons in options 
-    const [weaponArray, setWeaponArray] = useState<Array<{'name':string, "somber":boolean,'affinity': }>>([]);
+    const [weaponArray, setWeaponArray] = useState<Array<Weapon>>([]);
     const [getWeaponOptions, setWeaponOptions] = useState<JSX.Element[]>()
 
     //Weapons the user adds to their build.
-    //const [chosenWeapons, setChosenWeapons] = useState<string[]>([]);
-    const [chosenWeapons, setChosenWeapons] = useState<Array<{'name':string, "somber":boolean}>>([]);
     const [chosenWeaponsJSX, setChosenWeaponsJSX] = useState<JSX.Element[]>()
     
     //The current weapon in the selection bar
     //This was type string
-    const [selectedWeapon, setSelectedWeapon] = useState<{'name':string, "somber":boolean}>({name:'',somber:false});
+    const [selectedWeapon, setSelectedWeapon] = useState<Weapon>({name:'',somber:false, affinity:"", pngUrl:""});
 
     useEffect(() => {
         const weaponList = async() => {
@@ -39,7 +38,7 @@ const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
     
     useEffect(() => {
        
-        setWeaponOptions(weaponArray.map((key:{name:string, somber:boolean}) => {
+        setWeaponOptions(weaponArray.map((key:Weapon) => {
             return <option key = {key['name']} value = {JSON.stringify(key)}>{key['name']}</option>
         }));
            
@@ -47,14 +46,18 @@ const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
 
     useEffect(() => {
        
-        setChosenWeaponsJSX(chosenWeapons.map((key:{name:string, somber:boolean}) => {
+        setChosenWeaponsJSX(chosenWeapons.map((key:Weapon) => {
             //If key is not somber weapon, the add affinity
             if(key['somber'] == false){
-                return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key['name']}></AffinitySelection>;
+                return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key}></AffinitySelection>;
             }
             else{
-                return <li key = {key['name']} value = {key['name']}>{key['name']}</li>
-            }
+                return(
+                    <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
+                        <img src = {key['pngUrl']} width = {50} height = {50}></img>
+                        <li key = {key['name']} value = {key['name']} style = {{listStyle:'none'}}>{key['name']}</li>
+                    </div>
+            )}
         }));
         console.log(chosenWeapons);
     }, [chosenWeapons]);
@@ -62,7 +65,7 @@ const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
     //Press the add weapon button.
     function addWeapon(){
         if(selectedWeapon['name'] != "" ){
-            var temp: Array<{name:string, somber:boolean}> = [...chosenWeapons];
+            var temp: Array<Weapon> = [...chosenWeapons];
             temp.push(selectedWeapon);
             setChosenWeapons(temp);
         }
@@ -73,7 +76,7 @@ const WeaponsForm: React.FC<Props> = ({weapons, setWeapons}) => {
         console.log(e.target.value)
         var value = JSON.parse(e.target.value)
         
-        setSelectedWeapon({name:value['name'], somber: value['somber']});
+        setSelectedWeapon({name:value['name'], somber: value['somber'], affinity:value['affinity'], pngUrl:value['pngUrl']});
     }
 
     //Get all weapons from server, use them in dropdown menu

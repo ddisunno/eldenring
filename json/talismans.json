@@ -21,7 +21,8 @@
     },
     {
       "name": "Arsenal Charm +1",
-      "weight": 1.5
+      "weight": 1.5,
+      "image": "https://eldenring.fanapis.com/images/talismans/17f69659e33l0i2soj4uhpxf54ncje.png"
     },
     {
       "id": "17f69d47ea5l0i2sokp40249x3da4f",
@@ -145,10 +146,12 @@
     },
     {
       "name": "Crimson Amber Medallion +1",
+      "image": "https://eldenring.fanapis.com/images/talismans/17f699e5a9dl0i2sqsk8mpabyj9mm4.png",
       "weight": 0.3
     },
     {
       "name": "Crimson Amber Medallion +2",
+      "image": "https://eldenring.fanapis.com/images/talismans/17f699e5a9dl0i2sqsk8mpabyj9mm4.png",
       "weight": 0.3
     },
     {
@@ -465,10 +468,12 @@
     },
     {
       "name": "Erdtree's Favor +1",
+      "image": "https://eldenring.fanapis.com/images/talismans/17f69f205a0l0i2svmo2djg04dhvj4.png",
       "weight": 1.5
     },
     {
       "name": "Erdtree's Favor +2",
+      "image": "https://eldenring.fanapis.com/images/talismans/17f69f205a0l0i2svmo2djg04dhvj4.png",
       "weight": 1.5
     },
     {

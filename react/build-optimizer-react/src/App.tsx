@@ -2,21 +2,19 @@ import React, {useState} from 'react';
 import './App.css';
 import InputForm from './components/InputForm';
 
+
+
 /** All user-inputted values are sent to the server as string types in JSON format. */
 function App() {
 
-  const [targetLevel, setTargetLevel] = useState<string>("");
-  const [targetHealth, setTargetHealth] = useState<string>("");
-  const [targetPoise, setTargetPoise] = useState<string>("");
-  const [weapons, setWeapons] = useState<string[]>([])
-
-  console.log("Level: " + targetLevel);
-  console.log("Health: " + targetHealth);
-  console.log("Poise: " + targetPoise);
+  const [build, setBuild] = useState<string[]>([]);
 
   return (
     <div className="App">
-      <InputForm targetLevel = {targetLevel} setTargetLevel = {setTargetLevel} targetHealth = {targetHealth} setTargetHealth = {setTargetHealth} targetPoise = {targetPoise} setTargetPoise = {setTargetPoise} weapons = {weapons}setWeapons = {setWeapons}></InputForm>
+      <div id = 'header'>
+        <h1>Boc's BRILLIANT Build Optimizer</h1>
+      </div>
+      <InputForm setBuild = {setBuild}></InputForm> {/** Have to update talismans.json to include all upgraded versions of talismans, and update their images. */}
     </div>
   );
 }
