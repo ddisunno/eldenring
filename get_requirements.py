@@ -1,5 +1,6 @@
 import simplejson as json
 import csv
+import math
 
 
 global roll_type, items_list
@@ -12,9 +13,13 @@ roll_type = {'light'	: 0.299,
 
 # IMITATES PICKING ARMAMENTS / SPELLS FROM THE FRONT END (EVERYTHING IN ITEMS_LIST IS CONSIDERED EQUIPPED)
 items_list = [{"name": "Greatsword",
-			   "file": "weapons.json"},
+			   "file": "weapons.json",
+			   "is_two_handing": False,
+			   "is_powerstancing": False},
 			  {"name": "Clawmark Seal",
-			   "file": "weapons.json"},
+			   "file": "weapons.json",
+			   "is_two_handing": False,
+			   "is_powerstancing": False},
 			  {"name": "Elden Stars",
 			   "file": "incantations.json"},
 			  {"name": "Veteran's Helm",
@@ -195,12 +200,24 @@ def get_requirements(items_list, desired_health, roll_type):
 		# take item_name and item_file out of items_list
 		item_name = items_list[item]['name']
 		item_file = items_list[item]['file']
+
+		is_two_handing = items_list[item].get('is_two_handing', None)
+		is_powerstancing = items_list[item].get('is_powerstancing', None)
+
+		"""
+		print(f"item_name: {item_name}\
+			  \nis_two_handing: {is_two_handing}\
+			  \nis_powerstancing: {is_powerstancing}")
+		"""
 		
 		# get info of the current item
 		item_info = fetch_from_json(item_name,item_file)
 
 		# get weight and fp requirements
-		weight += item_info.get('weight') or 0 # weight is cumulative
+		if is_powerstancing:
+			weight += item_info.get('weight')*2 or 0 # if powerstancing, weight accounts for both
+		else:
+			weight += item_info.get('weight') or 0 # weight is cumulative
 		fp_cost = item_info.get('cost') or 0 # fp cost is static (does not work for weapons (AoW))
 
 		# UNIVERSAL REQUIREMENTS
@@ -221,7 +238,10 @@ def get_requirements(items_list, desired_health, roll_type):
 			for stats in item_info['requiredAttributes']:
 				
 				if stats['name'] == "Str":
-					strength_req = stats['amount']
+					if is_two_handing == True:
+						strength_req = math.ceil(stats['amount']*2/3)
+					else:
+						strength_req = stats['amount']
 
 				if stats['name'] == "Dex":
 					dexterity_req = stats['amount']
@@ -295,7 +315,6 @@ def get_requirements(items_list, desired_health, roll_type):
 
 
 req_stats = get_requirements(items_list, 1900, roll_type['med'])
-
 print(req_stats)
 
 
