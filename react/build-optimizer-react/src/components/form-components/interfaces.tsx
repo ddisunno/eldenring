@@ -13,9 +13,14 @@ export interface Armor{
 }
 export interface Talisman{
     name:string,
-    pngUrl:string
+    pngUrl:string,
+    effect:string
 }
 export interface Spell{
     name:string,
-    pngUrl:string
+    pngUrl:string,
+    type:string,
+    effect:string,
+    cost:number,
+    slots:number
 }

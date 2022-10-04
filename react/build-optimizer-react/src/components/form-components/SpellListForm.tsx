@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ImageWithInfo from './ImageWithInfo';
 import {Spell} from './interfaces';
 
 interface Props{
@@ -9,7 +10,7 @@ interface Props{
 //SpellList is the list of chosen spells
 const  SpellListForm:React.FC<Props> = ({spellList, setSpellList}) => {
 
-    const [selectedSpell, setSelectedSpell] = useState<Spell>({name:"",pngUrl:""});
+    const [selectedSpell, setSelectedSpell] = useState<Spell>({name:"",pngUrl:"", type:'',effect:"",cost:0, slots:0});
 
     const [spellOptions, setSpellOptions] = useState<Spell[]>([]);
     const [spellOptionsJSX, setSpellOptionsJSX] = useState<JSX.Element[]>();
@@ -41,7 +42,7 @@ const  SpellListForm:React.FC<Props> = ({spellList, setSpellList}) => {
         setSpellListJSX(spellList.map((key:Spell) => {
             return(
                 <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
-                    <img src = {key['pngUrl']} width = {50} height = {50}></img>
+                    <ImageWithInfo pngUrl={key['pngUrl']} info={key}></ImageWithInfo>
                     <li key = {key['name']} value = {key['name']} style = {{listStyle:'none'}}>{key['name']}</li>
                     <input type="button" value="Remove" onClick ={() => removeSpell(key)}></input>
                 </div>
@@ -51,7 +52,7 @@ const  SpellListForm:React.FC<Props> = ({spellList, setSpellList}) => {
 
     function handleSpellChange(e:any){
         var value = JSON.parse(e.target.value)
-        setSelectedSpell({name:value['name'], pngUrl:value['pngUrl']})
+        setSelectedSpell(value)
     }
 
     function addSpell(){

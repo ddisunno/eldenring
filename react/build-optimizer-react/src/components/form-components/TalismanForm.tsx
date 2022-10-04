@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ImageWithInfo from './ImageWithInfo';
 import {Talisman} from './interfaces';
 
 interface Props{
@@ -27,7 +28,7 @@ const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanA
         var value = JSON.parse(e.target.value)
         
         var talismanTemp = [...talismans];
-        talismanTemp[slot] = {name:value['name'], pngUrl:value['pngUrl']}
+        talismanTemp[slot] = value
         setTalismans(talismanTemp);
 
         //Remove talisman from talisman list
@@ -56,7 +57,7 @@ const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanA
     return(
         <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
             <label>Talisman {slot+1}: </label>
-            <img src = {talismans[slot]['pngUrl']} width = {50} height = {50}></img>
+            <ImageWithInfo pngUrl={talismans[slot]['pngUrl']} info={talismans[slot]}></ImageWithInfo>
             <select defaultValue="" onChange = {handleChangeWeapon}>
                 <option value={JSON.stringify({name:"", pngUrl:""})}></option>
                 {talismanOptions}

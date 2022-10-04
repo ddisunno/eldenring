@@ -22,6 +22,7 @@
     {
       "name": "Arsenal Charm +1",
       "weight": 1.5,
+      "effect": "Raises maximum equipment load",
       "image": "https://eldenring.fanapis.com/images/talismans/17f69659e33l0i2soj4uhpxf54ncje.png"
     },
     {
@@ -147,11 +148,13 @@
     {
       "name": "Crimson Amber Medallion +1",
       "image": "https://eldenring.fanapis.com/images/talismans/17f699e5a9dl0i2sqsk8mpabyj9mm4.png",
+      "effect": "Raises maximum HP",
       "weight": 0.3
     },
     {
       "name": "Crimson Amber Medallion +2",
       "image": "https://eldenring.fanapis.com/images/talismans/17f699e5a9dl0i2sqsk8mpabyj9mm4.png",
+      "effect": "Raises maximum HP",
       "weight": 0.3
     },
     {
@@ -469,11 +472,13 @@
     {
       "name": "Erdtree's Favor +1",
       "image": "https://eldenring.fanapis.com/images/talismans/17f69f205a0l0i2svmo2djg04dhvj4.png",
+      "effect": "Raises maximum HP, stamina and equip load",
       "weight": 1.5
     },
     {
       "name": "Erdtree's Favor +2",
       "image": "https://eldenring.fanapis.com/images/talismans/17f69f205a0l0i2svmo2djg04dhvj4.png",
+      "effect": "Raises maximum HP, stamina and equip load",
       "weight": 1.5
     },
     {

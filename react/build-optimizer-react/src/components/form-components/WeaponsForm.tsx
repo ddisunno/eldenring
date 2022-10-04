@@ -50,6 +50,7 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
             if(key['somber'] == false){
                 return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key} removeWeapon = {removeWeapon}></AffinitySelection>;
             }
+            //Not somber- no affinity selection
             else{
                 return(
                     <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>

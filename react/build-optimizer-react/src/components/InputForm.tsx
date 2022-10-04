@@ -29,7 +29,7 @@ const InputForm: React.FC<Props> = ({setBuild}) => {
     const [targetGauntlets, setTargetGauntlets] = useState<Armor>({name:"",weight:0,poise:0,pngUrl:""});
     const [targetLegs, setTargetLegs] = useState<Armor>({name:"",weight:0,poise:0,pngUrl:""});
 
-    const [talismans, setTalismans] = useState<Talisman[]>([{name:"",pngUrl:""},{name:"",pngUrl:""},{name:"",pngUrl:""},{name:"",pngUrl:""}]);
+    const [talismans, setTalismans] = useState<Talisman[]>([{name:"",pngUrl:"",effect:''},{name:"",pngUrl:"",effect:''},{name:"",pngUrl:"",effect:''},{name:"",pngUrl:"",effect:''}]);
 
     const [spellList, setSpellList] = useState<Spell[]>([]);
 

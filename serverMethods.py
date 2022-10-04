@@ -45,7 +45,7 @@ def getTalismans():
     with open('json/talismans.json','r') as f:
         data = json.load(f)
         for talisman in data['data']:
-            names.append({'name':talisman['name'], 'pngUrl':talisman['image']})
+            names.append({'name':talisman['name'], 'pngUrl':talisman['image'], 'effect':talisman['effect']})
 
     names.sort(key=lambda x: x['name'])
     return json.dumps(names)
@@ -55,7 +55,7 @@ def getSpells():
     with open('json/spells.json','r') as f:
         data = json.load(f)
         for talisman in data['data']:
-            names.append({'name':talisman['name'], 'pngUrl':talisman['image']})
+            names.append({'name':talisman['name'], 'pngUrl':talisman['image'], 'type':talisman['type'], 'effect':talisman['effects'], 'cost':talisman['cost'], 'slots':talisman['slots']})
 
     names.sort(key=lambda x: x['name'])
     return json.dumps(names)
