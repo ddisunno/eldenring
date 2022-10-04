@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TalismanForm from './TalismanForm';
+import {Talisman} from './interfaces';
 
-interface Talisman{
-    name:string,
-    pngUrl:string
-}
 interface Props{
     talismans: Talisman[],
     setTalismans: React.Dispatch<React.SetStateAction<Talisman[]>>
@@ -29,10 +26,10 @@ const TalismansForm: React.FC<Props> = ({talismans, setTalismans}) => {
     return(
         <div>
             <label>Talismans: </label>
-            <TalismanForm slot = {0} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray}></TalismanForm>
-            <TalismanForm slot = {1} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray}></TalismanForm>
-            <TalismanForm slot = {2} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray}></TalismanForm>
-            <TalismanForm slot = {3} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray}></TalismanForm>
+            <TalismanForm slot = {0} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>
+            <TalismanForm slot = {1} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>
+            <TalismanForm slot = {2} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>
+            <TalismanForm slot = {3} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>
         </div>
     )
 }

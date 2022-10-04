@@ -1,18 +1,15 @@
-import { url } from 'inspector';
 import React, { useEffect, useState } from 'react';
+import {Talisman} from './interfaces';
 
-interface Talisman{
-    name:string,
-    pngUrl: string
-}
 interface Props{
     slot:number,
     talismans: Talisman[],
     setTalismans: React.Dispatch<React.SetStateAction<Talisman[]>>,
-    talismanArray:Talisman[]
+    talismanArray:Talisman[],
+    setTalismanArray:React.Dispatch<React.SetStateAction<Talisman[]>>
 }
 
-const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanArray}) => {
+const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanArray, setTalismanArray}) => {
 
     
     const [talismanOptions, setTalismanOptions] = useState<JSX.Element[]>()
@@ -24,7 +21,7 @@ const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanA
         }));
     }, [talismanArray]);
 
-    //Handle change in weapon selection
+    //Handle change in talismanselection
     function handleChangeWeapon(e:any){
         console.log(e.target.value)
         var value = JSON.parse(e.target.value)
@@ -32,12 +29,28 @@ const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanA
         var talismanTemp = [...talismans];
         talismanTemp[slot] = {name:value['name'], pngUrl:value['pngUrl']}
         setTalismans(talismanTemp);
+
+        //Remove talisman from talisman list
     }
 
     //Everytime talisman array is changed, update the options s.t. all now-incompatable talismans are not options.
     useEffect(() => {
-        //The same talisman cannot be used twice. Different levels of the same talisman cannot be used together.
+        /*
+        var temp = [...talismanArray]
 
+        //The same talisman cannot be used twice. Different levels of the same talisman cannot be used together.
+        talismans.map((key:Talisman) => {
+            if(key['name'] === "Arsenal Charm"){
+
+                var index = temp.map(function(e) { return e.name; }).indexOf('Arsenal Charm +1');
+                if (index > -1) { 
+                    temp.splice(index, 1); 
+                }
+            }
+        })
+
+        setTalismanArray(temp);
+        */
     }, [talismans]);
 
     return(

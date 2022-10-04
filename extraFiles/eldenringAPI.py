@@ -57,4 +57,4 @@ def get_data(url, pull):
 			time.sleep(0.3)
 
 
-get_data(url_list, pull = True)
+get_data(['https://eldenring.fanapis.com/api/incantations', 'https://eldenring.fanapis.com/api/sorceries'], pull = True)

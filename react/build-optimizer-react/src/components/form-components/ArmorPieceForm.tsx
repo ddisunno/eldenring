@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
-interface Armor{
-    name:string,
-    weight:number,
-    poise:number,
-    pngUrl: string
-}
+import {Armor} from './interfaces';
+import './ImageWithInfo';
+import ImageWithInfo from './ImageWithInfo';
 interface Props{
     type:string
     target:Armor,
@@ -16,7 +12,7 @@ const ArmorPieceForm: React.FC<Props> = ({type, target, setTarget}) => {
 
     const [armorArray, setArmorArray] = useState<Array<Armor>>([]);
     const [getArmorOptions, setArmorOptions] = useState<JSX.Element[]>()
-
+  
     useEffect(() => {
         const armorList = async() => {
             try{
@@ -45,11 +41,15 @@ const ArmorPieceForm: React.FC<Props> = ({type, target, setTarget}) => {
     return(
     <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
         <label>{type}: </label>
-        <img src = {target['pngUrl']} width = {50} height = {50}></img>
-        <select defaultValue="" onChange={handleChangeArmor}>
-            <option value = {JSON.stringify({name:"", weight: 0, poise:0, pngUrl:""})}></option>
+        {/*<img src = {target['pngUrl']} width = {50} height = {50} ></img>*/}
+        <ImageWithInfo pngUrl={target['pngUrl']} info={target}></ImageWithInfo>
+       
+        <select defaultValue={JSON.stringify({name:"", weight: 0, poise:0, pngUrl:""})} onChange={handleChangeArmor}>
+            <option value = {JSON.stringify({name:"", weight: 0, poise:0, pngUrl:""})}>Choose For Me</option>
+            <option value = {JSON.stringify({name:"None", weight: 0, poise:0, pngUrl:""})}>Leave Empty</option>
             {getArmorOptions}
         </select>
+        
     </div>);
 }
 

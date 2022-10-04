@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import AffinitySelection from './AffinitySelection';
+import ImageWithInfo from './ImageWithInfo';
+import {Weapon} from './interfaces';
 
-interface Weapon{
-    name: string,
-    somber: boolean,
-    affinity: string,
-    pngUrl: string
-}
 interface Props{
     chosenWeapons: Weapon[],
     setChosenWeapons: React.Dispatch<React.SetStateAction<Weapon[]>>
@@ -23,8 +19,9 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
     
     //The current weapon in the selection bar
     //This was type string
-    const [selectedWeapon, setSelectedWeapon] = useState<Weapon>({name:'',somber:false, affinity:"", pngUrl:""});
+    const [selectedWeapon, setSelectedWeapon] = useState<Weapon>({name:'',somber:false, affinity:"", pngUrl:"", isPow:false});
 
+    //On load, get weapon array from server. *Happens only once*
     useEffect(() => {
         const weaponList = async() => {
             try{
@@ -36,6 +33,7 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
         weaponList()
     }, []);
     
+    //Update option JSX on weaponArray
     useEffect(() => {
        
         setWeaponOptions(weaponArray.map((key:Weapon) => {
@@ -44,22 +42,26 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
            
     }, [weaponArray]);
 
+    //Update chosen weapon JSX
     useEffect(() => {
        
         setChosenWeaponsJSX(chosenWeapons.map((key:Weapon) => {
             //If key is not somber weapon, the add affinity
             if(key['somber'] == false){
-                return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key}></AffinitySelection>;
+                return <AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {key} removeWeapon = {removeWeapon}></AffinitySelection>;
             }
             else{
                 return(
                     <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
-                        <img src = {key['pngUrl']} width = {50} height = {50}></img>
+                        <ImageWithInfo pngUrl={key['pngUrl']} info={key}></ImageWithInfo>
                         <li key = {key['name']} value = {key['name']} style = {{listStyle:'none'}}>{key['name']}</li>
+                        <label> Dual Wielding? </label>
+                        <input type = 'checkbox' id = 'is-power-stancing' onChange={() => handleIsPowerStancing(key)} hidden = {false}></input>
+                        <input type="button" value="Remove" onClick ={() => removeWeapon(key)}></input>
                     </div>
             )}
         }));
-        console.log(chosenWeapons);
+        
     }, [chosenWeapons]);
 
     //Press the add weapon button.
@@ -71,12 +73,30 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons}) => {
         }
     }
 
+    const removeWeapon = (weapon:Weapon) =>{
+        var temp: Array<Weapon> = [...chosenWeapons];
+        const index = temp.indexOf(weapon);
+        if (index > -1) { // only splice array when item is found
+        temp.splice(index, 1); // 2nd parameter means remove one item only
+        }
+        setChosenWeapons(temp);
+    }
+
     //Handle change in weapon selection
     function handleChangeWeapon(e:any){
-        console.log(e.target.value)
-        var value = JSON.parse(e.target.value)
-        
-        setSelectedWeapon({name:value['name'], somber: value['somber'], affinity:value['affinity'], pngUrl:value['pngUrl']});
+        setSelectedWeapon(JSON.parse(e.target.value));
+    }
+
+    function handleIsPowerStancing(key:Weapon){
+        var tempList:Weapon[] = [...chosenWeapons]
+        tempList.forEach(weapon => {
+            if(weapon['name'] == key['name']){
+                //setIsPowerStancing(!isPowerStancing)
+                weapon['isPow'] = !weapon['isPow']
+            }
+        });
+
+        setChosenWeapons(tempList);
     }
 
     //Get all weapons from server, use them in dropdown menu

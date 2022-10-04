@@ -10,7 +10,7 @@ const TargetHealthForm: React.FC<Props> = ({targetHealth, setTargetHealth}) => {
     return (
         <div>
             <label>Target Health (345-2415): </label>
-            <input type="number" id="tHealth" min = "396" max = "2415" value={targetHealth} onChange = {(e) => setTargetHealth(e.target.value)}></input><br></br>
+            <input type="number" id="tHealth" min = "396" max = "2415" defaultValue={"1900"} value={targetHealth} onChange = {(e) => setTargetHealth(e.target.value)}></input><br></br>
         </div>
     );
 };

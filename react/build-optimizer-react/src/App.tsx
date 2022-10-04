@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import BuildDisplay from './components/BuildDisplay';
 import InputForm from './components/InputForm';
 
 
@@ -11,10 +12,20 @@ function App() {
 
   return (
     <div className="App">
+
       <div id = 'header'>
         <h1>Boc's BRILLIANT Build Optimizer</h1>
       </div>
-      <InputForm setBuild = {setBuild}></InputForm> {/** Have to update talismans.json to include all upgraded versions of talismans, and update their images. */}
+
+      <div id = "body">
+        <div id = 'form'>
+          <InputForm setBuild = {setBuild}></InputForm> {/** Have to update talismans.json to include all upgraded versions of talismans, and update their images. */}
+        </div>
+        <div id = 'build-results'>
+          <BuildDisplay build = {build} setBuild = {setBuild}></BuildDisplay>
+        </div>
+      </div>
+      
     </div>
   );
 }

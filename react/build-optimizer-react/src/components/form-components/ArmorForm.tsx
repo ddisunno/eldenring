@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ArmorPieceForm from './ArmorPieceForm';
-
-interface Armor{
-    name:string,
-    weight:number,
-    poise:number,
-    pngUrl:string
-}
+import {Armor} from './interfaces';
 
 interface Props{
     targetHelm: Armor,

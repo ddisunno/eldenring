@@ -24,7 +24,7 @@ def getWeapons():
         data = json.load(f)
         for weapon in data['data']:
             somber = not canHaveAffinities(weapon['name'])
-            weaponNames.append({'name':weapon['name'], 'somber':somber, 'affinity':"", 'pngUrl':weapon['image']})
+            weaponNames.append({'name':weapon['name'], 'somber':somber, 'affinity':"", 'pngUrl':weapon['image'], 'isPow':False})
 
     weaponNames.sort(key=lambda x: x['name'])
     return json.dumps(weaponNames)
@@ -50,6 +50,16 @@ def getTalismans():
     names.sort(key=lambda x: x['name'])
     return json.dumps(names)
 
+def getSpells():
+    names = []
+    with open('json/spells.json','r') as f:
+        data = json.load(f)
+        for talisman in data['data']:
+            names.append({'name':talisman['name'], 'pngUrl':talisman['image']})
+
+    names.sort(key=lambda x: x['name'])
+    return json.dumps(names)
+
 #Main Function- Based on the json from the server, handle the GET/POST request and call the appropriate methods.
 def handleType(data):
     if(data['type'] == 'getWeaponNames'):
@@ -58,5 +68,7 @@ def handleType(data):
         return getArmor(data['category'])
     elif(data['type'] == 'getTalismans'):
         return getTalismans()
+    elif(data['type'] == 'getSpells'):
+        return getSpells()
     else:
         return None
