@@ -35,10 +35,39 @@
   			"category" : "talisman",
   			"modifier" : 1.04,
   			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Lazuli Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 0.82,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Olivinus Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 0.9,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Twinsage Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 0.91,
+  			"operation" : "multiplication"
   		}
   	],
   	"FP" : [
-  		
+  		{
+  			"name" : "Hierodas Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 0.9,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Haima Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 0.9,
+  			"operation" : "multiplication"
+  		}
   	],
   	"STAMINA" : [
   		{
@@ -57,6 +86,24 @@
   			"name" : "Erdtree's Favor +2",
   			"category" : "talisman",
   			"modifier" : 1.096,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Karolos Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 0.9,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Twinsage Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 0.91,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Witch's Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 0.82,
   			"operation" : "multiplication"
   		}
   	],
@@ -138,7 +185,13 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Hierodas Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		}
   	],
   	"strength" : [
   		{
@@ -152,7 +205,13 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Haima Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		}
   	],
   	"dexterity" : [
   		{
@@ -166,7 +225,13 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Lazuli Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		}
   	],
   	"intelligence" : [
   		{
@@ -180,7 +245,49 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Hierodas Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+		{
+  			"name" : "Lazuli Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Karolos Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Olivinus Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Twinsage Glintstone Crown",
+  			"caegory" : "armor",
+  			"modifier" : 6,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Haima Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Witch's Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		}
   	],
   	"faith" : [
   		{
@@ -208,6 +315,12 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Witch's Glintstone Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		}
   	]
 }
