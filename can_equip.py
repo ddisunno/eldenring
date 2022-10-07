@@ -2,6 +2,8 @@ from get_requirements import get_requirements
 from optimize_class import optimize_class
 import simplejson as json
 
+
+"""
 roll_type = {'light'	: 0.299,
 			 'med'		: 0.699,
 			 'fat'		: 0.999,
@@ -43,10 +45,10 @@ file = 'weapons.json'
 req_stats = get_requirements(items_list, desired_health, current_roll_type)
 best_class, lowest_level, best_stats = optimize_class(req_stats)
 ##### END: UI INPUTS #####
-
+"""
 
 #### begin code ####
-def can_equip(character_stats, file):
+def can_equip(character_stats, current_roll_type, file):
 	"""Function can_equip takes character stats and returns all items that
 	can be equipped (required stats <= current stats)
 
@@ -87,5 +89,7 @@ def can_equip(character_stats, file):
 	return can_use
 
 
+"""
 can_equip = can_equip(best_stats, file)
 print(can_equip)
+"""
