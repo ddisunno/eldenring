@@ -324,7 +324,7 @@ def optimize_class(items_list, roll_type, desired_health):
 
 
 def can_equip(character_stats, file):
-	"""Function can_use_with_stats takes character stats and returns all items that
+	"""Function can_equip takes character stats and returns all items that
 	can be equipped (required stats <= current stats)
 
 	inputs:

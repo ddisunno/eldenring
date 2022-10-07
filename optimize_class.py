@@ -1,11 +1,14 @@
+##### INITIALIZE LIBRARIES / DATA #####
 from get_requirements import get_requirements as get_reqs
 import simplejson as json
 
+"""
 roll_type = {'light'	: 0.299,
 			 'med'		: 0.699,
 			 'fat'		: 0.999,
 			 'overencumbered' : None}
 
+##### BEGIN: UI INPUTS #####
 items_list = [{"name": "Greatsword",
 			   "file": "weapons.json"},
 			  {"name": "Clawmark Seal",
@@ -29,8 +32,18 @@ items_list = [{"name": "Greatsword",
 			  {"name": "Radagon Icon",
 			   "file": "talismans.json"}]
 
-req_stats = get_reqs(items_list, 1900, roll_type['med'])
 
+desired_health = 0
+
+current_roll_type = roll_type['med']
+##### END: UI INPUTS #####
+
+
+print(req_stats)
+req_stats = get_reqs(items_list, desired_health, current_roll_type)
+"""
+
+##### begin code #####
 def get_base_stats(classes_index):
 	"""Function get_base_stats
 	inputs:
@@ -66,7 +79,8 @@ def get_base_stats(classes_index):
 	return class_name, base_level, base_stats
 
 
-def optimize_class(items_list, req_stats, desired_health, roll_type):
+
+def optimize_class(req_stats):
 	"""Function optimize_class takes a list of items and picks the lowest class that
 	can use ALL of them INDIVIDUALLY with desired roll_type and HP
 
@@ -85,6 +99,7 @@ def optimize_class(items_list, req_stats, desired_health, roll_type):
 
 	#LIST FORM
 	item_reqs = []
+
 	needed_stats = [0,0,0,0,0,0,0,0] #NEEDED STATS = REQUIRED STATS - BASE STATS
 	current_stats = [0,0,0,0,0,0,0,0] #CURRENT STATS = BASE STATS + NEEDED STATS
 
@@ -120,50 +135,13 @@ def optimize_class(items_list, req_stats, desired_health, roll_type):
 			lowest_level = current_level
 			best_stats = current_stats.copy()
 			
-
+	"""
 	print(f"best class is:\
 		\n\t{best_class}: {lowest_level}\
 		\n\t{best_stats}")
+	"""
 
 	return best_class, lowest_level, best_stats
 
 
-
-def can_equip(character_stats, desired_health, file):
-	"""Function can_use_with_stats takes character stats and returns all items that
-	can be equipped (required stats <= current stats)
-
-	inputs:
-		character_stats - stats of character
-		file			- file to parse
-
-	outputs:
-		can_use 		- list of usable item names
-	"""
-	can_use = []
-
-	with open(file) as f:
-		data = json.load(f)
-
-	for item in range(data['count']):
-
-		item_reqs = get_reqs(data['data'][item],desired_health,roll_type['med'])
-
-		for stat in range(len(character_stats)):
-			if item_reqs[stat] > character_stats[stat]:
-				requirements_met = False
-				break
-			else:
-				requirements_met = True
-
-		if requirements_met:
-			can_use.append(data['data'][item]['name'])
-
-		#print(data['data'][item]['name'], requirements_met) #testing
-
-	return can_use
-
-
-best_class, lowest_level, best_stats = optimize_class(items_list, req_stats, 1900, roll_type['med'])
-
-print(can_equip(best_stats, 1900, 'weapons.json'))
+#optimize_class(req_stats)

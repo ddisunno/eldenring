@@ -53,9 +53,33 @@
   			"caegory" : "armor",
   			"modifier" : 0.91,
   			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Greathood",
+  			"category" : "armor",
+  			"modifier" : 0.9,
+  			"operation" : "multiplication"
   		}
   	],
   	"FP" : [
+  		{
+  			"name" : "Cerulean Amber Medallion",
+  			"category" : "talisman",
+  			"modifier" : 1.07,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Cerulean Amber Medallion +1",
+  			"category" : "talisman",
+  			"modifier" : 1.09,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Cerulean Amber Medallion +2",
+  			"category" : "talisman",
+  			"modifier" : 1.11,
+  			"operation" : "multiplication"
+  		},
   		{
   			"name" : "Hierodas Glintstone Crown",
   			"category" : "armor",
@@ -70,6 +94,24 @@
   		}
   	],
   	"STAMINA" : [
+  		{
+  			"name" : "Viridian Amber Medallion",
+  			"category" : "talisman",
+  			"modifier" : 1.11,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Viridian Amber Medallion +1",
+  			"category" : "talisman",
+  			"modifier" : 1.13,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Viridian Amber Medallion +2",
+  			"category" : "talisman",
+  			"modifier" : 1.15,
+  			"operation" : "multiplication"
+  		},
   		{
   			"name" : "Erdtree's Favor",
   			"category" : "talisman",
@@ -104,6 +146,12 @@
   			"name" : "Witch's Glintstone Crown",
   			"category" : "armor",
   			"modifier" : 0.82,
+  			"operation" : "multiplication"
+  		},
+  		{
+  			"name" : "Preceptor's Big Hat",
+  			"category" : "armor",
+  			"modifier" : 0.91,
   			"operation" : "multiplication"
   		}
   	],
@@ -157,6 +205,12 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
+		},
+		{
+  			"name" : "Crimson Hood",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
 		}
   	],
   	"mind" : [
@@ -170,6 +224,18 @@
   			"name" : "Marika's Soreseal",
   			"category" : "talisman",
   			"modifier" : 5,
+  			"operation" : "addition"
+		},
+		{
+  			"name" : "Navy Hood",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+		},
+		{
+  			"name" : "Preceptor's Big Hat",
+  			"category" : "armor",
+  			"modifier" : 3,
   			"operation" : "addition"
 		}
   	],
@@ -191,9 +257,21 @@
   			"category" : "armor",
   			"modifier" : 2,
   			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Imp Head (wolf)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
   		}
   	],
   	"strength" : [
+  		{
+  			"name" : "Starscourge Heirloom",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+  		},
   		{
   			"name" : "Radagon's Scarseal",
   			"category" : "talisman",
@@ -211,9 +289,27 @@
   			"category" : "armor",
   			"modifier" : 2,
   			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Imp Head (fanged)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Omensmirk Mask",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
   		}
   	],
   	"dexterity" : [
+  		{
+  			"name" : "Prosthesis-wearer Heirloom",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+  		},
   		{
   			"name" : "Radagon's Scarseal",
   			"category" : "talisman",
@@ -231,9 +327,33 @@
   			"category" : "armor",
   			"modifier" : 3,
   			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Imp Head (long-tongued)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Consort's Mask",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Okina Mask",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
   		}
   	],
   	"intelligence" : [
+  		{
+  			"name" : "Stargazer Heirloom",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+  		},
   		{
   			"name" : "Marika's Scarseal",
   			"category" : "talisman",
@@ -287,9 +407,33 @@
   			"category" : "armor",
   			"modifier" : 3,
   			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Imp Head (cat)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Queen's Crescent Crown",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Greathood",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
   		}
   	],
   	"faith" : [
+  		{
+  			"name" : "Two Fingers Heirloom",
+  			"category" : "talisman",
+  			"modifier" : 5,
+  			"operation" : "addition"
+  		},
   		{
   			"name" : "Marika's Scarseal",
   			"category" : "talisman",
@@ -301,7 +445,55 @@
   			"category" : "talisman",
   			"modifier" : 5,
   			"operation" : "addition"
-		}
+		},
+		{
+  			"name" : "Imp Head (corpse)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Ruler's Mask",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Sacred Crown Helm",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Haligtree Helm",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Haligtree Knight Helm",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Greathood",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Commoner's Garb",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Commoner's Simple Garb",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		}
   	],
   	"arcane" : [
   		{
@@ -320,6 +512,36 @@
   			"name" : "Witch's Glintstone Crown",
   			"category" : "armor",
   			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Imp Head (elder)",
+  			"category" : "armor",
+  			"modifier" : 2,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Marais Mask",
+  			"category" : "armor",
+  			"modifier" : 1,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Mask of Confidence",
+  			"category" : "armor",
+  			"modifier" : 3,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Albinauric Mask",
+  			"category" : "armor",
+  			"modifier" : 4,
+  			"operation" : "addition"
+  		},
+  		{
+  			"name" : "Silver Tear Mask",
+  			"category" : "armor",
+  			"modifier" : 8,
   			"operation" : "addition"
   		}
   	]

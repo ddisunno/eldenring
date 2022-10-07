@@ -2,9 +2,7 @@ import simplejson as json
 import csv
 import math
 
-
-global roll_type, items_list
-
+"""
 roll_type = {'light'	: 0.299,
 			 'med'		: 0.699,
 			 'fat'		: 0.999,
@@ -38,7 +36,7 @@ items_list = [{"name": "Greatsword",
 			   "file": "talismans.json"},
 			  {"name": "Radagon Icon",
 			   "file": "talismans.json"}]
-
+"""
 
 
 
@@ -313,8 +311,8 @@ def get_requirements(items_list, desired_health, roll_type):
 
 	return req_stats
 
-
+"""
 req_stats = get_requirements(items_list, 1900, roll_type['med'])
 print(req_stats)
-
+"""
 
