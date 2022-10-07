@@ -52,9 +52,13 @@ file = 'weapons.json'
 req_stats = get_requirements(items_list, desired_health, current_roll_type)
 best_class, lowest_level, best_stats = optimize_class(req_stats)
 equippable_weapons = can_equip(best_stats, current_roll_type, file)
+equippable_shields = can_equip(best_stats, current_roll_type, 'shields.json')
 
 print(f"Required Stats: {req_stats}\
       \n\nbest class is:\
       \n{best_class}: {lowest_level},\t{best_stats}\
-      \n\nbuild can also use weapons:\
-      \n{equippable_weapons}")
+      \n\nbuild can also use:\
+      \n\tweapons:\
+      \n{equippable_weapons}\
+      \n\tshields:\
+      \n{equippable_shields}")
