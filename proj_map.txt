@@ -26,17 +26,19 @@ Outputs:
 				Armor (Best Negation/Poise/Resistance)
 
 
-1. fetch data (optional; may want a new fetch after patches/updates)
+?. fetch data (optional; may want a new fetch after patches/updates)
 
-?. optimize armor to specifications
+1. optimize armor to specifications
 
 2. get requirements of inputs (& armor)
+
 3. pick the best class to meet requirements
-4. get all armaments that can be used with best class stats as base
 
+4. AR optimizer to cover floating levels
 
-?. optimize all inputs with best class stats as base
-?. 
+5. get all armaments that can be used with best class stats as base
+
+6. calculate AR for all equipabble armaments returning highest (13x normal, 8x somber)
 
 
 #####################################################################################################################################
@@ -79,7 +81,7 @@ Necessary Functions:
 
 
 
-3. optimize class()
+3. optimize_class()
 	- function to determine which class can reach required levels for each stat while maintaining the lowest overall level
 	inputs:
 		LIST OF STATS
@@ -95,6 +97,7 @@ Necessary Functions:
 	- function to determine all equippable items at a stat distribution
 	inputs:
 		LIST OF STATS
+		roll_type
 		file (weapons, shields, armor, spells)
 	- outputs:
 		LIST OF NAMES FOR EQUIPPABLE ITEMS
