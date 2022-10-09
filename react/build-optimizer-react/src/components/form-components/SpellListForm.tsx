@@ -42,8 +42,7 @@ const  SpellListForm:React.FC<Props> = ({spellList, setSpellList}) => {
         setSpellListJSX(spellList.map((key:Spell) => {
             return(
                 <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
-                    <ImageWithInfo pngUrl={key['pngUrl']} info={key}></ImageWithInfo>
-                    <li key = {key['name']} value = {key['name']} style = {{listStyle:'none'}}>{key['name']}</li>
+                    <ImageWithInfo pngUrl={key['pngUrl']} info={key} name = {key['name']}></ImageWithInfo>
                     <input type="button" value="Remove" onClick ={() => removeSpell(key)}></input>
                 </div>
             )}))

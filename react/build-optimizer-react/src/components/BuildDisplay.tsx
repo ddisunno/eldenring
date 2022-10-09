@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 interface Props{
-    build:string[],
-    setBuild:React.Dispatch<React.SetStateAction<string[]>>
+    build:string,
+    setBuild:React.Dispatch<React.SetStateAction<string>>
 }
 
 const BuildDisplay: React.FC<Props> = ({build, setBuild}) => {

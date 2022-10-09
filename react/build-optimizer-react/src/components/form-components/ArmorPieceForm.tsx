@@ -39,10 +39,10 @@ const ArmorPieceForm: React.FC<Props> = ({type, target, setTarget}) => {
     }
 
     return(
-    <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
+    <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center', flex:'left'}}>
         <label>{type}: </label>
         {/*<img src = {target['pngUrl']} width = {50} height = {50} ></img>*/}
-        <ImageWithInfo pngUrl={target['pngUrl']} info={target}></ImageWithInfo>
+        <ImageWithInfo pngUrl={target['pngUrl']} info={target} name ={''}></ImageWithInfo>
        
         <select defaultValue={JSON.stringify({name:"", weight: 0, poise:0, pngUrl:""})} onChange={handleChangeArmor}>
             <option value = {JSON.stringify({name:"", weight: 0, poise:0, pngUrl:""})}>Choose For Me</option>

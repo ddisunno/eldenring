@@ -18,7 +18,7 @@ interface Props{
 
 const ArmorForm: React.FC<Props> = ({targetHelm, setTargetHelm, targetChest, setTargetChest, targetGauntlets, setTargetGauntlets, targetLegs, setTargetLegs}) => {
     return(
-    <div>
+    <div style = {{position:'relative', margin:'0 auto', padding:40, alignItems:'flex-start', flexDirection:'column', flex:'left', display:'flex'}}>
         <label>Enter Armor (Leave pieces you wanted calculated blank): </label>
         <ArmorPieceForm type = "Helm" target = {targetHelm} setTarget = {setTargetHelm}></ArmorPieceForm>
         <ArmorPieceForm type = "Chest Armor" target = {targetChest} setTarget = {setTargetChest}></ArmorPieceForm>

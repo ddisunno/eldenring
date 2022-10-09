@@ -3,10 +3,11 @@ import {Armor, Weapon, Spell, Talisman} from './interfaces';
 
 interface Props{
     pngUrl:string,
-    info: Armor | Weapon | Spell | Talisman
+    info: Armor | Weapon | Spell | Talisman,
+    name:string
 }
 
-const ImageWithInfo: React.FC<Props> = ({pngUrl, info}) => {
+const ImageWithInfo: React.FC<Props> = ({pngUrl, info, name}) => {
 
     const [isHidden, setIsHidden] = useState<boolean>(true);
     const [infoJSX, setInfoJSX] = useState<JSX.Element[]>();
@@ -25,9 +26,11 @@ const ImageWithInfo: React.FC<Props> = ({pngUrl, info}) => {
         setInfoJSX(temp);
     }, [info]);
     
+   
     return(
-        <div id = 'image'>
-            <img src = {pngUrl} width = {50} height = {50} onMouseOver = {()=>setIsHidden(false)} onMouseOut = {()=>setIsHidden(true)}></img>
+        <div id = 'image' style= {{borderColor:'lightgrey', borderStyle:'solid', borderWidth:'10'}} onMouseOver = {()=>setIsHidden(false)} onMouseOut = {()=>setIsHidden(true)}>
+            <img src = {pngUrl} width = {50} height = {50}></img>
+            <li key = {info['name']} value = {info['name']} style = {{listStyle:'none'}}> {name} </li>
             <div id = 'hidden-info-box' hidden = {isHidden} style = {{position: 'fixed', backgroundColor:'darkslategrey', color:'lightgray', textAlign:'center'}}>
                 <ul style = {{display:'inline', margin: 200, listStyle:'none'}}>
                     {infoJSX}

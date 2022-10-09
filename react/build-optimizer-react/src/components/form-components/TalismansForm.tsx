@@ -24,7 +24,7 @@ const TalismansForm: React.FC<Props> = ({talismans, setTalismans}) => {
     }, []);
 
     return(
-        <div>
+        <div style = {{position:'relative', margin:'0 auto', padding:40, alignItems:'flex-start', flexDirection:'column', flex:'left', display:'center'}}>
             <label>Talismans: </label>
             <TalismanForm slot = {0} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>
             <TalismanForm slot = {1} talismans = {talismans} setTalismans = {setTalismans} talismanArray = {talismanArray} setTalismanArray = {setTalismanArray}></TalismanForm>

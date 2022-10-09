@@ -57,7 +57,7 @@ const TalismanForm: React.FC<Props> = ({slot, talismans, setTalismans, talismanA
     return(
         <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
             <label>Talisman {slot+1}: </label>
-            <ImageWithInfo pngUrl={talismans[slot]['pngUrl']} info={talismans[slot]}></ImageWithInfo>
+            <ImageWithInfo pngUrl={talismans[slot]['pngUrl']} info={talismans[slot]} name = {''}></ImageWithInfo>
             <select defaultValue="" onChange = {handleChangeWeapon}>
                 <option value={JSON.stringify({name:"", pngUrl:""})}></option>
                 {talismanOptions}

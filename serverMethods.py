@@ -6,6 +6,7 @@ Description: This file hold helper methods for the web server. This consists of 
 import json
 import weaponOptimizer 
 import calcWeaponAR
+#import build_optimizer
 
 #Get if a weapon can have affinities based off of type. *move to CALCweaponAR.py*
 def canHaveAffinities(weaponName):
@@ -19,15 +20,19 @@ def canHaveAffinities(weaponName):
 
 #Return a list of strings of each weapon name in the weapons.json file and if the weapon is somber. 
 def getWeapons():
-    weaponNames = []
+    standard = []
+    somber = []
     with open('json/weapons.json','r') as f:
         data = json.load(f)
         for weapon in data['data']:
-            somber = not canHaveAffinities(weapon['name'])
-            weaponNames.append({'name':weapon['name'], 'somber':somber, 'affinity':"", 'pngUrl':weapon['image'], 'isPow':False})
-
-    weaponNames.sort(key=lambda x: x['name'])
-    return json.dumps(weaponNames)
+            somberBool = not canHaveAffinities(weapon['name'])
+            if(somberBool):
+                somber.append({'name':weapon['name'], 'somber':True, 'affinity':"", 'pngUrl':weapon['image'], 'isPow':False})
+            else:
+                standard.append({'name':weapon['name'], 'somber':False, 'affinity':"", 'pngUrl':weapon['image'], 'isPow':False})
+    somber.sort(key=lambda x: x['name'])
+    standard.sort(key=lambda x: x['name'])
+    return json.dumps({'standard':standard, 'somber':somber})
 
 def getArmor(category):
     armors = []
@@ -60,6 +65,10 @@ def getSpells():
     names.sort(key=lambda x: x['name'])
     return json.dumps(names)
 
+def getBuild(build):
+    return "hi"
+    #return json.loads(build_optimizer.optimize_build(build))
+
 #Main Function- Based on the json from the server, handle the GET/POST request and call the appropriate methods.
 def handleType(data):
     if(data['type'] == 'getWeaponNames'):
@@ -70,5 +79,11 @@ def handleType(data):
         return getTalismans()
     elif(data['type'] == 'getSpells'):
         return getSpells()
+    elif(data['type'] == 'getBuild'):
+        print(str(data['build']))
+        return json.dumps({'hi':"Hello"})
+        #return getBuild(data['build'])
     else:
         return None
+
+
