@@ -24,8 +24,8 @@ const InputForm: React.FC<Props> = ({build, setBuild, setOptimizedBuild}) => {
     const [targetPoise, setTargetPoise] = useState<string>("61");
     const [targetRoll, setTargetRoll] = useState<string>("med")
 
-    const [chosenWeapons, setChosenWeapons] = useState<Array<Weapon>>([]);
-    const [chosenWeaponsSomber, setChosenWeaponsSomber] = useState<Array<Weapon>>([]);
+    const [chosenWeapons, setChosenWeapons] = useState<Array<Weapon>>(new Array(13).fill({name:"",somber:false,affinity:"",pngUrl:"",isPow:false}));
+    const [chosenWeaponsSomber, setChosenWeaponsSomber] = useState<Array<Weapon>>(new Array(8).fill({name:"",somber:false,affinity:"",pngUrl:"",isPow:false}));
 
     const [targetHelm, setTargetHelm] = useState<Armor>({name:"",weight:0,poise:0,pngUrl:""});
     const [targetChest, setTargetChest] = useState<Armor>({name:"",weight:0,poise:0,pngUrl:""});
@@ -48,7 +48,7 @@ const InputForm: React.FC<Props> = ({build, setBuild, setOptimizedBuild}) => {
     }, [build]);
 
     function sendBuild(){
-        var jsonBuild = JSON.stringify({"targetLevel":targetLevel, "targetHealth":targetHealth, "targetPoise":targetPoise, "targetRoll":targetRoll, "weapons":{"chosenWeapons":chosenWeapons, "chosenWeaponsSomber":chosenWeaponsSomber}, "targetArmor":{'helm':targetHelm, 'chest':targetChest, 'gauntlets':targetGauntlets,'legs':targetLegs}, 'talismans':talismans, 'spellList':spellList})
+        var jsonBuild = JSON.stringify({"targetLevel":targetLevel, "targetHealth":targetHealth, "targetPoise":targetPoise, "targetRoll":targetRoll, "weapons":{"chosenWeapons":chosenWeapons, "chosenWeaponsSomber":chosenWeaponsSomber}, "targetArmor":[targetHelm, targetChest, targetGauntlets, targetLegs], 'talismans':talismans, 'spellList':spellList})
         setBuild(jsonBuild)
     }
 

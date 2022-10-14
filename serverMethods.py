@@ -6,7 +6,7 @@ Description: This file hold helper methods for the web server. This consists of 
 import json
 import weaponOptimizer 
 import calcWeaponAR
-#import build_optimizer
+import build_optimizer
 
 #Get if a weapon can have affinities based off of type. *move to CALCweaponAR.py*
 def canHaveAffinities(weaponName):
@@ -80,7 +80,8 @@ def handleType(data):
     elif(data['type'] == 'getSpells'):
         return getSpells()
     elif(data['type'] == 'getBuild'):
-        print(str(data['build']))
+        #print(str(data['build']))
+        build_optimizer.optimize_build(json.loads(data['build']))
         return json.dumps({'hi':"Hello"})
         #return getBuild(data['build'])
     else:

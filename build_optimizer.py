@@ -64,24 +64,48 @@ print(f"Required Stats: {req_stats}\
       \n\tshields:\
       \n{equippable_shields}")
 '''
+
+roll_type = {'light'    : 0.299,
+             'med'      : 0.699,
+             'fat'      : 0.999,
+             'overencumbered' : None}
 def optimize_build(build):
+
+    #Do armor here if not all amor is pre-chosen
+
+
+
     #All weapons are in weapons.json, all armor in armors.json, etc.
     #Does get rqs account for spells?
     item_list = []
     for weapon in build['weapons']['chosenWeapons']:
-        item_list.append({"name":weapon['name'],"file":"json/weapons.json"})
+        if(weapon['name'] != ""):
+            item_list.append({"name":weapon['name'],"file":"json/weapons.json"})
     for weapon in build['weapons']['chosenWeaponsSomber']:
-        item_list.append({"name":weapon['name'],"file":"json/weapons.json"})
+        if(weapon['name'] != ""):
+            item_list.append({"name":weapon['name'],"file":"json/weapons.json"})
     for talisman in build['talismans']:
-        item_list.append({"name":talisman['name'],"file":"json/talismans.json"})
+        if(talisman['name'] != ""):
+            item_list.append({"name":talisman['name'],"file":"json/talismans.json"})
     for armor in build['targetArmor']:
-        item_list.append({"name":armor['name'],"file":"json/armors.json"})
-
-    
-    req_stats = get_requirements(item_list, build['targetHealth'],build['targetToll']) #If req_stats['level'] > targetLevel return not possible
-    a = 'temp'
-    file = 'temp'
+        if(armor['name'] != "" or armor['name'] != "Choose For Me"):
+            item_list.append({"name":armor['name'],"file":"json/armors.json"})
+    req_stats = get_requirements(item_list, int(build['targetHealth']),roll_type[build['targetRoll']]) #If req_stats['level'] > targetLevel return not possible
     best_class, lowest_level, best_stats = optimize_class(req_stats)
-    equippable_weapons = can_equip(best_stats, a, file)
-    equippable_shields = can_equip(best_stats, a, 'json/shields.json')
+
+    #Do weapon optimization here with targetLevel - lowest_level # of stats.
+
+
+
+    equippable_weapons = can_equip(best_stats, roll_type[build['targetRoll']], 'json/weapons.json')
+    equippable_shields = can_equip(best_stats, roll_type[build['targetRoll']], 'json/shields.json')
+
+    print(f"Required Stats: {req_stats}\
+      \n\nbest class is:\
+      \n{best_class}: {lowest_level},\t{best_stats}\
+      \n\nbuild can also use:\
+      \n\tweapons:\
+      \n{equippable_weapons}\
+      \n\tshields:\
+      \n{equippable_shields}")
     return ""

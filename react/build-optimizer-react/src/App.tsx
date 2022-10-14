@@ -17,7 +17,7 @@ function App() {
         <h1>Boc's BRILLIANT Build Optimizer</h1>
       </div>
 
-      <div id = "body" style = {{position:'relative', margin: 'auto', padding: 20, flex:'left', display:'flex'}}>
+      <div id = "body" style = {{ flex:'50%', display:'flex'}}>
         <div id = 'form'>
           <InputForm build = {build} setBuild = {setBuild} setOptimizedBuild = {setOptimizedBuild}></InputForm> {/** Have to update talismans.json to include all upgraded versions of talismans, and update their images. */}
         </div>

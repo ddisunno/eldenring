@@ -36,19 +36,61 @@ const WeaponsForm: React.FC<Props> = ({chosenWeapons, setChosenWeapons, chosenWe
         weaponList()
     }, []);
     
+    useEffect(() => {
+        console.log(chosenWeapons)
+        console.log(chosenWeaponsSomber)
+    }, [chosenWeapons, chosenWeaponsSomber]);
         
     //Get all weapons from server, use them in dropdown menu
     return (
       <div style ={{position:'relative', margin:'0 auto', padding:20, alignItems:'flex-start', flexDirection:'row', flex:'left', display:'flex'}}>
 
-        <div style ={{position:'relative', margin:'0 auto', padding:20, alignItems:'center', flexDirection:'column', flex:'left', display:'flex'}}>
+        <div style ={{position:'relative', alignItems:'center', flexDirection:'column', flex:'center', display:'flex', backgroundColor:'pink'}}>
           <label>Non-Somber Weapons: </label>
-          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons}></WeaponOptions>
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {0}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {1}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {2}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {3}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {4}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {5}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {6}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {7}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {8}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {9}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {10}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {11}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArray} chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} index = {12}></WeaponOptions>
         </div>
 
-        <div style ={{position:'relative', margin:'0 auto', padding:20, alignItems:'center', flexDirection:'column', flex:'left', display:'flex'}}>
+        <div style ={{position:'relative', margin:'0 auto', alignItems:'center', flexDirection:'column', flex:'left', display:'flex'}}>
           <label>Somber Weapons: </label>
-          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber}></WeaponOptions>
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {0}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {1}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {2}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {3}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {4}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {5}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {6}></WeaponOptions>
+
+          <WeaponOptions weaponArray = {weaponArraySomber} chosenWeapons = {chosenWeaponsSomber} setChosenWeapons = {setChosenWeaponsSomber} index = {7}></WeaponOptions>
         </div>
         
       </div>

@@ -1,6 +1,7 @@
 ##### INITIALIZE LIBRARIES / DATA #####
+import json
 from get_requirements import get_requirements as get_reqs
-import simplejson as json
+#import simplejson as json
 
 """
 roll_type = {'light'	: 0.299,

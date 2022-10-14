@@ -74,7 +74,7 @@ const  SpellListForm:React.FC<Props> = ({spellList, setSpellList}) => {
         <div>
             <label>Spells: </label>
             <select defaultValue="med" onChange = {handleSpellChange}>
-                <option value = ""></option>
+                <option value = {JSON.stringify({name:"", pngUrl:""})}></option>
                 {spellOptionsJSX}
             </select>
             <input type="button" value="Add Spell" onClick={addSpell}></input>

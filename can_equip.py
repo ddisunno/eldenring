@@ -1,6 +1,7 @@
+import json
 from get_requirements import get_requirements
 from optimize_class import optimize_class
-import simplejson as json
+#import simplejson as json
 
 '''
 roll_type = {'light'	: 0.299,

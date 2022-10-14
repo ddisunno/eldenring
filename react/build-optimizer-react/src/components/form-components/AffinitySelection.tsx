@@ -6,7 +6,6 @@ interface Props{
     keyName:Weapon,
     chosenWeapons:Weapon[],
     setChosenWeapons:React.Dispatch<React.SetStateAction<Weapon[]>>,
-    removeWeapon:(weapon: Weapon) => void,
     setWeaponName:React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -25,11 +24,11 @@ const AffinitySelection:React.FC<Props> = ({keyName, chosenWeapons, setChosenWea
 
         setChosenWeapons(tempList);
         
-        setWeaponName(e.target.value + " " + keyName['name']);
+        //setWeaponName(e.target.value + " " + keyName['name']);
     }
 
     return(
-        <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
+        <div style= {{ }}>
             <select defaultValue="" onChange={handleChangeWeapon}> 
                 <option value = "">Standard</option>
                 <option value = "Heavy">Heavy</option>

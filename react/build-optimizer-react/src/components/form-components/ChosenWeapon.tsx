@@ -14,8 +14,9 @@ interface Props{
 const ChosenWeapon:React.FC<Props> = ({weapon, somber, chosenWeapons, setChosenWeapons}) => {
 
     const [weaponName, setWeaponName] = useState<string>(weapon['name']);
-    const [affinity, setAffinity] = useState<JSX.Element>();
+    const [affinity, setAffinity] = useState<JSX.Element>(<div></div>);
 
+    /*
     const removeWeapon = (weapon:Weapon) =>{
         var temp: Array<Weapon> = [...chosenWeapons];
         const index = temp.indexOf(weapon);
@@ -24,6 +25,7 @@ const ChosenWeapon:React.FC<Props> = ({weapon, somber, chosenWeapons, setChosenW
         }
         setChosenWeapons(temp);
     }
+    */
 
     function handleIsPowerStancing(key:Weapon){
         var tempList:Weapon[] = [...chosenWeapons]
@@ -38,25 +40,24 @@ const ChosenWeapon:React.FC<Props> = ({weapon, somber, chosenWeapons, setChosenW
     }
 
     useEffect(() => {
-
-        if(somber){
+        
+        if(weapon['somber']){
             setAffinity(<div></div>)
         }
         else{
-            setAffinity(<AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {weapon} removeWeapon = {removeWeapon} setWeaponName = {setWeaponName}></AffinitySelection>);
+            console.log("Set Affinity")
+            setAffinity(<AffinitySelection chosenWeapons = {chosenWeapons} setChosenWeapons = {setChosenWeapons} keyName = {weapon} setWeaponName = {setWeaponName}></AffinitySelection>);
         }
 
-    }, []);
+    }, [weapon]);
 
     return(
-        <div style= {{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
-            <div id = 'weapon'>
-                <ImageWithInfo pngUrl={weapon['pngUrl']} info={weapon} name = {weaponName}></ImageWithInfo>
-            </div>
+        <div style= {{display: 'inline-flex', flexDirection: 'row', justifyContent: 'center', alignItems:'center'}}>
             {affinity}
-            <label> Dual Wielding? </label>
-            <input type = 'checkbox' id = 'is-power-stancing' onChange={() => handleIsPowerStancing(weapon)} hidden = {false}></input>
-            <input type="button" value="Remove" onClick ={() => removeWeapon(weapon)}></input>
+            <div hidden = {(weapon['name'] == "" ? true: false)} style= {{flexDirection: 'column', position:'relative'}}>
+                <label style ={{fontSize:'.8em'}}> Pow. Stancing?</label>
+                <input type = 'checkbox' id = 'is-power-stancing' onChange={() => handleIsPowerStancing(weapon)}></input>
+            </div>
         </div>
     );
 }
