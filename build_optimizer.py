@@ -12,10 +12,13 @@ from optimize_class import optimize_class
 from can_equip import can_equip
 
 ##### BEGIN: UI INPUTS #####
+check_items = True
+
 roll_type = {'light'    : 0.299,
              'med'      : 0.699,
              'fat'      : 0.999,
              'overencumbered' : None}
+
 
 items_list = [{"name": "Greatsword",
                "file": "weapons.json"},
@@ -39,6 +42,7 @@ items_list = [{"name": "Greatsword",
                "file": "talismans.json"},
               {"name": "Radagon Icon",
                "file": "talismans.json"}]
+
 
 
 desired_health = 1900
