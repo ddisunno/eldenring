@@ -3,21 +3,39 @@ import os
 
 ignored_files = ["stat_modifiers.json"]
 
-formatted_inputs = {"armaments": [["Greatsword","Clawmark Seal"],["Blasphemous Blade"]],
-					 "armor": ["Veteran's Helm","Erdtree Surcoat","Veteran's Gauntlets","Bull-goat Greaves"],
-					 "talismans": ["Crimson Amber Medallion +2","Erdtree's Favor +2","Great-jar's Arsenal", "Radagon Icon"],
-					 "spells": []
+formatted_inputs = {"armaments": [[{"name": "Greatsword",
+									"is_two_handing": False,
+									"is_powerstancing": False},
+								   {"name": "Clawmark Seal",
+								    "is_two_handing": False,
+								    "is_powerstancing": False}],
+								  [{"name": "Blasphemous Blade",
+								    "is_two_handing": True,
+								    "is_powerstancing": False}],
+								  [{"name": "Fingerprint Stone Shield",
+								    "is_two_handing": False,
+								    "is_powerstancing": True}]],
+					"armor": [["Veteran's Helm","Erdtree Surcoat","Veteran's Gauntlets","Bull-goat Greaves"]],
+					"talismans": [["Crimson Amber Medallion +2","Erdtree's Favor +2","Great-jar's Arsenal", "Radagon Icon"]],
+					"spells": [["Elden Stars"]]
 				   }
 
+# iterating formatted inputs
 
-def init():
-	armor_weight = 0,
+# inputs = keys: "armaments","armor","talismans","spells"
+for inputs in formatted_inputs:
+	# groups = list 1 in key: number of groups in a key
+	for groups in formatted_inputs[inputs]:
+		# items = list 2 in key: number of items in a group
+		for items in groups:
+			# items with additional properties are in dictionary form. ie: armaments
+			if type(items) == dict:
+				print(f"{items['name']}\
+					\n\tTwo Handing: {items['is_two_handing']}\
+					\n\tPowerstancing: {items['is_powerstancing']}")
+			else:
+				print(items)
 
-	req_strength = 0,
-	req_dexterity = 0,
-	req_intelligence = 0,
-	req_faith = 0,
-	req_arcane = 0
 
 
 
@@ -57,7 +75,8 @@ def get_file(directory: str, item: str):
 	return None
 
 
-def get_reqs(item_name: str):
+#############################
+def get_info(item_name: str):
 
 	file = get_file("json", item_name)
 
@@ -72,9 +91,26 @@ def get_reqs(item_name: str):
 		# next we locate our item in the file
 		for item in range(contents['count']):
 			if item_name == contents['data'][item]['name']:
-				print(f"{item_name} found!")
 
-	
+				return contents['data'][item]
+
+
+
+all_info = []
+
+for inputs in formatted_inputs:
+	for groups in formatted_inputs[inputs]:
+		for items in groups:
+			if type(items) == dict:
+				all_info.append(get_info(items['name']))
+			else:
+				all_info.append(get_info(items))
+
+
+print(*all_info, sep = "\n\n")
+
+
+"""	
 				# requirements vary by item type
 
 				# ARMOR REQUIREMENTS
@@ -86,7 +122,7 @@ def get_reqs(item_name: str):
 					return armor_weight
 
 				# WEAPON REQUIREMENTS
-				elif file == "json/weapons.json":
+				elif file == "json/weapons.json" or file == "json/shields.json":
 
 					req_strength = 0
 					req_dexterity = 0
@@ -117,37 +153,92 @@ def get_reqs(item_name: str):
 					return req_stats, armament_weight
 
 
+				# SPELLS
+				elif file == "json/sorceries.json" or file == "json/incantations.json":
+
+					req_intelligence = 0
+					req_faith = 0
+					req_arcane = 0
+
+					requiredAttributes = contents['data'][item]['requires']
+
+					for attribute in requiredAttributes:
+
+						if attribute.get('name') == "Intelligence":
+							req_intelligence = attribute.get('amount')
+						if attribute.get('name') == "Faith":
+							req_faith = attribute.get('amount')
+						if attribute.get('name') == "Arcane":
+							req_arcane = attribute.get('amount')	
+
+					req_stats = [0,0,0,0,0,
+					req_intelligence,req_faith,req_arcane]
+
+					return req_stats
 
 
+##########################################
 def optimize_reqs(formatted_inputs: dict):
 
 	armor_weight = 0
 
+	armament_weight_list = []
+
+	req_stats_list = []
+	total_req_stats = [0,0,0,0,0,0,0,0]
+
 	armor = formatted_inputs.get("armor")
 	armaments = formatted_inputs.get("armaments")
 	#talismans = formatted_inputs.get("talismans")
-	#spells = formatted_inputs.get("spells")
+	spells = formatted_inputs.get("spells")
 
+	#############################################
+	#first lets get the weight of armor as a base
 	for i in range(len(armor)):
 
 		armor_weight += get_reqs(armor[i])
 
 	print(armor_weight)
 
+	##################################################################################
+	# now lets get the weight of each armament group, and armament required attributes
 	for i in range(len(armaments)):
 
 		group = armaments[i]
+		group_weights_list = []
 
 		for g in group:
 
-			req_stats, armament_weight = get_reqs(g)
-			print(req_stats)
+			armament_req_stats, armament_weight = get_reqs(g)
+			req_stats_list.append(armament_req_stats)
 
-		
+			#if powerstancing append armament_weight*2
+			#if two_handing append math.ceil(armament_weight*2/3)
+			group_weights_list.append(armament_weight)		
+
+		# sum weights for armaments equipped together
+		armament_weight_list.append(sum(group_weights_list))
+
+	##############################################
+	# next lets get required attributes for spells
+	for i in range(len(spells)):
+
+		spell_req_stats = get_reqs(spells[i])
+		req_stats_list.append(spell_req_stats)
+
+	for i in range(len(talismans)):
+
+		talisman_weight += get_reqs(talismans)
 
 
+	##########################################################################
+	# we only need the highest value for each stat across all armaments/spells
+	for i in range(len(req_stats_list)):
+		for stat in range(8):
+			if req_stats_list[i][stat] > total_req_stats[stat]:
+				total_req_stats[stat] = req_stats_list[i][stat]
 
-
-
+	print(total_req_stats, armament_weight_list)
 
 optimize_reqs(formatted_inputs)
+"""
