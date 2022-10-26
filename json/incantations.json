@@ -20,12 +20,13 @@
         {
           "name": "Faith",
           "amount": 26
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 26,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695ad891l0hynrxcposdnx7gy9h",
@@ -44,12 +45,13 @@
         {
           "name": "Faith",
           "amount": 27
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 27,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690dc5ael0hynrxf3lq1w3xcjpr",
@@ -68,12 +70,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f693bd4f8l0hynrzaixs0xzre1q",
@@ -92,12 +95,13 @@
         {
           "name": "Faith",
           "amount": 27
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 27,
+        "arcane": 0
+      }
     },
     {
       "id": "17f698483c9l0hyns2v5nt60a29sd",
@@ -116,12 +120,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6911d8c2l0hyns4qd7p9pfucu26",
@@ -140,12 +145,13 @@
         {
           "name": "Faith",
           "amount": 0
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 0,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690418f4l0hyns68vsg9zhbc6w",
@@ -164,12 +170,13 @@
         {
           "name": "Faith",
           "amount": 8
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 8,
+        "arcane": 0
+      }
     },
     {
       "id": "17f693c22edl0hynsdj8fz0ddz4vni",
@@ -188,12 +195,13 @@
         {
           "name": "Faith",
           "amount": 27
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 27,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69691e79l0hyntbidbq75lrrjb7",
@@ -212,12 +220,13 @@
         {
           "name": "Faith",
           "amount": 9
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 9,
+        "arcane": 0
+      }
     },
     {
       "id": "17f68f98778l0hynteevtb4hr6x90d",
@@ -236,12 +245,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69160ac9l0hynthagycs7dr7gq7",
@@ -260,12 +270,13 @@
         {
           "name": "Faith",
           "amount": 46
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 46,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69860befl0hyntmsoo0kq76fsvd",
@@ -284,12 +295,13 @@
         {
           "name": "Faith",
           "amount": 42
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 42,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6982c810l0hyntn0pvua05sv3w",
@@ -308,12 +320,13 @@
         {
           "name": "Faith",
           "amount": 20
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 20,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692ee649l0hyntu1vu7cu8wxah",
@@ -332,12 +345,13 @@
         {
           "name": "Faith",
           "amount": 17
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 17,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6955e547l0hyntv29oe95w4kpxj",
@@ -356,12 +370,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     },
     {
       "id": "17f694f1c32l0hynu33qh2e3un2g1",
@@ -380,12 +395,13 @@
         {
           "name": "Faith",
           "amount": 30
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 30,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69801f77l0hynudtg36sba9k5lr",
@@ -404,12 +420,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690ba6e1l0hynuyuvb7sle1w35",
@@ -428,12 +445,13 @@
         {
           "name": "Faith",
           "amount": 38
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 38,
+        "arcane": 0
+      }
     },
     {
       "id": "17f697aaf25l0hynv3bmpsnp4lpnd",
@@ -452,12 +470,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 10
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 10
+      }
     },
     {
       "id": "17f6973c98fl0hynv5gnjf09yvy8y",
@@ -476,12 +495,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 13,
+        "arcane": 15
+      }
     },
     {
       "id": "17f68fd9537l0hynv7q0d210i53bym9",
@@ -500,12 +520,13 @@
         {
           "name": "Faith",
           "amount": 14
-        },
-        {
-          "name": "Arcane",
-          "amount": 17
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 14,
+        "arcane": 17
+      }
     },
     {
       "id": "17f695324del0hynv9a91iu7h3knff",
@@ -524,12 +545,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f694bc935l0hynvcwx4oahz00k48",
@@ -548,12 +570,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f696d3fddl0hynve32uy42tb6pip",
@@ -572,12 +595,13 @@
         {
           "name": "Faith",
           "amount": 27
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 27,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690b63a9l0hynvpzqrouoa3uwo",
@@ -596,12 +620,13 @@
         {
           "name": "Faith",
           "amount": 18
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 18,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6907b527l0hynw9qj9bgu0iu0x",
@@ -620,12 +645,13 @@
         {
           "name": "Faith",
           "amount": 47
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 47,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69836ab4l0hynwcix7z37ngspv",
@@ -644,12 +670,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 13,
+        "faith": 13,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695c512fl0hynwmn3k7xy8866e",
@@ -668,12 +695,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69850e86l0hynws5vlzzny9q7y",
@@ -692,12 +720,13 @@
         {
           "name": "Faith",
           "amount": 21
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 21,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695ddd2cl0hynwt4kcvu1t0jpbh",
@@ -716,12 +745,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 12
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 12
+      }
     },
     {
       "id": "17f695ee05cl0hynwvuh9iqspb3fmk",
@@ -740,12 +770,13 @@
         {
           "name": "Faith",
           "amount": 17
-        },
-        {
-          "name": "Arcane",
-          "amount": 13
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 17,
+        "arcane": 13
+      }
     },
     {
       "id": "17f6919abe5l0hynwx7opzx5u5zvs",
@@ -764,12 +795,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 12
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 12
+      }
     },
     {
       "id": "17f68f9d130l0hynx3f1brjxtzdk9j",
@@ -788,12 +820,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 16
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 16
+      }
     },
     {
       "id": "17f6909836cl0hynxdbh1rpx4s4xfb",
@@ -812,12 +845,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f693fa72dl0hynxecsuhc2twylv",
@@ -836,12 +870,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f694fc4c1l0hynyj2kcaruicejdh",
@@ -860,12 +895,13 @@
         {
           "name": "Faith",
           "amount": 19
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 19,
+        "arcane": 0
+      }
     },
     {
       "id": "17f698775c6l0hynyj6kv53b13zexj",
@@ -884,12 +920,13 @@
         {
           "name": "Faith",
           "amount": 42
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 42,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6908edd1l0hynyjh9vrt6fwxg9g",
@@ -908,12 +945,13 @@
         {
           "name": "Faith",
           "amount": 28
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 28,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692cd88cl0hynyo45u48tb1tyn",
@@ -932,12 +970,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f691a5912l0hynyooe4izs5zxh3t",
@@ -956,12 +995,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6985c468l0hynypycnlfmwjdzds",
@@ -980,12 +1020,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6964ed65l0hynyrzn67dmtv89e",
@@ -1004,12 +1045,13 @@
         {
           "name": "Faith",
           "amount": 41
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 41,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69225db6l0hynyujjw6qxgtrbk",
@@ -1028,12 +1070,13 @@
         {
           "name": "Faith",
           "amount": 50
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 50,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692f5b38l0hynzsnci8jsfgasx6",
@@ -1052,12 +1095,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 0
+      }
     },
     {
       "id": "17f693ad486l0hynztvo8jus81t2uf",
@@ -1076,12 +1120,13 @@
         {
           "name": "Faith",
           "amount": 46
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 46,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6939dc0dl0hyo003ig3i03oy5eh",
@@ -1100,12 +1145,13 @@
         {
           "name": "Faith",
           "amount": 34
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 34,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695939cbl0hyo0116aw3hbaoca",
@@ -1124,12 +1170,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 12
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 12
+      }
     },
     {
       "id": "17f68ff32f6l0hyo035frl5ld6347k",
@@ -1148,12 +1195,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690e9092l0hyo03nyw25bgiu4hs",
@@ -1172,12 +1220,13 @@
         {
           "name": "Faith",
           "amount": 22
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 22,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695e7bcdl0hyo059aa6ajju2es",
@@ -1196,12 +1245,13 @@
         {
           "name": "Faith",
           "amount": 30
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 30,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69510ee3l0hyo0f0mccaj31dwhq",
@@ -1220,12 +1270,13 @@
         {
           "name": "Faith",
           "amount": 25
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 25,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69535c25l0hyo1gmmkqtdazls9",
@@ -1244,12 +1295,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69822dd3l0hyo1hzk48p9uymlan",
@@ -1268,12 +1320,13 @@
         {
           "name": "Faith",
           "amount": 19
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 19,
+        "faith": 19,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692dbdc9l0hyo1jah0ket283h6d",
@@ -1292,12 +1345,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69430705l0hyo1jpd17zxxmmdyl",
@@ -1316,12 +1370,13 @@
         {
           "name": "Faith",
           "amount": 33
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 33,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6926bc7dl0hyo1ku9wh0qz4eyh6",
@@ -1340,12 +1395,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 0
+      }
     },
     {
       "id": "17f693e76abl0hyo1mzypokk5gvlz",
@@ -1364,12 +1420,13 @@
         {
           "name": "Faith",
           "amount": 28
-        },
-        {
-          "name": "Arcane",
-          "amount": 17
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 28,
+        "arcane": 17
+      }
     },
     {
       "id": "17f68fa0c30l0hyo1qasgyir08s9kb",
@@ -1388,12 +1445,13 @@
         {
           "name": "Faith",
           "amount": 21
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 21,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6904f3b2l0hyo1u5sqdw9zxr0g",
@@ -1412,12 +1470,13 @@
         {
           "name": "Faith",
           "amount": 24
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 24,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69773db5l0hyo3532itzerrsdj",
@@ -1436,12 +1495,13 @@
         {
           "name": "Faith",
           "amount": 40
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 40,
+        "arcane": 0
+      }
     },
     {
       "id": "17f696de88al0hyo39vlr771is6fv",
@@ -1460,12 +1520,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69602ae3l0hyo3a6ruzolnobp3o",
@@ -1484,12 +1545,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6908485dl0hyo3bkdtot70uk3p4",
@@ -1508,12 +1570,13 @@
         {
           "name": "Faith",
           "amount": 17
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 17,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6933b1fdl0hyo3bz9d9loqhf9qh",
@@ -1532,12 +1595,13 @@
         {
           "name": "Faith",
           "amount": 0
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 0,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6908f509l0hyo3cd6br7iexs0ys",
@@ -1556,12 +1620,13 @@
         {
           "name": "Faith",
           "amount": 17
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 17,
+        "faith": 17,
+        "arcane": 0
+      }
     },
     {
       "id": "17f693addcel0hyo3dh93zpcxbralt",
@@ -1580,12 +1645,13 @@
         {
           "name": "Faith",
           "amount": 0
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 37,
+        "faith": 0,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69522233l0hyo3e7aqun8itt9a",
@@ -1604,12 +1670,13 @@
         {
           "name": "Faith",
           "amount": 28
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 28,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6988869dl0hyo4qsblr2lchs3q7",
@@ -1628,12 +1695,13 @@
         {
           "name": "Faith",
           "amount": 27
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 27,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69634f78l0hyo4s4zggpkf72qsp",
@@ -1652,12 +1720,13 @@
         {
           "name": "Faith",
           "amount": 20
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 20,
+        "arcane": 0
+      }
     },
     {
       "id": "17f68fdec40l0hyo4sbk8kjcr4p6lp",
@@ -1676,12 +1745,13 @@
         {
           "name": "Faith",
           "amount": 0
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 0,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6962911el0hyo4s02nf0ie24nvc",
@@ -1700,12 +1770,13 @@
         {
           "name": "Faith",
           "amount": 26
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 26,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692fa4d2l0hyo4uc4mjru3qoaee",
@@ -1724,12 +1795,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 13,
+        "faith": 13,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69295d83l0hyo4wyff4k2r6tkno",
@@ -1748,12 +1820,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6946750bl0hyo4yckgppsbgjyai",
@@ -1772,12 +1845,13 @@
         {
           "name": "Faith",
           "amount": 16
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 16,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6917092dl0hyo511p1ard3b4xwm",
@@ -1796,12 +1870,13 @@
         {
           "name": "Faith",
           "amount": 14
-        },
-        {
-          "name": "Arcane",
-          "amount": 10
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 14,
+        "arcane": 10
+      }
     },
     {
       "id": "17f6971f6b6l0hyo69cly6crooe39",
@@ -1820,12 +1895,13 @@
         {
           "name": "Faith",
           "amount": 11
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 11,
+        "arcane": 0
+      }
     },
     {
       "id": "17f697ae98fl0hyo6a7rwr36m0lrsr",
@@ -1844,12 +1920,13 @@
         {
           "name": "Faith",
           "amount": 35
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 35,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6922607fl0hyo6c1nfqul6hljpg",
@@ -1868,12 +1945,13 @@
         {
           "name": "Faith",
           "amount": 10
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 10,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6958b760l0hyo6c41h81a4ao9ihh",
@@ -1892,12 +1970,13 @@
         {
           "name": "Faith",
           "amount": 36
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 36,
+        "arcane": 0
+      }
     },
     {
       "id": "17f695abe1dl0hyo6ddrxsg47tz9j9",
@@ -1916,12 +1995,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69215aafl0hyo6fnokhkxl7dq4p",
@@ -1940,12 +2020,13 @@
         {
           "name": "Faith",
           "amount": 31
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 31,
+        "faith": 31,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6968b28dl0hyo6loaay43jahfcp",
@@ -1964,12 +2045,13 @@
         {
           "name": "Faith",
           "amount": 15
-        },
-        {
-          "name": "Arcane",
-          "amount": 12
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 15,
+        "arcane": 12
+      }
     },
     {
       "id": "17f695dd7d9l0hyo6nbzipolrbtuxg",
@@ -1988,12 +2070,13 @@
         {
           "name": "Faith",
           "amount": 12
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 12,
+        "arcane": 0
+      }
     },
     {
       "id": "17f694d5050l0hyo7rhkcg4j0qaii",
@@ -2012,12 +2095,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 15
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 15
+      }
     },
     {
       "id": "17f69771088l0hyo7tmllgof77289o",
@@ -2036,12 +2120,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 13,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692aa326l0hyo81f3t0bbkonkwh",
@@ -2060,12 +2145,13 @@
         {
           "name": "Faith",
           "amount": 9
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 9,
+        "arcane": 0
+      }
     },
     {
       "id": "17f691c3d89l0hyo81xcmf8pooodpu",
@@ -2084,12 +2170,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 13,
+        "arcane": 0
+      }
     },
     {
       "id": "17f692422c4l0hyo84mlas2e4zch5",
@@ -2108,12 +2195,13 @@
         {
           "name": "Faith",
           "amount": 28
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 28,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6904109al0hyo84mydzpc5usap9",
@@ -2132,12 +2220,13 @@
         {
           "name": "Faith",
           "amount": 35
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 35,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6925361el0hyo84va1dajld4erh",
@@ -2156,12 +2245,13 @@
         {
           "name": "Faith",
           "amount": 11
-        },
-        {
-          "name": "Arcane",
-          "amount": 16
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 11,
+        "arcane": 16
+      }
     },
     {
       "id": "17f69632226l0hyo91iqbjmg4xbw1",
@@ -2180,12 +2270,13 @@
         {
           "name": "Faith",
           "amount": 16
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 16,
+        "arcane": 0
+      }
     },
     {
       "id": "17f69603e55l0hyo92oip6kr38j99r",
@@ -2204,12 +2295,13 @@
         {
           "name": "Faith",
           "amount": 21
-        },
-        {
-          "name": "Arcane",
-          "amount": 14
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 21,
+        "arcane": 14
+      }
     },
     {
       "id": "17f692da48al0hyo9dril53k44haam",
@@ -2228,12 +2320,13 @@
         {
           "name": "Faith",
           "amount": 31
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 31,
+        "arcane": 0
+      }
     },
     {
       "id": "17f6912a13el0hyo9e5e3yb9u659qs",
@@ -2252,12 +2345,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 23,
+        "faith": 23,
+        "arcane": 0
+      }
     },
     {
       "id": "17f690c2762l0hyo9glzbxuxlwc2dh",
@@ -2276,12 +2370,13 @@
         {
           "name": "Faith",
           "amount": 13
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 13,
+        "arcane": 0
+      }
     },
     {
       "id": "17f694ba1f5l0hyo9j21xk3iv8ws5v",
@@ -2300,12 +2395,13 @@
         {
           "name": "Faith",
           "amount": 23
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 23,
+        "arcane": 0
+      }
     },
     {
       "id": "17f698ccf55l0hyo9juunjo3lodn1n",
@@ -2324,12 +2420,13 @@
         {
           "name": "Faith",
           "amount": 8
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 8,
+        "arcane": 0
+      }
     },
     {
       "id": "17f693ca95el0hyo9lhohewhkatfd",
@@ -2348,12 +2445,13 @@
         {
           "name": "Faith",
           "amount": 32
-        },
-        {
-          "name": "Arcane",
-          "amount": 0
         }
-      ]
+      ],
+      "requiredAttributes": {
+        "intelligence": 0,
+        "faith": 32,
+        "arcane": 0
+      }
     }
   ]
 }

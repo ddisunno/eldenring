@@ -70,16 +70,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 13
+      },
       "category": "Small Shield",
       "weight": 1.5
     },
@@ -146,12 +140,9 @@
           "scaling": ""
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 1.5
     },
@@ -218,12 +209,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -290,12 +278,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Small Shield",
       "weight": 3.5
     },
@@ -362,12 +347,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 1
     },
@@ -434,12 +416,9 @@
           "scaling": ""
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Small Shield",
       "weight": 5
     },
@@ -506,12 +485,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 1.5
     },
@@ -578,12 +554,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -650,12 +623,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 1.5
     },
@@ -722,12 +692,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -794,12 +761,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -866,12 +830,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 3
     },
@@ -940,16 +901,10 @@
           "name": "Dex"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 9
+      },
       "category": "Small Shields",
       "weight": 3
     },
@@ -1016,12 +971,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 3
     },
@@ -1088,12 +1040,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9
+      },
       "category": "Small Shield",
       "weight": 3
     },
@@ -1162,16 +1111,10 @@
           "name": "Dex"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -1238,12 +1181,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3
     },
@@ -1310,12 +1250,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 4
     },
@@ -1386,16 +1323,10 @@
           "scaling": ""
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Small Shield",
       "weight": 1.5
     },
@@ -1462,12 +1393,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12
+      },
       "category": "Medium Shield",
       "weight": 4.5
     },
@@ -1534,12 +1462,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14
+      },
       "category": "Medium Shield",
       "weight": 6
     },
@@ -1606,12 +1531,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11
+      },
       "category": "Medium Shield",
       "weight": 4.5
     },
@@ -1678,12 +1600,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -1758,20 +1677,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 10,
+        "intelligence": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -1838,12 +1748,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 4
     },
@@ -1910,12 +1817,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11
+      },
       "category": "Medium Shield",
       "weight": 4.5
     },
@@ -1982,12 +1886,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12
+      },
       "category": "Medium Shield",
       "weight": 4.5
     },
@@ -2054,12 +1955,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12
+      },
       "category": "Medium Shield",
       "weight": 5
     },
@@ -2126,12 +2024,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16
+      },
       "category": "Medium Shield",
       "weight": 7
     },
@@ -2198,12 +2093,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Small Shield",
       "weight": 2
     },
@@ -2270,12 +2162,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14
+      },
       "category": "Medium Shield",
       "weight": 5.5
     },
@@ -2352,20 +2241,7 @@
           "name": ""
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "STR",
-          "amount": 10
-        },
-        {
-          "name": "DEX",
-          "amount": 10
-        },
-        {
-          "name": "INT",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {},
       "category": "Medium Shield",
       "weight": 4.5
     },
@@ -2432,12 +2308,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2504,12 +2377,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2576,12 +2446,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3
     },
@@ -2648,12 +2515,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2720,12 +2584,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2792,12 +2653,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2864,12 +2722,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -2936,12 +2791,7 @@
           "scaling": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Strength",
-          "amount": null
-        }
-      ],
+      "requiredAttributes": {},
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -3008,12 +2858,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -3080,12 +2927,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -3152,12 +2996,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3.5
     },
@@ -3224,12 +3065,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Medium Shield",
       "weight": 3
     },
@@ -3296,12 +3134,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30
+      },
       "category": "Greatshield",
       "weight": 17.5
     },
@@ -3368,12 +3203,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26
+      },
       "category": "Greatshield",
       "weight": 11.5
     },
@@ -3440,12 +3272,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 32
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 32
+      },
       "category": "Greatshield",
       "weight": 17
     },
@@ -3516,16 +3345,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28,
+        "dexterity": 12
+      },
       "category": "Greatshield",
       "weight": 13.5
     },
@@ -3592,12 +3415,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24
+      },
       "category": "Greatshield",
       "weight": 12.5
     },
@@ -3668,16 +3488,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Fai",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "faith": 12
+      },
       "category": "Greatshield",
       "weight": 13.5
     },
@@ -3744,12 +3558,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 21
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 21
+      },
       "category": "Greatshield",
       "weight": 9.5
     },
@@ -3820,16 +3631,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14
+      },
       "category": "Greatshield",
       "weight": 8
     },
@@ -3896,12 +3701,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 48
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 48
+      },
       "category": "Greatshield",
       "weight": 29
     },
@@ -3968,12 +3770,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22
+      },
       "category": "Greatshield",
       "weight": 11.5
     },
@@ -4040,12 +3839,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 44
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 44
+      },
       "category": "Greatshield",
       "weight": 24
     },
@@ -4112,12 +3908,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 36
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 36
+      },
       "category": "Greatshield",
       "weight": 20.5
     },
@@ -4184,12 +3977,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20
+      },
       "category": "Greatshield",
       "weight": 11.5
     },
@@ -4256,12 +4046,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30
+      },
       "category": "Greatshield",
       "weight": 16
     },
@@ -4328,12 +4115,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30
+      },
       "category": "Greatshield",
       "weight": 16
     },
@@ -4400,12 +4184,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30
+      },
       "category": "Greatshield",
       "weight": 14
     },
@@ -4472,12 +4253,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28
+      },
       "category": "Greatshield",
       "weight": 13.5
     },
@@ -4544,12 +4322,9 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30
+      },
       "category": "Greatshield",
       "weight": 16
     },
@@ -4616,12 +4391,7 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "32",
-          "amount": null
-        }
-      ],
+      "requiredAttributes": {},
       "category": "Greatshield",
       "weight": 15
     },
@@ -4688,12 +4458,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 32
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 32
+      },
       "category": null,
       "weight": 15
     },
@@ -4760,12 +4527,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 36
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 36
+      },
       "category": "Greatshield",
       "weight": 17.5
     },
@@ -4832,12 +4596,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34
+      },
       "category": "Greatshield",
       "weight": 17
     },
@@ -4904,12 +4665,9 @@
           "scaling": ""
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 36
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 36
+      },
       "category": "Greatshield",
       "weight": 18.5
     },
@@ -4976,12 +4734,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14
+      },
       "category": "Greatshield",
       "weight": 8
     },
@@ -5048,12 +4803,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16
+      },
       "category": "Greatshield",
       "weight": 10
     }

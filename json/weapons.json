@@ -70,16 +70,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 8
+      },
       "category": "Axe",
       "weight": 3.5
     },
@@ -150,16 +144,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 8
+      },
       "category": "Axe",
       "weight": 5.5
     },
@@ -230,16 +218,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 14
+      },
       "category": "Axe",
       "weight": 2.5
     },
@@ -310,16 +292,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 7
+      },
       "category": "Axe",
       "weight": 6
     },
@@ -390,16 +366,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Axe",
       "weight": 4.5
     },
@@ -466,20 +436,11 @@
           "scaling": "A"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        },
-        {
-          "name": "Arc",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 11,
+        "arcane": 20
+      },
       "category": "Axe",
       "weight": 4.5
     },
@@ -550,16 +511,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 16
+      },
       "category": "Axe",
       "weight": 3
     },
@@ -630,16 +585,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 10
+      },
       "category": "Axe",
       "weight": 5.5
     },
@@ -710,16 +659,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Axe",
       "weight": 4.5
     },
@@ -794,20 +737,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 10,
+        "intelligence": 18
+      },
       "category": "Axe",
       "weight": 5.5
     },
@@ -878,16 +812,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 9
+      },
       "category": "Axe",
       "weight": 4.5
     },
@@ -954,16 +882,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 8
+      },
       "category": "Axe",
       "weight": 7.5
     },
@@ -1034,16 +956,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 19
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 19,
+        "dexterity": 15
+      },
       "category": "Axe",
       "weight": 5.5
     },
@@ -1118,20 +1034,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 8,
+        "faith": 22
+      },
       "category": "Axe",
       "weight": 8.5
     },
@@ -1201,16 +1108,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 14
+      },
       "category": "Ballista",
       "weight": 10
     },
@@ -1280,16 +1181,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 12
+      },
       "category": "Ballista",
       "weight": 15
     },
@@ -1364,16 +1259,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 14
+      },
       "category": "Bow",
       "weight": 4
     },
@@ -1448,16 +1337,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 18
+      },
       "category": "Bow",
       "weight": 4.5
     },
@@ -1536,20 +1419,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 12,
+        "faith": 14
+      },
       "category": "Bow",
       "weight": 4
     },
@@ -1624,20 +1498,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Int",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 14,
+        "intelligence": 12
+      },
       "category": "Bow",
       "weight": 4.5
     },
@@ -1716,20 +1581,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Arc",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 15,
+        "arcane": 11
+      },
       "category": "Bow",
       "weight": 3.5
     },
@@ -1804,16 +1660,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 11
+      },
       "category": "Bow",
       "weight": 5
     },
@@ -1888,16 +1738,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 20
+      },
       "category": "Bow",
       "weight": 4
     },
@@ -1968,16 +1812,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 15
+      },
       "category": "Claw",
       "weight": 3
     },
@@ -2048,16 +1886,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 9
+      },
       "category": "Claw",
       "weight": 2.5
     },
@@ -2128,16 +1960,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 14
+      },
       "category": "Claw",
       "weight": 2
     },
@@ -2208,16 +2034,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 14
+      },
       "category": "Claw",
       "weight": 1.5
     },
@@ -2288,16 +2108,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 10
+      },
       "category": "Colossal Sword",
       "weight": 22
     },
@@ -2368,16 +2182,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 31
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 31,
+        "dexterity": 12
+      },
       "category": "Colossal Sword",
       "weight": 23
     },
@@ -2448,16 +2256,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 29
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 29,
+        "dexterity": 10
+      },
       "category": "Colossal Sword",
       "weight": 19
     },
@@ -2532,20 +2334,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Fai",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 12,
+        "faith": 20
+      },
       "category": "Colossal Sword",
       "weight": 22
     },
@@ -2616,16 +2409,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 19
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 19,
+        "dexterity": 11
+      },
       "category": "Colossal Sword",
       "weight": 15.5
     },
@@ -2700,20 +2487,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        },
-        {
-          "name": "Int",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 18,
+        "intelligence": 22
+      },
       "category": "Colossal Sword",
       "weight": 20
     },
@@ -2788,20 +2566,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        },
-        {
-          "name": "Fai",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 22,
+        "faith": 20
+      },
       "category": "Colossal Sword",
       "weight": 17.5
     },
@@ -2872,16 +2641,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 40
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 40,
+        "dexterity": 14
+      },
       "category": "Colossal Sword",
       "weight": 21
     },
@@ -2952,16 +2715,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 50
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 50,
+        "intelligence": 16
+      },
       "category": "Colossal Sword",
       "weight": 23
     },
@@ -3036,20 +2793,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 38
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 38,
+        "dexterity": 12,
+        "intelligence": 15
+      },
       "category": "Colossal Sword",
       "weight": 20
     },
@@ -3124,20 +2872,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14,
+        "intelligence": 18
+      },
       "category": "Colossal Sword",
       "weight": 18
     },
@@ -3208,16 +2947,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 10
+      },
       "category": "Colossal Weapon",
       "weight": 19
     },
@@ -3284,12 +3017,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28
+      },
       "category": "Colossal Weapon",
       "weight": 19.5
     },
@@ -3356,12 +3086,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 35
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 35
+      },
       "category": "Colossal Weapon",
       "weight": 17
     },
@@ -3432,16 +3159,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 45
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 45,
+        "dexterity": 8
+      },
       "category": "Colossal Weapon",
       "weight": 23.5
     },
@@ -3512,16 +3233,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 10
+      },
       "category": "Colossal Weapon",
       "weight": 20
     },
@@ -3592,16 +3307,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 42
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 42,
+        "dexterity": 14
+      },
       "category": "Colossal Weapon",
       "weight": 18
     },
@@ -3672,16 +3381,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 14
+      },
       "category": "Colossal Weapon",
       "weight": 16
     },
@@ -3756,20 +3459,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 12,
+        "intelligence": 20
+      },
       "category": "Colossal Weapon",
       "weight": 21.5
     },
@@ -3836,12 +3530,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34
+      },
       "category": "Colossal Weapon",
       "weight": 20
     },
@@ -3912,16 +3603,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28,
+        "dexterity": 18
+      },
       "category": "Colossal Weapon",
       "weight": 19
     },
@@ -3988,12 +3673,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 60
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 60
+      },
       "category": "Colossal Weapon",
       "weight": 26.5
     },
@@ -4064,16 +3746,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 36
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 36,
+        "dexterity": 14
+      },
       "category": "Colossal Weapon",
       "weight": 21.5
     },
@@ -4148,20 +3824,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        },
-        {
-          "name": "Fai",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28,
+        "dexterity": 8,
+        "faith": 10
+      },
       "category": "Colossal Weapon",
       "weight": 16
     },
@@ -4232,16 +3899,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 8
+      },
       "category": "Colossal Weapon",
       "weight": 18
     },
@@ -4312,16 +3973,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 10
+      },
       "category": "Colossal Weapon",
       "weight": 20
     },
@@ -4391,16 +4046,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 8
+      },
       "category": "Crossbow",
       "weight": 3.5
     },
@@ -4470,16 +4119,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Crossbow",
       "weight": 4
     },
@@ -4549,16 +4192,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 10
+      },
       "category": "Crossbow",
       "weight": 5.5
     },
@@ -4628,16 +4265,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 16
+      },
       "category": "Crossbow",
       "weight": 4
     },
@@ -4707,20 +4338,11 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "intelligence": 14
+      },
       "category": "Crossbow",
       "weight": 4
     },
@@ -4795,20 +4417,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 16,
+        "intelligence": 16
+      },
       "category": "Curved Greatsword",
       "weight": 11.5
     },
@@ -4879,16 +4492,10 @@
           "scaling": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 16
+      },
       "category": "Crossbow",
       "weight": 5
     },
@@ -4958,16 +4565,10 @@
           "name": "-"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 12
+      },
       "category": "Crossbow",
       "weight": 6
     },
@@ -5038,16 +4639,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 17
+      },
       "category": "Curved Greatsword",
       "weight": 11.5
     },
@@ -5118,16 +4713,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 19
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 19,
+        "dexterity": 16
+      },
       "category": "Curved Greatsword",
       "weight": 10
     },
@@ -5202,20 +4791,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 15,
+        "faith": 18
+      },
       "category": "Curved Greatsword",
       "weight": 15
     },
@@ -5286,16 +4866,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 19
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 19,
+        "dexterity": 16
+      },
       "category": "Curved Greatsword",
       "weight": 11.5
     },
@@ -5366,16 +4940,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 18
+      },
       "category": "Curved Greatsword",
       "weight": 9
     },
@@ -5446,16 +5014,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 18
+      },
       "category": "Curved Greatsword",
       "weight": 9
     },
@@ -5526,16 +5088,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 25
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 25,
+        "dexterity": 14
+      },
       "category": "Curved Greatsword",
       "weight": 16.5
     },
@@ -5610,20 +5166,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 35
-        },
-        {
-          "name": "Arc",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 35,
+        "arcane": 17
+      },
       "category": "Curved Greatsword",
       "weight": 7.5
     },
@@ -5694,16 +5241,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 13
+      },
       "category": "Curved Sword",
       "weight": 3.5
     },
@@ -5774,16 +5315,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 13
+      },
       "category": "Curved Sword",
       "weight": 3.5
     },
@@ -5854,16 +5389,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 11
+      },
       "category": "Curved Sword",
       "weight": 4
     },
@@ -5934,16 +5463,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 19
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 19
+      },
       "category": "Curved Sword",
       "weight": 2
     },
@@ -6018,20 +5541,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Fai",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 15,
+        "faith": 16
+      },
       "category": "Curved Sword",
       "weight": 4
     },
@@ -6102,16 +5616,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 17
+      },
       "category": "Curved Sword",
       "weight": 3.5
     },
@@ -6186,20 +5694,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        },
-        {
-          "name": "Int",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 17,
+        "intelligence": 20
+      },
       "category": "Curved Sword",
       "weight": 2.5
     },
@@ -6274,20 +5773,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 25
-        },
-        {
-          "name": "Fai",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 25,
+        "faith": 30
+      },
       "category": "Curved Sword",
       "weight": 3
     },
@@ -6358,16 +5848,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 9
+      },
       "category": "Curved Sword",
       "weight": 4
     },
@@ -6438,16 +5922,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 14
+      },
       "category": "Curved Sword",
       "weight": 3.5
     },
@@ -6518,16 +5996,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 12
+      },
       "category": "Curved Sword",
       "weight": 4
     },
@@ -6598,16 +6070,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 13
+      },
       "category": "Curved Sword",
       "weight": 3
     },
@@ -6678,16 +6144,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 15
+      },
       "category": "Curved Sword",
       "weight": 3.5
     },
@@ -6758,16 +6218,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 5
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 5,
+        "dexterity": 9
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -6838,16 +6292,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 12
+      },
       "category": "Curved Sword",
       "weight": 4.5
     },
@@ -6922,20 +6370,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 12,
+        "faith": 18
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -7006,16 +6445,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 5
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 5,
+        "dexterity": 14
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -7086,16 +6519,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 12
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -7170,20 +6597,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 5
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        },
-        {
-          "name": "Arc",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 5,
+        "dexterity": 13,
+        "arcane": 13
+      },
       "category": "Dagger",
       "weight": 2.5
     },
@@ -7258,20 +6676,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 12,
+        "intelligence": 9
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -7342,16 +6751,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 11
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -7426,20 +6829,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 5
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 5,
+        "dexterity": 12,
+        "intelligence": 16
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -7510,16 +6904,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 12
+      },
       "category": "Dagger",
       "weight": 2.5
     },
@@ -7590,16 +6978,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 12
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -7670,16 +7052,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 13
+      },
       "category": "Dagger",
       "weight": 3
     },
@@ -7750,16 +7126,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Dagger",
       "weight": 3.5
     },
@@ -7834,20 +7204,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        },
-        {
-          "name": "Int",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 11,
+        "intelligence": 13
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -7922,20 +7283,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 12,
+        "faith": 14
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -8010,20 +7362,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        },
-        {
-          "name": "Fai",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 13,
+        "faith": 15
+      },
       "category": "Dagger",
       "weight": 1.5
     },
@@ -8094,16 +7437,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 12
+      },
       "category": "Dagger",
       "weight": 2
     },
@@ -8174,16 +7511,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10
+      },
       "category": "Fist",
       "weight": 2
     },
@@ -8254,16 +7585,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 8
+      },
       "category": "Fist",
       "weight": 1.5
     },
@@ -8338,20 +7663,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Fai",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14,
+        "faith": 16
+      },
       "category": "Fist",
       "weight": 2.5
     },
@@ -8422,16 +7738,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 8
+      },
       "category": "Fist",
       "weight": 2.5
     },
@@ -8502,16 +7812,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Fist",
       "weight": 3
     },
@@ -8582,16 +7886,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10
+      },
       "category": "Fist",
       "weight": 2.5
     },
@@ -8666,20 +7964,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        },
-        {
-          "name": "Arc",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 22,
+        "arcane": 16
+      },
       "category": "Fist",
       "weight": 2.5
     },
@@ -8746,12 +8035,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 30
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 30
+      },
       "category": "Fist",
       "weight": 0
     },
@@ -8822,16 +8108,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 12
+      },
       "category": "Fist",
       "weight": 4
     },
@@ -8902,16 +8182,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 24
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 24
+      },
       "category": "Flail",
       "weight": 6
     },
@@ -8982,16 +8256,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 18
+      },
       "category": "Flail",
       "weight": 5
     },
@@ -9066,20 +8334,7 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "STR",
-          "amount": 8
-        },
-        {
-          "name": "DEX",
-          "amount": 18
-        },
-        {
-          "name": "INT",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {},
       "category": "Flail",
       "weight": 5.5
     },
@@ -9154,20 +8409,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        },
-        {
-          "name": "Int",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 22,
+        "intelligence": 22
+      },
       "category": "Flail",
       "weight": 5.5
     },
@@ -9242,16 +8488,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 10
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -9326,16 +8566,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Int",
-          "amount": 48
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "intelligence": 48
+      },
       "category": "Glintstone Staff",
       "weight": 4.5
     },
@@ -9406,16 +8640,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 12
+      },
       "category": "Flail",
       "weight": 8
     },
@@ -9494,20 +8722,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 14
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 14,
+        "faith": 14
+      },
       "category": "Glintstone Staff",
       "weight": 2.5
     },
@@ -9582,16 +8801,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 10
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -9670,20 +8883,11 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 60
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10,
+        "intelligence": 60
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -9758,16 +8962,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "intelligence": 16
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -9842,16 +9040,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Int",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "intelligence": 12
+      },
       "category": "Glintstone Staff",
       "weight": 4.5
     },
@@ -9926,20 +9118,11 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 18,
+        "faith": 18
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -10014,20 +9197,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 22,
+        "dexterity": 12
+      },
       "category": "Glintstone Staff",
       "weight": 2.5
     },
@@ -10102,20 +9276,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 10
-        },
-        {
-          "name": "Arc",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 10,
+        "arcane": 12
+      },
       "category": "Glintstone Staff",
       "weight": 2.5
     },
@@ -10190,16 +9355,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 28
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 28
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -10274,20 +9433,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 24,
+        "dexterity": 8
+      },
       "category": "Glintstone Staff",
       "weight": 3
     },
@@ -10362,16 +9512,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 52
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "intelligence": 52
+      },
       "category": "Glintstone Staff",
       "weight": 4
     },
@@ -10446,16 +9590,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 52
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "intelligence": 52
+      },
       "category": "Glintstone Staff",
       "weight": 4
     },
@@ -10530,16 +9668,10 @@
           "scaling": "S"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "intelligence": 18
+      },
       "category": "Glintstone Staff",
       "weight": 4.5
     },
@@ -10614,16 +9746,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Fai",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "faith": 12
+      },
       "category": "Glintstone Staff",
       "weight": 4.5
     },
@@ -10698,16 +9824,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Int",
-          "amount": 48
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "intelligence": 48
+      },
       "category": "Glintstone Staff",
       "weight": 4.5
     },
@@ -10778,16 +9898,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 8
+      },
       "category": "Greataxe",
       "weight": 13
     },
@@ -10858,16 +9972,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 23
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 23,
+        "dexterity": 12
+      },
       "category": "Greataxe",
       "weight": 11
     },
@@ -10946,20 +10054,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 6
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 6,
+        "dexterity": 12,
+        "intelligence": 14
+      },
       "category": "Glintstone Staff",
       "weight": 2.5
     },
@@ -11030,16 +10129,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 25
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 25,
+        "dexterity": 15
+      },
       "category": "Greataxe",
       "weight": 12.5
     },
@@ -11110,16 +10203,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 22
+      },
       "category": "Greataxe",
       "weight": 11
     },
@@ -11190,16 +10277,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 8
+      },
       "category": "Greataxe",
       "weight": 12.5
     },
@@ -11270,16 +10351,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 34
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 34,
+        "dexterity": 8
+      },
       "category": "Greataxe",
       "weight": 15
     },
@@ -11350,16 +10425,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 9
+      },
       "category": "Greataxe",
       "weight": 12.5
     },
@@ -11430,16 +10499,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 20
+      },
       "category": "Greataxe",
       "weight": 11
     },
@@ -11510,16 +10573,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 20
+      },
       "category": "Greataxe",
       "weight": 8.5
     },
@@ -11590,16 +10647,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 8
+      },
       "category": "Greataxe",
       "weight": 0
     },
@@ -11674,16 +10725,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22,
+        "dexterity": 18
+      },
       "category": "Greatbow",
       "weight": 9.5
     },
@@ -11762,20 +10807,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14,
+        "faith": 14
+      },
       "category": "Greatbow",
       "weight": 11
     },
@@ -11850,16 +10886,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 18
+      },
       "category": "Greatbow",
       "weight": 14.5
     },
@@ -11934,16 +10964,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 20
+      },
       "category": "Greatbow",
       "weight": 10
     },
@@ -12018,20 +11042,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Arc",
-          "amount": 27
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "arcane": 27,
+        "dexterity": 14
+      },
       "category": "Great Spear",
       "weight": 10
     },
@@ -12106,24 +11121,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 27
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        },
-        {
-          "name": "Fai",
-          "amount": 0
-        },
-        {
-          "name": "",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 27,
+        "dexterity": 13,
+        "faith": 0
+      },
       "category": "Great Spear",
       "weight": 10
     },
@@ -12198,20 +11200,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 20,
+        "faith": 18
+      },
       "category": "Great Spear",
       "weight": 8
     },
@@ -12282,12 +11275,7 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "-",
-          "amount": 0
-        }
-      ],
+      "requiredAttributes": {},
       "category": "Great Spear",
       "weight": 12
     },
@@ -12358,16 +11346,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14
+      },
       "category": "Great Spear",
       "weight": 9
     },
@@ -12442,24 +11424,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        },
-        {
-          "name": "Fai",
-          "amount": 0
-        },
-        {
-          "name": "",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 22,
+        "faith": 0
+      },
       "category": "Great Spear",
       "weight": 9.5
     },
@@ -12530,16 +11499,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 10
+      },
       "category": "Greatsword",
       "weight": 9
     },
@@ -12610,16 +11573,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 16
+      },
       "category": "Greatsword",
       "weight": 9
     },
@@ -12690,16 +11647,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 10
+      },
       "category": "Greatsword",
       "weight": 12
     },
@@ -12770,16 +11721,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 10
+      },
       "category": "Greatsword",
       "weight": 9
     },
@@ -12850,16 +11795,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 12
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -12930,16 +11869,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 14
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -13014,20 +11947,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 25
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        },
-        {
-          "name": "Fai",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 25,
+        "dexterity": 13,
+        "faith": 15
+      },
       "category": "Greatsword",
       "weight": 12
     },
@@ -13102,20 +12026,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 12,
+        "intelligence": 18
+      },
       "category": "Greatsword",
       "weight": 8
     },
@@ -13182,12 +12097,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -13262,20 +12174,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        },
-        {
-          "name": "Int",
-          "amount": 38
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 11,
+        "intelligence": 38
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -13353,20 +12256,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 24
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 24,
+        "faith": 22
+      },
       "category": "Greatsword",
       "weight": 11
     },
@@ -13441,20 +12335,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 19
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 19,
+        "dexterity": 10,
+        "intelligence": 22
+      },
       "category": "Greatsword",
       "weight": 11.5
     },
@@ -13529,20 +12414,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Fai",
-          "amount": 21
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22,
+        "dexterity": 15,
+        "faith": 21
+      },
       "category": "Greatsword",
       "weight": 13.5
     },
@@ -13617,20 +12493,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Arc",
-          "amount": 23
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 14,
+        "arcane": 23
+      },
       "category": "Greatsword",
       "weight": 11.5
     },
@@ -13701,16 +12568,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 19
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 19
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -13785,20 +12646,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 21
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 21,
+        "faith": 18
+      },
       "category": "Greatsword",
       "weight": 10
     },
@@ -13869,16 +12721,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 13
+      },
       "category": "Greatsword",
       "weight": 9
     },
@@ -13949,16 +12795,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 10
+      },
       "category": "Greatsword",
       "weight": 11.5
     },
@@ -14033,20 +12873,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        },
-        {
-          "name": "Int",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 17,
+        "intelligence": 11
+      },
       "category": "Greatsword",
       "weight": 8.5
     },
@@ -14121,20 +12952,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 10,
+        "faith": 22
+      },
       "category": "Greatsword",
       "weight": 11.5
     },
@@ -14205,16 +13027,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 13
+      },
       "category": "Halberd",
       "weight": 7
     },
@@ -14285,16 +13101,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 12
+      },
       "category": "Halberd",
       "weight": 8
     },
@@ -14365,16 +13175,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 12
+      },
       "category": "Halberd",
       "weight": 7
     },
@@ -14445,16 +13249,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 12
+      },
       "category": "Halberd",
       "weight": 8
     },
@@ -14525,16 +13323,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 14
+      },
       "category": "Halberd",
       "weight": 11.5
     },
@@ -14601,12 +13393,9 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12
+      },
       "category": "Halberd",
       "weight": 8.5
     },
@@ -14677,16 +13466,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 10
+      },
       "category": "Halberd",
       "weight": 12
     },
@@ -14753,12 +13536,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15
+      },
       "category": "Halberd",
       "weight": 8
     },
@@ -14833,20 +13613,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 30
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Fai",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 30,
+        "dexterity": 14,
+        "faith": 12
+      },
       "category": "Halberd",
       "weight": 13.5
     },
@@ -14917,16 +13688,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 15
+      },
       "category": "Halberd",
       "weight": 10
     },
@@ -15001,20 +13766,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Int",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 15,
+        "intelligence": 20
+      },
       "category": "Halberd",
       "weight": 10
     },
@@ -15085,16 +13841,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17,
+        "dexterity": 16
+      },
       "category": "Halberd",
       "weight": 9
     },
@@ -15165,16 +13915,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22,
+        "dexterity": 10
+      },
       "category": "Halberd",
       "weight": 10.5
     },
@@ -15245,16 +13989,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 16
+      },
       "category": "Curved Sword",
       "weight": 8
     },
@@ -15325,16 +14063,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 10
+      },
       "category": "Halberd",
       "weight": 12
     },
@@ -15405,16 +14137,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 4.5
     },
@@ -15489,20 +14215,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 10,
+        "faith": 22
+      },
       "category": "Halberd",
       "weight": 12
     },
@@ -15573,16 +14290,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 5
     },
@@ -15653,16 +14364,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 9
+      },
       "category": "Hammer",
       "weight": 2.5
     },
@@ -15729,12 +14434,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Hammer",
       "weight": 3.5
     },
@@ -15805,16 +14507,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 5
     },
@@ -15885,16 +14581,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 6.5
     },
@@ -15969,20 +14659,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Arc",
-          "amount": 24
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 16,
+        "arcane": 24
+      },
       "category": "Hammer",
       "weight": 2
     },
@@ -16053,16 +14734,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Hammer",
       "weight": 5
     },
@@ -16133,16 +14808,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 13
+      },
       "category": "Hammer",
       "weight": 6
     },
@@ -16209,12 +14878,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10
+      },
       "category": "Hammer",
       "weight": 4
     },
@@ -16289,20 +14955,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        },
-        {
-          "name": "Int",
-          "amount": 21
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 18,
+        "intelligence": 21
+      },
       "category": "Hammer",
       "weight": 4.5
     },
@@ -16373,16 +15030,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 6.5
     },
@@ -16453,16 +15104,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        },
-        {
-          "name": "Dex",
-          "amount": 7
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17,
+        "dexterity": 7
+      },
       "category": "Hammer",
       "weight": 4.5
     },
@@ -16533,16 +15178,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 8
+      },
       "category": "Hammer",
       "weight": 7
     },
@@ -16609,12 +15248,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20
+      },
       "category": "Hammer",
       "weight": 6
     },
@@ -16689,20 +15325,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 19
-        },
-        {
-          "name": "Arc",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 19,
+        "arcane": 17
+      },
       "category": "Heavy Thrusting Sword",
       "weight": 8
     },
@@ -16773,16 +15400,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 16
+      },
       "category": "Heavy Thrusting Sword",
       "weight": 6.5
     },
@@ -16853,16 +15474,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 17
+      },
       "category": "Heavy Thrusting Sword",
       "weight": 7
     },
@@ -16933,16 +15548,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 37
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 37
+      },
       "category": "Heavy Thrusting Sword",
       "weight": 8
     },
@@ -17013,16 +15622,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 15
+      },
       "category": "Katana",
       "weight": 5.5
     },
@@ -17093,16 +15696,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 22
+      },
       "category": "Katana",
       "weight": 7
     },
@@ -17173,16 +15770,10 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 48
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 48
+      },
       "category": "Katana",
       "weight": 7
     },
@@ -17257,20 +15848,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 14,
+        "intelligence": 18
+      },
       "category": "Katana",
       "weight": 7.5
     },
@@ -17345,20 +15927,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        },
-        {
-          "name": "Arc",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 18,
+        "arcane": 20
+      },
       "category": "Katana",
       "weight": 6.5
     },
@@ -17433,20 +16006,11 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        },
-        {
-          "name": "Int",
-          "amount": 23
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 18,
+        "intelligence": 23
+      },
       "category": "Katana",
       "weight": 6.5
     },
@@ -17517,16 +16081,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 20
+      },
       "category": "Katana",
       "weight": 5.5
     },
@@ -17597,16 +16155,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 22
+      },
       "category": "Katana",
       "weight": 6
     },
@@ -17681,16 +16233,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10
+      },
       "category": "Light Bow",
       "weight": 2.5
     },
@@ -17765,16 +16311,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 8
+      },
       "category": "Light Bow",
       "weight": 3
     },
@@ -17849,16 +16389,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 16
+      },
       "category": "Light Bow",
       "weight": 2.5
     },
@@ -17933,16 +16467,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 9
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 9
+      },
       "category": "Light Bow",
       "weight": 2
     },
@@ -18017,16 +16545,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 15
+      },
       "category": "Light Bow",
       "weight": 3
     },
@@ -18097,16 +16619,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 14
+      },
       "category": "Reaper",
       "weight": 7.5
     },
@@ -18173,12 +16689,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17
+      },
       "category": "Reaper",
       "weight": 9.5
     },
@@ -18253,20 +16766,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Fai",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 16,
+        "faith": 15
+      },
       "category": "Reaper",
       "weight": 8.5
     },
@@ -18341,20 +16845,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Fai",
-          "amount": 24
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 16,
+        "faith": 24
+      },
       "category": "Reaper",
       "weight": 7.5
     },
@@ -18429,16 +16924,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 4
-        },
-        {
-          "name": "Fai",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 4,
+        "faith": 10
+      },
       "category": "Sacred Seal",
       "weight": 1.5
     },
@@ -18513,16 +17002,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 4
-        },
-        {
-          "name": "Fai",
-          "amount": 27
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 4,
+        "faith": 27
+      },
       "category": "Sacred Seal",
       "weight": 1.5
     },
@@ -18593,16 +17076,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 4
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 4,
+        "faith": 14
+      },
       "category": "Sacred Seal",
       "weight": 1.5
     },
@@ -18677,16 +17154,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 4
-        },
-        {
-          "name": "Fai",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 4,
+        "faith": 10
+      },
       "category": "Sacred Seal",
       "weight": 1.5
     },
@@ -18761,16 +17232,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Int",
-          "amount": 17
-        },
-        {
-          "name": "Fai",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "intelligence": 17,
+        "faith": 17
+      },
       "category": "Sacred Seal",
       "weight": 0
     },
@@ -18841,12 +17306,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 40
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 40
+      },
       "category": "Sacred Seal",
       "weight": 0
     },
@@ -18917,12 +17379,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 40
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 40
+      },
       "category": "Sacred Seal",
       "weight": 0
     },
@@ -18997,16 +17456,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 10
-        },
-        {
-          "name": "Arc",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 10,
+        "arcane": 10
+      },
       "category": "Sacred Seal",
       "weight": 0
     },
@@ -19085,16 +17538,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 10
-        },
-        {
-          "name": "Arc",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 10,
+        "arcane": 10
+      },
       "category": "Sacred Seal",
       "weight": 0
     },
@@ -19165,16 +17612,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 15
+      },
       "category": "Spear",
       "weight": 4.5
     },
@@ -19245,16 +17686,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Spear",
       "weight": 4
     },
@@ -19329,20 +17764,11 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 16,
+        "intelligence": 16
+      },
       "category": "Spear",
       "weight": 5.5
     },
@@ -19417,20 +17843,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 0
-        },
-        {
-          "name": "Dex",
-          "amount": 0
-        },
-        {
-          "name": "Int",
-          "amount": 0
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "intelligence": 0
+      },
       "category": "Spear",
       "weight": 5.5
     },
@@ -19501,16 +17918,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 12
+      },
       "category": "Spear",
       "weight": 6.5
     },
@@ -19581,16 +17992,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 14
+      },
       "category": "Spear",
       "weight": 5
     },
@@ -19665,12 +18070,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16
+      },
       "category": "Spear",
       "weight": 5.5
     },
@@ -19741,16 +18143,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 14
+      },
       "category": "Spear",
       "weight": 7.5
     },
@@ -19825,16 +18221,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14,
+        "dexterity": 15
+      },
       "category": "Spear",
       "weight": 6
     },
@@ -19905,16 +18295,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 40
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 40
+      },
       "category": "Spear",
       "weight": 8.5
     },
@@ -19985,16 +18369,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 20
+      },
       "category": "Spear",
       "weight": 8
     },
@@ -20069,20 +18447,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 20,
+        "intelligence": 18
+      },
       "category": "Spear",
       "weight": 6.5
     },
@@ -20157,20 +18526,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Fai",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 15,
+        "faith": 16
+      },
       "category": "Spear",
       "weight": 7.5
     },
@@ -20237,12 +18597,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 14
+      },
       "category": "Spear",
       "weight": 6
     },
@@ -20317,20 +18674,11 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Int",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 16,
+        "intelligence": 16
+      },
       "category": "Spear",
       "weight": 5.5
     },
@@ -20401,16 +18749,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 11
+      },
       "category": "Spear",
       "weight": 4.5
     },
@@ -20481,16 +18823,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Spear",
       "weight": 4.5
     },
@@ -20561,16 +18897,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -20641,16 +18971,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 10
+      },
       "category": "Straight Sword",
       "weight": 3
     },
@@ -20721,16 +19045,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Straight Sword",
       "weight": 4
     },
@@ -20801,16 +19119,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -20881,16 +19193,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 10
+      },
       "category": "Straight Sword",
       "weight": 3
     },
@@ -20965,20 +19271,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 10,
+        "faith": 14
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -21049,16 +19346,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 14
+      },
       "category": "Straight Sword",
       "weight": 3
     },
@@ -21125,12 +19416,9 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Fai",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "faith": 20
+      },
       "category": "Straight Sword",
       "weight": 2.5
     },
@@ -21212,28 +19500,12 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 0
-        },
-        {
-          "name": "",
-          "amount": 24
-        },
-        {
-          "name": "Fai",
-          "amount": 24
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 12,
+        "intelligence": 0,
+        "faith": 24
+      },
       "category": "Straight Sword",
       "weight": 4
     },
@@ -21308,20 +19580,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "intelligence": 18
+      },
       "category": "Straight Sword",
       "weight": 4
     },
@@ -21396,20 +19659,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 10,
+        "intelligence": 15
+      },
       "category": "Straight Sword",
       "weight": 4.5
     },
@@ -21487,24 +19741,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Int",
-          "amount": 0
-        },
-        {
-          "name": "",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 12,
+        "intelligence": 0
+      },
       "category": "Straight Sword",
       "weight": 3
     },
@@ -21579,20 +19820,11 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        },
-        {
-          "name": "Fai",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 11,
+        "faith": 16
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -21663,16 +19895,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 11
+      },
       "category": "Straight Sword",
       "weight": 2.5
     },
@@ -21739,12 +19965,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12
+      },
       "category": "Straight Sword",
       "weight": 5.5
     },
@@ -21811,12 +20034,9 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -21887,16 +20107,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 16
+      },
       "category": "Straight Sword",
       "weight": 3
     },
@@ -21971,20 +20185,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 10,
+        "intelligence": 15
+      },
       "category": "Straight Sword",
       "weight": 4.5
     },
@@ -22051,12 +20256,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8
+      },
       "category": "Straight Sword",
       "weight": 3.5
     },
@@ -22127,16 +20329,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 13
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 13
+      },
       "category": "Thrusting Sword",
       "weight": 4.5
     },
@@ -22207,16 +20403,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 7
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 7,
+        "dexterity": 12
+      },
       "category": "Thrusting Sword",
       "weight": 2.5
     },
@@ -22287,16 +20477,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 13
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 13,
+        "dexterity": 11
+      },
       "category": "Thrusting Sword",
       "weight": 4
     },
@@ -22367,16 +20551,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 17
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 17
+      },
       "category": "Thrusting Sword",
       "weight": 3.5
     },
@@ -22447,16 +20625,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 20
+      },
       "category": "Thrusting Sword",
       "weight": 3
     },
@@ -22527,16 +20699,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 11
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 11,
+        "dexterity": 18
+      },
       "category": "Thrusting Sword",
       "weight": 2.5
     },
@@ -22607,16 +20773,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 5
-        },
-        {
-          "name": "Dex",
-          "amount": 5
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 5,
+        "dexterity": 5
+      },
       "category": "Torch",
       "weight": 1.5
     },
@@ -22687,16 +20847,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 9
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 9,
+        "dexterity": 10
+      },
       "category": "Thrusting Sword",
       "weight": 3.5
     },
@@ -22767,16 +20921,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 8
+      },
       "category": "Torch",
       "weight": 3
     },
@@ -22851,20 +20999,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Fai",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "faith": 14
+      },
       "category": "Torch",
       "weight": 3
     },
@@ -22939,20 +21078,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Int",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 10,
+        "intelligence": 14
+      },
       "category": "Torch",
       "weight": 2.5
     },
@@ -23023,16 +21153,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 8
+      },
       "category": "Torch",
       "weight": 2.5
     },
@@ -23107,20 +21231,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 15
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        },
-        {
-          "name": "Fai",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 15,
+        "dexterity": 8,
+        "faith": 15
+      },
       "category": "Torch",
       "weight": 5
     },
@@ -23191,16 +21306,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 17
-        },
-        {
-          "name": "Dex",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 17,
+        "dexterity": 22
+      },
       "category": "Twinblade",
       "weight": 8
     },
@@ -23271,16 +21380,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 16
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 16,
+        "dexterity": 18
+      },
       "category": "Twinblade",
       "weight": 8
     },
@@ -23355,20 +21458,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 12
-        },
-        {
-          "name": "Dex",
-          "amount": 21
-        },
-        {
-          "name": "Arc",
-          "amount": 19
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 12,
+        "dexterity": 21,
+        "arcane": 19
+      },
       "category": "Twinblade",
       "weight": 6
     },
@@ -23439,16 +21533,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 15
+      },
       "category": "Twinblade",
       "weight": 8.5
     },
@@ -23523,20 +21611,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 15
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 15,
+        "faith": 22
+      },
       "category": "Twinblade",
       "weight": 8.5
     },
@@ -23603,12 +21682,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22
+      },
       "category": "Warhammer",
       "weight": 8.5
     },
@@ -23679,16 +21755,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22,
+        "dexterity": 10
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -23759,16 +21829,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 8
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -23835,12 +21899,9 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 28
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 28
+      },
       "category": "Warhammer",
       "weight": 11.5
     },
@@ -23911,16 +21972,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 10
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -23991,16 +22046,10 @@
           "scaling": "?"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 12
+      },
       "category": "Warhammer",
       "weight": 8.5
     },
@@ -24075,20 +22124,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 20
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 20,
+        "dexterity": 10,
+        "faith": 18
+      },
       "category": "Warhammer",
       "weight": 9
     },
@@ -24159,16 +22199,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 18
+      },
       "category": "Twinblade",
       "weight": 7
     },
@@ -24243,20 +22277,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 23
-        },
-        {
-          "name": "Dex",
-          "amount": 11
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 23,
+        "dexterity": 11,
+        "faith": 18
+      },
       "category": "Warhammer",
       "weight": 9.5
     },
@@ -24327,16 +22352,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "Dex",
-          "amount": 10
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22,
+        "dexterity": 10
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -24411,20 +22430,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        },
-        {
-          "name": "Fai",
-          "amount": 22
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 8,
+        "faith": 22
+      },
       "category": "Warhammer",
       "weight": 12.5
     },
@@ -24495,16 +22505,9 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 22
-        },
-        {
-          "name": "DEX",
-          "amount": 12
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 22
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -24579,20 +22582,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 24
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        },
-        {
-          "name": "Fai",
-          "amount": 25
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 24,
+        "dexterity": 20,
+        "faith": 25
+      },
       "category": "Warhammer",
       "weight": 11.5
     },
@@ -24659,12 +22653,9 @@
           "scaling": "B"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 31
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 31
+      },
       "category": "Warhammer",
       "weight": 12.5
     },
@@ -24735,16 +22726,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 14
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 14
+      },
       "category": "Whip",
       "weight": 2
     },
@@ -24815,16 +22800,10 @@
           "scaling": "E"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 26
-        },
-        {
-          "name": "Dex",
-          "amount": 8
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 26,
+        "dexterity": 8
+      },
       "category": "Warhammer",
       "weight": 10
     },
@@ -24895,16 +22874,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 16
+      },
       "category": "Whip",
       "weight": 2.5
     },
@@ -24979,20 +22952,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 8
-        },
-        {
-          "name": "Dex",
-          "amount": 16
-        },
-        {
-          "name": "Fai",
-          "amount": 18
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 8,
+        "dexterity": 16,
+        "faith": 18
+      },
       "category": "Whip",
       "weight": 2.5
     },
@@ -25063,16 +23027,10 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 20
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 20
+      },
       "category": "Whip",
       "weight": 3.5
     },
@@ -25147,20 +23105,11 @@
           "scaling": "D"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 18
-        },
-        {
-          "name": "Dex",
-          "amount": 12
-        },
-        {
-          "name": "Fai",
-          "amount": 21
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 18,
+        "dexterity": 12,
+        "faith": 21
+      },
       "category": "Whip",
       "weight": 2.5
     },
@@ -25231,16 +23180,10 @@
           "scaling": "C"
         }
       ],
-      "requiredAttributes": [
-        {
-          "name": "Str",
-          "amount": 10
-        },
-        {
-          "name": "Dex",
-          "amount": 19
-        }
-      ],
+      "requiredAttributes": {
+        "strength": 10,
+        "dexterity": 19
+      },
       "category": "Whip",
       "weight": 3
     }

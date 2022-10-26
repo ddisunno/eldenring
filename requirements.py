@@ -1,8 +1,11 @@
 import simplejson as json
 import os
 
-ignored_files = ["stat_modifiers.json"]
+ignored_files = ["stat_modifiers.json", "reformat_json.py"]
 
+
+"""
+# SIR CAINE BUILD
 formatted_inputs = {"armaments": [[{"name": "Greatsword",
 									"is_two_handing": False,
 									"is_powerstancing": False},
@@ -11,21 +14,28 @@ formatted_inputs = {"armaments": [[{"name": "Greatsword",
 								    "is_powerstancing": False}],
 								  [{"name": "Blasphemous Blade",
 								    "is_two_handing": True,
-								    "is_powerstancing": False}],
-								  [{"name": "Fingerprint Stone Shield",
-								    "is_two_handing": False,
-								    "is_powerstancing": True}]],
+								    "is_powerstancing": False}]],
 					"armor": [["Veteran's Helm","Erdtree Surcoat","Veteran's Gauntlets","Bull-goat Greaves"]],
 					"talismans": [["Crimson Amber Medallion +2","Erdtree's Favor +2","Great-jar's Arsenal", "Radagon Icon"]],
 					"spells": [["Elden Stars"]]
 				   }
+"""
+# JAINA PROUDMOORE BUILD
+formatted_inputs = {"armaments": [[{"name": "Moonveil", "is_two_handing": False, "is_powerstancing": False},
+								   {"name": "Academy Glintstone Staff", "is_two_handing": False, "is_powerstancing": False}]],
+					"armor": [["Navy Hood","Noble's Traveling Garb","Noble's Gloves","Noble's Trousers"]],
+					"talismans": [["Crimson Amber Medallion +2","Erdtree's Favor +2","Shard Of Alexander", "Radagon Icon"]],
+					"spells": [["Carian Slicer", "Gavel Of Haima", "Carian Piercer", "Swift Glintstone Shard", "Adula's Moonblade", "Shard Spiral",
+								"Comet", "Glintblade Phalanx", "Glintstone Arc", "Magic Glintblade"]]}
 
-# iterating formatted inputs
+"""
+#### iterating through formatted inputs ####
 
-# inputs = keys: "armaments","armor","talismans","spells"
-for inputs in formatted_inputs:
+# keys = keys: "armaments","armor","talismans","spells"
+for keys in formatted_inputs:
+	print(f"\n{'-'*20} {keys.upper()} {'-'*20}\n")
 	# groups = list 1 in key: number of groups in a key
-	for groups in formatted_inputs[inputs]:
+	for groups in formatted_inputs[keys]:
 		# items = list 2 in key: number of items in a group
 		for items in groups:
 			# items with additional properties are in dictionary form. ie: armaments
@@ -35,8 +45,7 @@ for inputs in formatted_inputs:
 					\n\tPowerstancing: {items['is_powerstancing']}")
 			else:
 				print(items)
-
-
+"""
 
 
 ########################################
@@ -77,6 +86,15 @@ def get_file(directory: str, item: str):
 
 #############################
 def get_info(item_name: str):
+	""" Function get_info takes an item name,
+	and returns relevant info from json repository
+
+	inputs:
+		item_name - item to parse for
+
+	outputs:
+		item_info (contents['data'][item]) - all local information pertaining to the given item
+	"""
 
 	file = get_file("json", item_name)
 
@@ -95,88 +113,94 @@ def get_info(item_name: str):
 				return contents['data'][item]
 
 
+###############################################
+def get_reqs(item_name: str, items_info: dict):
+	""" Function get_reqs takes an item and returns wielding requirements
 
-all_info = []
+	inputs: 
+		item_name - item to get requirements of
+		items_info - dictionary of all local information pertaining to all formatted inputs
 
-for inputs in formatted_inputs:
-	for groups in formatted_inputs[inputs]:
-		for items in groups:
-			if type(items) == dict:
-				all_info.append(get_info(items['name']))
-			else:
-				all_info.append(get_info(items))
+	outputs:
+		weight - weight of an item (0 if None)
+		req_stats - list of required stats to use an item ([0,0,0,0,0] if None)
 
+	"""
 
-print(*all_info, sep = "\n\n")
-
-
-"""	
-				# requirements vary by item type
-
-				# ARMOR REQUIREMENTS
-				if file == "json/armors.json":
-
-					armor_weight = contents['data'][item]['weight']
-					#armor_poise = contents['data'][item][]
-
-					return armor_weight
-
-				# WEAPON REQUIREMENTS
-				elif file == "json/weapons.json" or file == "json/shields.json":
-
-					req_strength = 0
-					req_dexterity = 0
-					req_intelligence = 0
-					req_faith = 0
-					req_arcane = 0
-
-					requiredAttributes = contents['data'][item]['requiredAttributes']
-
-					for attribute in requiredAttributes:
-
-						if attribute.get('name') == "Str":
-							req_strength = attribute.get('amount')
-						if attribute.get('name') == "Dex":
-							req_dexterity = attribute.get('amount')
-						if attribute.get('name') == "Int":
-							req_intelligence = attribute.get('amount')
-						if attribute.get('name') == "Fai":
-							req_faith = attribute.get('amount')
-						if attribute.get('name') == "Arc":
-							req_arcane = attribute.get('amount')	
-
-					req_stats = [0,0,0,req_strength,req_dexterity,
-					req_intelligence,req_faith,req_arcane]
-
-					armament_weight = contents['data'][item]['weight']
-
-					return req_stats, armament_weight
+	weight = items_info[item_name].get('weight', 0)
 
 
-				# SPELLS
-				elif file == "json/sorceries.json" or file == "json/incantations.json":
+	if 'requiredAttributes' in items_info[item_name].keys():
+		strength = items_info[item_name]['requiredAttributes'].get('strength', 0)
+		dexterity = items_info[item_name]['requiredAttributes'].get('dexterity', 0)
+		intelligence = items_info[item_name]['requiredAttributes'].get('intelligence', 0)
+		faith = items_info[item_name]['requiredAttributes'].get('faith', 0)
+		arcane = items_info[item_name]['requiredAttributes'].get('arcane', 0)
 
-					req_intelligence = 0
-					req_faith = 0
-					req_arcane = 0
+	else:
+		strength, dexterity, intelligence, faith, arcane = 0,0,0,0,0
 
-					requiredAttributes = contents['data'][item]['requires']
+	req_stats = [strength, dexterity, intelligence, faith, arcane]
 
-					for attribute in requiredAttributes:
+	
+	"""
+	print(item_name, weight)
+	print(f"\tStr: {strength}\
+	  \n\tDex: {dexterity}\
+	  \n\tInt: {intelligence}\
+	  \n\tFai: {faith}\
+	  \n\tArc: {arcane}")
+	"""
 
-						if attribute.get('name') == "Intelligence":
-							req_intelligence = attribute.get('amount')
-						if attribute.get('name') == "Faith":
-							req_faith = attribute.get('amount')
-						if attribute.get('name') == "Arcane":
-							req_arcane = attribute.get('amount')	
-
-					req_stats = [0,0,0,0,0,
-					req_intelligence,req_faith,req_arcane]
-
-					return req_stats
+	return weight, req_stats
 
 
+def optimize_reqs(formatted_inputs: dict):
+
+	items_info = {}
+	cumulative_weight = 0
+	highest_stats = [0,0,0,0,0]
+
+	for keys in formatted_inputs:
+		for groups in formatted_inputs[keys]:
+			for items in groups:
+				if type(items) == dict:
+					# get_info - adds an items to items_info dictionary
+					items_info[items['name']] = get_info(items['name'])
+					#items_info[items['name']].pop('name') # do we need duplicate entries?
+
+					# get_reqs - pulls wielding requirements from items_info
+					weight, req_stats = get_reqs(items['name'], items_info)
+
+				else:
+					# get_info - adds items to items_info dictionary
+					items_info[items] = get_info(items)
+					#items_info[items].pop('name') # do we need duplicate entries?
+
+					# get_reqs - pulls wielding requirements from items_info
+					weight, req_stats = get_reqs(items, items_info)
+
+
+				cumulative_weight += weight
+				
+				for stats in range(len(req_stats)):
+					if req_stats[stats] > highest_stats[stats]: # if req_stats is the new highest
+						highest_stats[stats] = req_stats[stats] # add req_stats to highest_stats
+
+	#print(items_info.keys())
+	#print(*all_info, sep = "\n\n")
+
+	return cumulative_weight, highest_stats
+			
+
+req_stats = optimize_reqs(formatted_inputs)
+print(req_stats)
+
+
+
+
+
+"""
 ##########################################
 def optimize_reqs(formatted_inputs: dict):
 
