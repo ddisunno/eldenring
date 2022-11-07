@@ -38,7 +38,7 @@ def rank_armor(optimize_for):
 		strike = contents['data'][armor]['VS Str']
 		slash = contents['data'][armor]['VS Sla']
 		pierce = contents['data'][armor]['VS Pie']
-		dmgNegation = (physical + strike + slash + pierce) / 4
+		dmgNegation = [physical, strike, slash, pierce]
 
 		magic = contents['data'][armor]['Mag']
 		fire = contents['data'][armor]['Fir']
@@ -59,6 +59,8 @@ def rank_armor(optimize_for):
 
 
 
+		# var_dict to optimize off vars in optimize_for
+
 		var_dict = {'Phy': physical,
 				'VS Str': strike,
 				'VS Sla': slash,
@@ -76,7 +78,19 @@ def rank_armor(optimize_for):
 				'resistance': resistance,
 				'Poi.': poise}	
 
+		dmgNegation_tally = 0
+		eleNegation_tally = 0
+		resistance_tally = 0
+
 		for var in optimize_for:
+
+			if var in dmgNegation:
+				dmgNegation_tally += 1
+				value_mod += var_dict[var]
+
+			elif var == 'dmgNegation':
+
+
 			value_mod += var_dict[var]
 		
 		value = value_mod/(weight*len(optimize_for))
@@ -118,6 +132,9 @@ def rank_armor(optimize_for):
 
 	for armor in range(len(leg_values)):
 		legs_ranked[leg_values[armor]] = legs[leg_values[armor]]
+
+
+
 
 	return helms_ranked, chests_ranked, arms_ranked, legs_ranked
 	

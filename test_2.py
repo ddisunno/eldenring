@@ -14,3 +14,5 @@ for i in range(11):
 
 #challenge:
 # return x% of the lists highest values
+def nth_percentile(data: list, n: int):
+	"""Function nth_percentile returns 
