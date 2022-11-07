@@ -7,7 +7,11 @@ from tqdm import tqdm
 
 remaining_weight = 31.05
 preferences = [['Poi.']]
-omitted = []
+omitted = ["Brave's Cord Circlet", "Brave's Leather Helm", "Grass Hair Ornament", "Ragged Hat",
+		   "Ragged Hat (Altered)", "Millicent's Robe", "Millicent's Tunic", "Brave's Battlewear",
+		   "Brave's Battlewear (Altered)", "Ragged Armor", "Ragged Armor (Altered)", "Brave's Bracer",
+		   "Godrick Soldier Gauntlets", "Golden Prosthetic", "Millicent's Gloves", "Ragged Gloves",
+		   "Millicent's Boots", "Ragged Loincloth", "Brave's Legwraps", "Deathbed Smalls"]
 
 # STEPS:
 
@@ -79,29 +83,34 @@ def split_by_category(file: str, remaining_weight: float, omitted: list):
 
 		armor_data  = contents['data'][armor]
 
-		if armor_data['Category'] == "Helm" and armor_data['Wgt.'] < remaining_weight:
-			helms.append(armor_data)
+		if armor_data['Name'] in omitted:
+			pass
 
-			if armor_data['Wgt.'] < lightest_helm:
-				lightest_helm = armor_data['Wgt.']
+		else:
+			
+			if armor_data['Category'] == "Helm" and armor_data['Wgt.'] < remaining_weight:
+				helms.append(armor_data)
 
-		elif armor_data['Category'] == "Chest" and armor_data['Wgt.'] < remaining_weight:
-			chests.append(armor_data)
+				if armor_data['Wgt.'] < lightest_helm:
+					lightest_helm = armor_data['Wgt.']
 
-			if armor_data['Wgt.'] < lightest_chest:
-				lightest_chest = armor_data['Wgt.']
+			elif armor_data['Category'] == "Chest" and armor_data['Wgt.'] < remaining_weight:
+				chests.append(armor_data)
 
-		elif armor_data['Category'] == "Arm" and armor_data['Wgt.'] < remaining_weight:
-			arms.append(armor_data)
+				if armor_data['Wgt.'] < lightest_chest:
+					lightest_chest = armor_data['Wgt.']
 
-			if armor_data['Wgt.'] < lightest_arm:
-				lightest_arm = armor_data['Wgt.']
+			elif armor_data['Category'] == "Arm" and armor_data['Wgt.'] < remaining_weight:
+				arms.append(armor_data)
 
-		elif armor_data['Category'] == "Leg" and armor_data['Wgt.'] < remaining_weight:
-			legs.append(armor_data)
+				if armor_data['Wgt.'] < lightest_arm:
+					lightest_arm = armor_data['Wgt.']
 
-			if armor_data['Wgt.'] < lightest_leg:
-				lightest_leg = armor_data['Wgt.']
+			elif armor_data['Category'] == "Leg" and armor_data['Wgt.'] < remaining_weight:
+				legs.append(armor_data)
+
+				if armor_data['Wgt.'] < lightest_leg:
+					lightest_leg = armor_data['Wgt.']
 
 	# REMOVE ITEMS IF THEY CAN'T BE WORN IN A FULL SET OF LIGHTEST COMBINATIONS
 
